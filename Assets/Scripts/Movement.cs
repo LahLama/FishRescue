@@ -8,34 +8,38 @@ namespace LahLama
     {
 
         public Vector2 moveInput;
-        private bool jumpPressed = false;
-        public GameObject player;
         Rigidbody2D rb;
         Collider2D coll;
         public float moveSpeed = 5f;
-        public float jumpForce = 5f;
 
+        private PlayerInputActions inputActions;
+        void Awake()
+        {
+            inputActions = new PlayerInputActions(); // Initialize Input Actions
+            rb = GetComponent<Rigidbody2D>();
+            coll = GetComponent<Collider2D>();
+        }
+        void OnEnable()
+        {
+            inputActions.Enable();
+        }
 
-        private void Start()
+        void OnDisable()
         {
-            rb = player.GetComponent<Rigidbody2D>();
-            coll = player.GetComponent<Collider2D>();
-        }
-        public void OnMove(InputAction.CallbackContext context)
-        {
-            moveInput = context.ReadValue<Vector2>();
+            inputActions.Disable();
         }
 
-        public void OnJump(InputAction.CallbackContext context)
+        public void OnMove()
         {
-            if (context.performed)
-                jumpPressed = true;
+            moveInput = inputActions.Player.Move.ReadValue<Vector2>();
         }
+
 
         void FixedUpdate()
         {
+            OnMove();
             // Horizontal movement
-            rb.linearVelocity = new Vector2(moveInput.x * moveSpeed, rb.linearVelocity.y);
+            rb.linearVelocity = moveInput.normalized * moveSpeed;
         }
     }
 }
