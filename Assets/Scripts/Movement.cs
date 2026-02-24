@@ -29,7 +29,7 @@ namespace LahLama
             inputActions.Disable();
         }
 
-        public void OnMove()
+        private void OnMove()
         {
             moveInput = inputActions.Player.Move.ReadValue<Vector2>();
         }
