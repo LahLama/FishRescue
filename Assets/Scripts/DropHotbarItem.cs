@@ -26,9 +26,12 @@ public class DropHotbarItem : MonoBehaviour
     }
     void FixedUpdate()
     {
-        if (isDropping() > 0 && TryDropItem(slot))
+        if (slot != null)
         {
-            DropItem(slot);
+            if (isDropping() > 0 && TryDropItem(slot))
+            {
+                DropItem(slot);
+            }
         }
     }
 

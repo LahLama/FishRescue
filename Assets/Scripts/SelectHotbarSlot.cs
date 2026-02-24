@@ -1,16 +1,21 @@
+using Unity.VisualScripting;
+using UnityEngine.EventSystems;
 using UnityEngine;
 
-public class SelectItem : MonoBehaviour
+public class SelectItem : MonoBehaviour, IPointerDownHandler
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private DropHotbarItem dropHotbarItem;
+    public GameObject selector;
+
+    void Awake()
     {
-        
+        dropHotbarItem = FindAnyObjectByType<DropHotbarItem>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void OnPointerDown(PointerEventData eventData)
     {
-        
+        dropHotbarItem.slot = this.gameObject;
+        selector.transform.position = this.gameObject.transform.position;
+        Debug.Log(this.gameObject.name + " is currently being selected.");
     }
 }
