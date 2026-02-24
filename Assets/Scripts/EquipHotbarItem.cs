@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Hotbar : MonoBehaviour
+public class EquipHotbarItem : MonoBehaviour
 {
     [SerializeField]
     GameObject[] smallSlots;

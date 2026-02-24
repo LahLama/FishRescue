@@ -8,16 +8,11 @@ namespace LahLama
     {
 
         public float interactInput;
-        Rigidbody2D rb;
-        Collider2D coll;
         private PlayerInputActions inputActions;
         private IInteractable currentInteractible;
-        IInteractable isInteractible;
         void Awake()
         {
             inputActions = new PlayerInputActions(); // Initialize Input Actions
-            rb = GetComponent<Rigidbody2D>();
-            coll = GetComponent<Collider2D>();
         }
         void OnEnable()
         {

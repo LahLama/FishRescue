@@ -3,11 +3,11 @@ namespace LahLama
 {
     public class pickUp : MonoBehaviour, IInteractable
     {
-        private Hotbar hotbar;
+        private EquipHotbarItem hotbar;
 
         void Awake()
         {
-            hotbar = FindAnyObjectByType<Hotbar>();
+            hotbar = FindAnyObjectByType<EquipHotbarItem>();
         }
         public void Interact()
         {
