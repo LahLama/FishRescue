@@ -2,10 +2,11 @@ using Unity.VisualScripting;
 using UnityEngine.EventSystems;
 using UnityEngine;
 
-public class SelectItem : MonoBehaviour, IPointerDownHandler
+public class SelectHotbarItem : MonoBehaviour, IPointerDownHandler
 {
     private DropHotbarItem dropHotbarItem;
     public GameObject selector;
+    public GameObject slot;
 
     void Awake()
     {
@@ -16,6 +17,7 @@ public class SelectItem : MonoBehaviour, IPointerDownHandler
     {
         dropHotbarItem.slot = this.gameObject;
         selector.transform.position = this.gameObject.transform.position;
+        slot = this.gameObject;
         Debug.Log(this.gameObject.name + " is currently being selected.");
     }
 }
