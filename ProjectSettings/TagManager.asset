@@ -6,6 +6,8 @@ TagManager:
   tags:
   - smallSlot
   - bigSlot
+  - AquariumCamera
+  - aqua_trans
   layers:
   - Default
   - TransparentFX

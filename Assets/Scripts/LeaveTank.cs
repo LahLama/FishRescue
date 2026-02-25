@@ -10,6 +10,7 @@ namespace LahLama
         float isEscPressed;
         public Transform aquarium;
         ClarifyTank clarifyTank;
+        private Camera cam;
         private Transform player;
         void Awake()
         {
@@ -17,6 +18,9 @@ namespace LahLama
             player = GameObject.FindGameObjectWithTag("Player").transform;
             this.GetComponent<LeaveTank>().enabled = false;
             clarifyTank = GameObject.FindAnyObjectByType<ClarifyTank>();
+
+            cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+
         }
 
         void OnEnable()
@@ -39,10 +43,15 @@ namespace LahLama
             if (isEscPressed > 0)
             {
                 player.position = aquarium.position;
+                clarifyTank.CurrentTank = null;
+                player.GetComponent<Collider2D>().enabled = true;
+                player.GetComponent<SpriteRenderer>().enabled = true;
                 player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
+                player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
                 this.GetComponent<LeaveTank>().enabled = false;
                 this.GetComponent<TankItem>().enabled = false;
-                clarifyTank.CurrentTank = null;
+                cam.enabled = !cam.isActiveAndEnabled;
+
             }
         }
     }
