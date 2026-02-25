@@ -16,7 +16,8 @@ namespace LahLama
             if (availbleSlot != null)
             {
                 hotbar.EquipItem(this.gameObject, availbleSlot);
-                this.gameObject.SetActive(false);
+                this.gameObject.GetComponent<SpriteRenderer>().enabled = false;
+                this.gameObject.GetComponent<Collider2D>().enabled = false;
             }
         }
     }

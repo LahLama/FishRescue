@@ -1,23 +1,28 @@
 using Unity.VisualScripting;
 using UnityEngine.EventSystems;
 using UnityEngine;
-
-public class SelectHotbarItem : MonoBehaviour, IPointerDownHandler
+namespace LahLama
 {
-    private DropHotbarItem dropHotbarItem;
-    public GameObject selector;
-    public GameObject slot;
-
-    void Awake()
+    public class SelectHotbarItem : MonoBehaviour, IPointerDownHandler
     {
-        dropHotbarItem = FindAnyObjectByType<DropHotbarItem>();
-    }
+        private DropHotbarItem dropHotbarItem;
+        private TankItem tankItem;
+        public GameObject selector;
 
-    public void OnPointerDown(PointerEventData eventData)
-    {
-        dropHotbarItem.slot = this.gameObject;
-        selector.transform.position = this.gameObject.transform.position;
-        slot = this.gameObject;
-        Debug.Log(this.gameObject.name + " is currently being selected.");
+        void Awake()
+        {
+            dropHotbarItem = FindAnyObjectByType<DropHotbarItem>();
+            tankItem = FindAnyObjectByType<TankItem>();
+        }
+
+        public void OnPointerDown(PointerEventData eventData)
+        {
+            //sets the slot in the script that will be dropped when the drop key is pressed
+            dropHotbarItem.slot = this.gameObject;
+            //Shows which slot is active.
+            selector.transform.position = this.gameObject.transform.position;
+            //Parses thru the current slot selected
+            tankItem.MakeTankItem(this.gameObject);
+        }
     }
 }
