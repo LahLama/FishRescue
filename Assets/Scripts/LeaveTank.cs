@@ -9,12 +9,14 @@ namespace LahLama
         private PlayerInputActions inputActions;
         float isEscPressed;
         public Transform aquarium;
+        ClarifyTank clarifyTank;
         private Transform player;
         void Awake()
         {
             inputActions = new PlayerInputActions(); // Initialize Input Actions
             player = GameObject.FindGameObjectWithTag("Player").transform;
             this.GetComponent<LeaveTank>().enabled = false;
+            clarifyTank = GameObject.FindAnyObjectByType<ClarifyTank>();
         }
 
         void OnEnable()
@@ -39,6 +41,8 @@ namespace LahLama
                 player.position = aquarium.position;
                 player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
                 this.GetComponent<LeaveTank>().enabled = false;
+                this.GetComponent<TankItem>().enabled = false;
+                clarifyTank.CurrentTank = null;
             }
         }
     }

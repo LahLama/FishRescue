@@ -11,6 +11,11 @@ namespace LahLama
         public GameObject newItem;
         public Transform defaultLocation;
         private PlayerInputActions inputActions;
+
+        void Awake()
+        {
+            this.GetComponent<TankItem>().enabled = false;
+        }
         public GameObject MakeTankItem(GameObject currentSlot)
         {
             if (currentSlot.transform.childCount > 1)
