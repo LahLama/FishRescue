@@ -1,0 +1,620 @@
+fileFormatVersion: 2
+guid: 30c3c45d1c0e6b24ab106147893a1453
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3260171324595997514
+    second: beach_0
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: beach_shell
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 1297
+        width: 725
+        height: 803
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline:
+      - - {x: 348.4502, y: -93.65134}
+        - {x: 348.4502, y: 259.69656}
+        - {x: 235.34666, y: 399.63632}
+        - {x: -198.41115, y: 399.63632}
+        - {x: -301.0205, y: 67.27939}
+        - {x: -301.0205, y: 51.536167}
+        - {x: -302.18652, y: 52.119247}
+        - {x: -305.68457, y: 50.953083}
+        - {x: -309.18262, y: 35.792942}
+        - {x: -308.0166, y: 33.460613}
+        - {x: -305.68457, y: 33.460613}
+        - {x: -301.0205, y: 37.192337}
+        - {x: -301.0205, y: -276.7392}
+        - {x: -182.08693, y: -392.18948}
+        - {x: 109.416985, y: -392.18948}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b47a82147b81c2d0800000000000000
+      internalID: -3260171324595997514
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: beach_shell_2
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 523
+        width: 722
+        height: 667
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline:
+      - - {x: 340.8711, y: -258.91342}
+        - {x: 361, y: -146.96162}
+        - {x: 361, y: 307.8426}
+        - {x: 275.57422, y: 320.6704}
+        - {x: 90.17773, y: 320.6704}
+        - {x: 64.05898, y: 312.50726}
+        - {x: 59.861317, y: 312.50726}
+        - {x: 59.861317, y: 311.1953}
+        - {x: 52.865223, y: 309.00876}
+        - {x: 49.367176, y: 302.01178}
+        - {x: 49.367176, y: 300.8456}
+        - {x: 52.865223, y: 298.51328}
+        - {x: 47.035145, y: 295.0148}
+        - {x: 43.537098, y: 295.0148}
+        - {x: 38.873035, y: 292.68246}
+        - {x: 43.537098, y: 296.18094}
+        - {x: 47.035145, y: 296.18094}
+        - {x: 49.367176, y: 297.3471}
+        - {x: 48.20116, y: 305.51028}
+        - {x: 5.058582, y: 297.3471}
+        - {x: -41.058533, y: 295.53836}
+        - {x: -39.25001, y: 297.3471}
+        - {x: -40.416027, y: 300.8456}
+        - {x: -45.08009, y: 300.8456}
+        - {x: -47.41212, y: 298.51328}
+        - {x: -46.351418, y: 295.33078}
+        - {x: -54.408215, y: 295.0148}
+        - {x: -80.06056, y: 290.35013}
+        - {x: -120.87111, y: 279.85464}
+        - {x: -303.93555, y: 194.72462}
+        - {x: -303.93555, y: -303.2277}
+        - {x: 127.49023, y: -303.2277}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 585bd5788cfdb1847b7d15b50ab3c493
+      internalID: 13584506
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: beach_rock_1
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 93
+        width: 1040
+        height: 378
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline:
+      - - {x: 429.03613, y: -150.14534}
+        - {x: 429.03613, y: 22.447033}
+        - {x: 409.21387, y: 77.256775}
+        - {x: -188.95215, y: 168.21762}
+        - {x: -427.98535, y: 168.21762}
+        - {x: -439.6455, y: 154.22365}
+        - {x: -439.6455, y: -180.46562}
+        - {x: 401.05176, y: -180.46562}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5c57ca7a5b78b24a93270bb49c53b7b
+      internalID: 1263029662
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: beach_rock_2
+      rect:
+        serializedVersion: 2
+        x: 1337
+        y: 50
+        width: 984
+        height: 468
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline:
+      - - {x: 309.15726, y: -231.62877}
+        - {x: 308.76862, y: -230.4626}
+        - {x: 364.34863, y: -230.4626}
+        - {x: 365.126, y: -231.62877}
+        - {x: 369.79007, y: -231.62877}
+        - {x: 379.1182, y: -230.4626}
+        - {x: 409.4346, y: -230.4626}
+        - {x: 473.56546, y: -217.6348}
+        - {x: 492, y: -96.35366}
+        - {x: 492, y: 110.05749}
+        - {x: 374.45413, y: 210.34766}
+        - {x: 267.1807, y: 234}
+        - {x: 257.85257, y: 234}
+        - {x: 259.0186, y: 229.00629}
+        - {x: 260.0786, y: 225.82582}
+        - {x: 252.02249, y: 227.84012}
+        - {x: 248.52444, y: 230.17245}
+        - {x: 231.03421, y: 234}
+        - {x: 112.10062, y: 234}
+        - {x: 107.436554, y: 234}
+        - {x: 94.61038, y: 229.00629}
+        - {x: 93.44437, y: 226.67395}
+        - {x: 87.61429, y: 225.5078}
+        - {x: 86.13028, y: 224.65967}
+        - {x: 89.94632, y: 227.84012}
+        - {x: 94.61038, y: 229.00629}
+        - {x: 101.606476, y: 232.50478}
+        - {x: 103.93851, y: 234}
+        - {x: 103.93851, y: 234}
+        - {x: -234.20602, y: 234}
+        - {x: -276.1826, y: 219.67697}
+        - {x: -353.13962, y: 161.36873}
+        - {x: -349.64157, y: 157.87024}
+        - {x: -379.95798, y: 146.20859}
+        - {x: -491.89548, y: 73.90638}
+        - {x: -491.89548, y: -190.813}
+        - {x: -402.11227, y: -224.63177}
+        - {x: -244.70016, y: -230.4626}
+        - {x: 249.69046, y: -230.4626}
+        - {x: 261.35062, y: -223.4656}
+        - {x: 263.68265, y: -221.13329}
+        - {x: 262.51663, y: -217.6348}
+        - {x: 264.84866, y: -217.6348}
+        - {x: 263.68265, y: -219.96712}
+        - {x: 264.84866, y: -230.4626}
+        - {x: 285.0596, y: -230.4626}
+        - {x: 285.83694, y: -232.79494}
+        - {x: 289.335, y: -232.79494}
+        - {x: 291.66702, y: -230.4626}
+        - {x: 292.83304, y: -230.4626}
+        - {x: 293.99905, y: -233.96109}
+        - {x: 306.82523, y: -233.96109}
+      - - {x: 262.51663, y: 224.34163}
+        - {x: 261.7393, y: 225.11908}
+        - {x: 264.84866, y: 224.34163}
+      - - {x: 58.463898, y: 209.18149}
+        - {x: 60.79593, y: 210.34766}
+        - {x: 57.297882, y: 208.01532}
+      - - {x: -323.98923, y: 185.85818}
+        - {x: -323.98923, y: 188.19052}
+        - {x: -327.48727, y: 189.35669}
+        - {x: -333.31735, y: 184.69203}
+        - {x: -332.15134, y: 181.19353}
+        - {x: -328.6533, y: 181.19353}
+      - - {x: -37.149384, y: 177.69504}
+        - {x: -20.825165, y: 177.69504}
+        - {x: -19.65915, y: 178.8612}
+        - {x: -17.506496, y: 179.22002}
+        - {x: -21.99118, y: 176.52887}
+        - {x: -25.489227, y: 176.52887}
+        - {x: -33.651337, y: 174.19655}
+        - {x: -40.568825, y: 171.99525}
+      - - {x: -75.3947, y: 162.30167}
+        - {x: -73.29587, y: 163.70107}
+        - {x: -65.13376, y: 164.86723}
+        - {x: -61.63571, y: 168.36572}
+        - {x: -41.347046, y: 171.74759}
+        - {x: -59.30368, y: 166.03339}
+        - {x: -67.46579, y: 162.5349}
+        - {x: -73.29587, y: 160.20256}
+      - - {x: -102.44626, y: 153.20558}
+        - {x: -109.44235, y: 153.20558}
+        - {x: -107.11032, y: 154.37175}
+        - {x: -103.612274, y: 154.37175}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d297926d8fd2527449c748fa7196b1cb
+      internalID: -2079908414
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: beach_crab
+      rect:
+        serializedVersion: 2
+        x: 875
+        y: 477
+        width: 453
+        height: 407
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline:
+      - - {x: 19.727541, y: -170.22139}
+        - {x: 29.055666, y: -163.22441}
+        - {x: 33.71973, y: -156.22742}
+        - {x: 34.885746, y: -146.8981}
+        - {x: 33.71973, y: -163.22441}
+        - {x: 27.88965, y: -172.55373}
+        - {x: 40.715824, y: -203.5}
+        - {x: 81.52637, y: -203.5}
+        - {x: 81.52637, y: -202.87401}
+        - {x: 103.680664, y: -152.72893}
+        - {x: 103.680664, y: -150.39659}
+        - {x: 101.34863, y: -148.06427}
+        - {x: 107.17871, y: -145.73193}
+        - {x: 104.84668, y: -151.56276}
+        - {x: 108.34473, y: -153.8951}
+        - {x: 123.50293, y: -170.22139}
+        - {x: 165.47949, y: -203.5}
+        - {x: 213.28613, y: -203.5}
+        - {x: 226.5, y: -135.23645}
+        - {x: 226.5, y: 203.5}
+        - {x: 173.6416, y: 203.5}
+        - {x: 113.00879, y: 193.622}
+        - {x: 104.84668, y: 167.96637}
+        - {x: -147.0127, y: 145.80923}
+        - {x: -206.47949, y: 135.31375}
+        - {x: -226.30176, y: 8.201802}
+        - {x: -226.30176, y: -181.88304}
+        - {x: -158.67285, y: -203.5}
+        - {x: -56.063477, y: -203.5}
+      - - {x: -113.19824, y: 199.4528}
+        - {x: -113.19824, y: 203.5}
+        - {x: -181.99316, y: 203.5}
+        - {x: -181.99316, y: 197.12048}
+        - {x: -164.50293, y: 190.12349}
+        - {x: -122.52637, y: 190.12349}
+      - - {x: 135.16309, y: -104.916176}
+        - {x: 131.66504, y: -103.75001}
+        - {x: 129.56621, y: -105.849106}
+        - {x: 128.16699, y: -103.75001}
+        - {x: 127.00098, y: -100.25151}
+        - {x: 123.50293, y: -97.91918}
+        - {x: 123.50293, y: -95.58685}
+        - {x: 118.83887, y: -86.25754}
+        - {x: 116.506836, y: -75.762054}
+        - {x: 118.83887, y: -78.09438}
+        - {x: 125.83496, y: -79.26055}
+        - {x: 124.668945, y: -80.42671}
+        - {x: 124.668945, y: -87.423706}
+        - {x: 125.83496, y: -88.58987}
+        - {x: 124.668945, y: -89.756035}
+        - {x: 124.668945, y: -93.254524}
+        - {x: 128.16699, y: -96.75302}
+        - {x: 129.33301, y: -96.75302}
+        - {x: 128.16699, y: -97.91918}
+        - {x: 131.66504, y: -101.41768}
+        - {x: 133.99707, y: -101.41768}
+        - {x: 132.83105, y: -102.58384}
+        - {x: 135.7461, y: -105.49925}
+        - {x: 135.16309, y: -106.08234}
+      - - {x: 130.49902, y: -109.58083}
+        - {x: 130.49902, y: -107.83158}
+        - {x: 131.66504, y: -109.58083}
+        - {x: 133.99707, y: -108.80338}
+        - {x: 133.99707, y: -109.58083}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ee3dc90da9508849b80e840418e90e0
+      internalID: 1689224437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: beach_clam
+      rect:
+        serializedVersion: 2
+        x: 1357
+        y: 541
+        width: 936
+        height: 491
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d0ca4fa108b50548bad4a1ea2383670
+      internalID: 1837634639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: beach_sponge
+      rect:
+        serializedVersion: 2
+        x: 1891
+        y: 1032
+        width: 407
+        height: 470
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline:
+      - - {x: 164.1308, y: -142.32782}
+        - {x: 164.1308, y: 235}
+        - {x: -42.253975, y: 235}
+        - {x: -92.39265, y: 216.8509}
+        - {x: -149.52742, y: 65.24949}
+        - {x: -149.52742, y: -112.00754}
+        - {x: -109.5, y: -191}
+        - {x: -67.90632, y: -211.13155}
+        - {x: -35.25788, y: -221.62703}
+        - {x: 67.351494, y: -221.62703}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45aa37b650d425e41bf710a7ef046d91
+      internalID: -1182789966
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: beach_coral_1
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 1418
+        width: 453
+        height: 436
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline:
+      - - {x: 226.5, y: -158.07155}
+        - {x: 226.5, y: 160.29141}
+        - {x: 99.087845, y: 160.29141}
+        - {x: 27.96089, y: 129.97113}
+        - {x: 29.126905, y: 105.481674}
+        - {x: 2.3085458, y: 160.29141}
+        - {x: -25.675829, y: 160.29141}
+        - {x: -199.41216, y: 82.15838}
+        - {x: -199.41216, y: 0.5268525}
+        - {x: -202.9102, y: -0.6393122}
+        - {x: -202.9102, y: -5.303971}
+        - {x: -200.57817, y: -7.6363}
+        - {x: -199.41216, y: -7.247585}
+        - {x: -199.41216, y: -69.44303}
+        - {x: -145.77544, y: -194.22266}
+        - {x: -30.339891, y: -214.04745}
+        - {x: 39.621048, y: -214.04745}
+      - - {x: -131.78325, y: -30.959595}
+        - {x: -128.2852, y: -25.12877}
+        - {x: -128.2852, y: -22.796442}
+        - {x: -131.78325, y: -19.297947}
+        - {x: -131.78325, y: -18.131783}
+        - {x: -129.45122, y: -15.799453}
+        - {x: -129.45122, y: -13.467124}
+        - {x: -127.11919, y: -11.134794}
+        - {x: -123.62114, y: -11.134794}
+        - {x: -123.10291, y: -10.616501}
+        - {x: -118.95708, y: -15.799453}
+        - {x: -116.625046, y: -16.965618}
+        - {x: -113.127, y: -20.464111}
+        - {x: -111.96098, y: -20.464111}
+        - {x: -109.62895, y: -18.131783}
+        - {x: -108.46294, y: -18.131783}
+        - {x: -109.62895, y: -19.297947}
+        - {x: -109.62895, y: -22.796442}
+        - {x: -116.625046, y: -33.291924}
+        - {x: -128.2852, y: -34.458088}
+      - - {x: 18.632765, y: -51.950558}
+        - {x: 9.30464, y: -51.950558}
+        - {x: 10.470655, y: -50.784393}
+        - {x: 10.470655, y: -47.2859}
+        - {x: 13.968702, y: -43.787407}
+        - {x: 15.134718, y: -43.787407}
+        - {x: 19.79878, y: -40.28891}
+        - {x: 24.462843, y: -37.95658}
+        - {x: 24.462843, y: -39.122746}
+        - {x: 30.292921, y: -44.95357}
+        - {x: 31.458937, y: -44.95357}
+        - {x: 34.956985, y: -48.452065}
+        - {x: 31.458937, y: -51.950558}
+        - {x: 29.126905, y: -51.950558}
+        - {x: 27.96089, y: -50.784393}
+        - {x: 24.462843, y: -50.784393}
+        - {x: 22.130812, y: -53.116722}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18435b2e26869604088b95f80c89381a
+      internalID: 1673980935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: beach_coral2
+      rect:
+        serializedVersion: 2
+        x: 1675
+        y: 1485
+        width: 502
+        height: 658
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline:
+      - - {x: 211.65034, y: -204.18958}
+        - {x: 211.65034, y: -87.926476}
+        - {x: 213.98238, y: -85.240776}
+        - {x: 227.97456, y: -65.41598}
+        - {x: 227.97456, y: -39.76035}
+        - {x: 211.65034, y: -36.261856}
+        - {x: 211.65034, y: 251.78082}
+        - {x: 37.914013, y: 287.93192}
+        - {x: -26.216848, y: 287.93192}
+        - {x: -30.88091, y: 285.5996}
+        - {x: -34.378956, y: 263.44247}
+        - {x: -50.70318, y: 247.11617}
+        - {x: -50.70318, y: 243.61766}
+        - {x: -51.869194, y: 248.28233}
+        - {x: -47.20513, y: 259.94397}
+        - {x: -77.52154, y: 287.93192}
+        - {x: -86.84966, y: 287.93192}
+        - {x: -251, y: 243.61766}
+        - {x: -251, y: -328.9692}
+        - {x: 151.01753, y: -328.9692}
+      - - {x: 251, y: -318.47372}
+        - {x: 250.12886, y: -318.47372}
+        - {x: 240.80074, y: -327.80304}
+        - {x: 240.80074, y: -328.9692}
+        - {x: 251, y: -328.9692}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a262fb9f4b114a4ab1187ed795d01ad
+      internalID: -13602118
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 645d679e78b2cef439cd0332bf7a7a8c
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      beach_clam: 1837634639
+      beach_coral2: -13602118
+      beach_coral_1: 1673980935
+      beach_crab: 1689224437
+      beach_rock_1: 1263029662
+      beach_rock_2: -2079908414
+      beach_shell: -3260171324595997514
+      beach_shell_2: 13584506
+      beach_sponge: -1182789966
+      s: -3260171324595997514
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
