@@ -993,7 +993,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1014,14 +1014,25 @@ MonoBehaviour:
   - {fileID: 1717598874}
   - {fileID: 1342248530}
   mountain:
-  - {fileID: 6973044249067802006, guid: a43f3598c4e6256489bbd5764493ed9f, type: 3}
-  - {fileID: 1350814759591804478, guid: f3de74834d383584282c9b28875ce11a, type: 3}
-  river:
-  - {fileID: 9042221002938551457, guid: b309002193522a841b26aec56d106eea, type: 3}
-  - {fileID: 6389616626766131135, guid: 5969ffe6578aa47488baeb17cf6f786f, type: 3}
+  - {fileID: 4704845629093552031, guid: 1e8c03088a104b247a36ae9b104ea673, type: 3}
+  - {fileID: 1687807214186527193, guid: 53b5d2bf4724e5d4cbaa7eac7c229735, type: 3}
+  - {fileID: 8657552829541216702, guid: 596015bce5329784781cfe22c4bfbaf1, type: 3}
+  - {fileID: 1372670808276221206, guid: 433e950feea98f240a4dcee65cb4382f, type: 3}
+  - {fileID: 4692108856339719866, guid: 361a15683f8088340b23ee0610a3843c, type: 3}
+  - {fileID: 4721095822070308662, guid: 90607d3707acb964a98d6681382035dc, type: 3}
+  - {fileID: 6765908252628197694, guid: 5de1d10b07bfd1648ba25fd95b97419d, type: 3}
+  river: []
   ocean:
-  - {fileID: 2210245486634779110, guid: efa41fba5d8d0b14c8ca4303abf8ba07, type: 3}
-  - {fileID: 7837463680289458824, guid: 6ef66cfe6ae68c241abd03c809f660b3, type: 3}
+  - {fileID: 4704845629093552031, guid: 6f8ddc2f895ab6c41861ba0e581ef1d3, type: 3}
+  - {fileID: 1687807214186527193, guid: 61805276339da0c408283a03be25607f, type: 3}
+  - {fileID: 1372670808276221206, guid: da0c8410271972e4ebee9f3b25a10066, type: 3}
+  - {fileID: 4692108856339719866, guid: 8e382c712a2249347a454a670dd0297f, type: 3}
+  - {fileID: 4721095822070308662, guid: 66011b0838cb37e46a61b3ab492c7295, type: 3}
+  - {fileID: 6765908252628197694, guid: 55e430215afc4e148bf8f714cb4a039d, type: 3}
+  - {fileID: 8657552829541216702, guid: 95cead2aa828c424d9e1f820be4e259a, type: 3}
+  - {fileID: 3479926732070953983, guid: 5f934ec975d61df4abd3c8af18dcd457, type: 3}
+  - {fileID: 6067950321255584208, guid: 7628bc69911da574a8277a76fc9fa805, type: 3}
+  areaParents: []
 --- !u!1 &296076443
 GameObject:
   m_ObjectHideFlags: 0

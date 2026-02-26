@@ -100,7 +100,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: beach_shell
+      name: beach_shell_1
       rect:
         serializedVersion: 2
         x: 110
@@ -609,7 +609,7 @@ TextureImporter:
       beach_crab: 1689224437
       beach_rock_1: 1263029662
       beach_rock_2: -2079908414
-      beach_shell: -3260171324595997514
+      beach_shell_1: -3260171324595997514
       beach_shell_2: 13584506
       beach_sponge: -1182789966
       s: -3260171324595997514

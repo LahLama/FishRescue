@@ -10,7 +10,9 @@ namespace LahLama
         public GameObject[] mountain;
         public GameObject[] river;
         public GameObject[] ocean;
+        public Transform[] areaParents;
         int currentCountMountain, currentCountRiver, currentCountOcean;
+        int mountainCountMax = 10, riverCountMax = 10, oceanCountMax = 10;
 
         Vector2 FindRandomSpawnPoint(PolygonCollider2D polyColl)
         {
@@ -40,58 +42,54 @@ namespace LahLama
             return Vector2.zero;
         }
 
-        public void DecideToSpawn()
+        public void CanSpawnHappen()
         {
-            int i = 0;
-            foreach (var spawnArea in polyColliders)
+            if (
+                currentCountMountain < mountainCountMax ||
+                currentCountOcean < oceanCountMax ||
+                currentCountRiver < riverCountMax
+                )
             {
-                float randomVal = Random.Range(0.0f, 1.0f);
+                DecideToSpawn();
+            }
+        }
+        void DecideToSpawn()
+        {
+            for (int i = 0; i < polyColliders.Length; i++)
+            {
+                var spawnArea = polyColliders[i];
+
                 Vector2 randomSpawn = FindRandomSpawnPoint(spawnArea);
-                //Prevents spawning at (0,0)
+
                 if (randomSpawn.magnitude > 0)
                 {
-                    if (randomVal > 0)
+                    float randomChance = Random.Range(0f, 1f);
+                    if (randomChance > 0.6f)
                     {
-
-                        switch (i)
-                        {
-                            case 0:
-                                if (currentCountMountain < 10)
-                                {
-                                    int randomSpriteIndex0 = Random.Range(0, mountain.Length);
-                                    Debug.Log(randomSpriteIndex0);
-                                    Debug.Log("Spawning " + mountain[randomSpriteIndex0].name + " at " + randomSpawn + " in the " + spawnArea.name);
-                                    currentCountMountain++;
-                                    Debug.Log("Current count of sprites: " + currentCountMountain);
-                                }
-                                break;
-                            case 1:
-                                if (currentCountRiver < 10)
-                                {
-                                    int randomSpriteIndex1 = Random.Range(0, river.Length);
-                                    Debug.Log("Spawning " + river[randomSpriteIndex1].name + " at " + randomSpawn + " in the " + spawnArea.name);
-                                    currentCountRiver++;
-                                    Debug.Log("Current count of sprites: " + currentCountRiver);
-                                }
-                                break;
-                            case 2:
-                                if (currentCountOcean < 10)
-                                {
-                                    int randomSpriteIndex2 = Random.Range(0, ocean.Length);
-                                    Debug.Log("Spawning " + ocean[randomSpriteIndex2].name + " at " + randomSpawn + " in the " + spawnArea.name);
-                                    currentCountOcean++;
-                                    Debug.Log("Current count of sprites: " + currentCountOcean);
-                                }
-                                break;
-                            default:
-                                break;
-                        }
+                        // Choose which array/parent to use based on the index 'i'
+                        // Assumes: 0 = Mountain, 1 = River, 2 = Ocean
+                        if (i == 0)
+                            SpawnInArea(mountain, areaParents[0], randomSpawn, ref currentCountMountain);
+                        else if (i == 1)
+                            SpawnInArea(river, areaParents[1], randomSpawn, ref currentCountRiver);
+                        else if (i == 2)
+                            SpawnInArea(ocean, areaParents[2], randomSpawn, ref currentCountOcean);
                     }
                 }
-                i++;
-
             }
         }
 
+
+
+
+        void SpawnInArea(GameObject[] prefabArray, Transform spawnArea, Vector2 randomSpawn, ref int areaCounter)
+        {
+            int randomSpriteIndex = Random.Range(0, prefabArray.Length);
+            Debug.Log("Spawning " + prefabArray[randomSpriteIndex].name + " at " + randomSpawn + " in the " + spawnArea.name);
+            Instantiate(prefabArray[randomSpriteIndex], randomSpawn, Quaternion.identity, spawnArea);
+            // Update the specific counter passed in
+            areaCounter++;
+            Debug.Log("Current count of sprites: " + areaCounter);
+        }
     }
 }

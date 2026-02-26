@@ -15,7 +15,7 @@ namespace LahLama
 
         void OnTriggerEnter2D(Collider2D collision)
         {
-            spawnSpriteInArea.DecideToSpawn();
+            spawnSpriteInArea.CanSpawnHappen();
         }
     }
 }
