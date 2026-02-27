@@ -9,6 +9,7 @@ TagManager:
   - AquariumCamera
   - aqua_trans
   - tankBounds
+  - fish
   layers:
   - Default
   - TransparentFX
@@ -20,8 +21,8 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
+  - fish
+  - tankItems
   - 
   - 
   - 

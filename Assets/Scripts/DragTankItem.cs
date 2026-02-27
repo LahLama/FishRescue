@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 namespace LahLama
@@ -21,6 +22,7 @@ namespace LahLama
 
             if (isHeld)
             {
+
                 // When player scrolls, item should rotate.
                 Vector2 scrollData = inputActions.UI.ScrollWheel.ReadValue<Vector2>();
                 float rotationAmount = scrollData.y * 5f * Time.fixedDeltaTime;
@@ -47,6 +49,9 @@ namespace LahLama
             // this.transform.rotation = new Quaternion(0, 0, 0, 0);
             isHeld = true;
 
+            if (TryGetComponent<FishSwim>(out FishSwim fishSwim))
+                fishSwim.enabled = false;
+
         }
 
         public void OnDrag(PointerEventData eventData)
@@ -66,6 +71,8 @@ namespace LahLama
             this.GetComponent<Rigidbody2D>().gravityScale = 0.6f;
             this.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
             isHeld = false;
+            if (TryGetComponent<FishSwim>(out FishSwim fishSwim))
+                fishSwim.enabled = true;
 
         }
     }

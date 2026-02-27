@@ -30,9 +30,12 @@ namespace LahLama
 
                     DestroyImmediate(polyColl);
                     spriteRend.sprite = currentSlot.transform.GetChild(1).GetComponent<SpriteRenderer>().sprite;
+                    if (currentSlot.transform.GetChild(1).tag == "fish")
+                        newItem.AddComponent<FishSwim>();
                     removeItemFromHotbar(currentSlot);
                     newItem.AddComponent<PolygonCollider2D>();
                     newItem.AddComponent<DragTankItem>();
+
                     moveItemOnPointer(newItem);
 
                     return newItem;
