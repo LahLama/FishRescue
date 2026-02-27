@@ -59,6 +59,9 @@ namespace LahLama
 
             if (TryGetComponent<FishSwim>(out FishSwim fishSwim))
                 fishSwim.enabled = false;
+            if (TryGetComponent<FishPersonality>(out FishPersonality fishPeronality))
+                fishPeronality.ModifyHealth(+2);
+
 
 
         }

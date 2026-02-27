@@ -26,14 +26,11 @@ namespace LahLama
 
                 if (spriteRend != null)
                 {
-
-
                     this.gameObject.layer = LayerMask.NameToLayer("tankItems");
                     spriteRend.sprite = currentSlot.transform.GetChild(1).GetComponent<SpriteRenderer>().sprite;
                     if (currentSlot.transform.GetChild(1).tag == "fish")
                     {
-                        newItem.AddComponent<FishSwim>();
-                        newItem.GetComponent<Rigidbody2D>().gravityScale = 0;
+                        SpawnFish(GameObject.FindAnyObjectByType<FishNames>().GetRandomName());
                     }
                     removeItemFromHotbar(currentSlot);
                     newItem.AddComponent<PolygonCollider2D>();
@@ -53,7 +50,6 @@ namespace LahLama
 
         void removeItemFromHotbar(GameObject slot)
         {
-
             slot.transform.GetChild(0).GetComponent<Image>().sprite = null;
             DestroyImmediate(slot.transform.GetChild(1).gameObject);
         }
@@ -62,6 +58,21 @@ namespace LahLama
             item.transform.position = defaultLocation.position;
         }
 
+        void SpawnFish(string newName)
+        {
+            newItem.AddComponent<FishSwim>();
+            newItem.GetComponent<Rigidbody2D>().gravityScale = 0;
+            newItem.AddComponent<FishPersonality>();
+
+            FishPersonality stats = newItem.GetComponent<FishPersonality>();
+
+            if (stats != null)
+            {
+                stats.ChangeName(newName);
+                stats.ModifyHealth(10); // Give this specific fish a health boost
+                Debug.Log("Spawned " + stats.FishName);
+            }
+        }
 
     }
 }
