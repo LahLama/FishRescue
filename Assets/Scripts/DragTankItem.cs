@@ -7,7 +7,9 @@ namespace LahLama
         TankItem tankItem;
         private PlayerInputActions inputActions;
         bool isHeld = false;
-        public float scrollSpeed = 1;
+        public float scrollSpeed = 100;
+        public int minX = 25, minY = 75, maxX = 300, maxY = 160;
+
 
         void Awake()
         {
@@ -21,13 +23,9 @@ namespace LahLama
             {
                 // When player scrolls, item should rotate.
                 Vector2 scrollData = inputActions.UI.ScrollWheel.ReadValue<Vector2>();
-                Debug.Log(this.transform.rotation.z + scrollData.magnitude);
-                Debug.Log(this.transform.rotation.z);
-                Debug.Log(scrollData.magnitude);
-                if (scrollData.magnitude > 0)
-                    this.transform.rotation = new(this.transform.rotation.x, this.transform.rotation.y, this.transform.rotation.z, 0);
-                if (scrollData.magnitude < 0)
-                    this.transform.rotation = new(this.transform.rotation.x, this.transform.rotation.y, this.transform.rotation.z, 0);
+                float rotationAmount = scrollData.y * 5f * Time.fixedDeltaTime;
+                transform.Rotate(0, 0, rotationAmount * scrollSpeed);
+
             }
         }
 
@@ -43,9 +41,10 @@ namespace LahLama
 
         public void OnBeginDrag(PointerEventData eventData)
         {
-            this.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+            this.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
+            this.GetComponent<Rigidbody2D>().gravityScale = 0;
             this.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
-            this.transform.rotation = new Quaternion(0, 0, 0, 0);
+            // this.transform.rotation = new Quaternion(0, 0, 0, 0);
             isHeld = true;
 
         }
@@ -53,14 +52,18 @@ namespace LahLama
         public void OnDrag(PointerEventData eventData)
         {
             var mousePos = eventData.position;
-            var worldPos = Camera.main.ScreenToWorldPoint(mousePos);
-            worldPos.z = 0;
-            this.transform.position = worldPos;
+
+            float clampedX = Mathf.Clamp(mousePos.x, minX, maxX);
+            float clampedY = Mathf.Clamp(mousePos.y, minY, maxY);
+            Vector3 screenPos = new Vector3(clampedX, clampedY, 0);
+            var worldPos = Camera.main.ScreenToWorldPoint(screenPos);
+
+            this.transform.position = new Vector3(worldPos.x, worldPos.y, 0); ;
         }
 
         public void OnEndDrag(PointerEventData eventData)
         {
-            this.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
+            this.GetComponent<Rigidbody2D>().gravityScale = 0.6f;
             this.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
             isHeld = false;
 

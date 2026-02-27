@@ -8,6 +8,7 @@ TagManager:
   - bigSlot
   - AquariumCamera
   - aqua_trans
+  - tankBounds
   layers:
   - Default
   - TransparentFX
