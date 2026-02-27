@@ -6,21 +6,26 @@ namespace LahLama
         Rigidbody2D rb;
         PolygonCollider2D coll;
         int directionSwim = 1;
-        public float swimStrength = 10;
+        public float swimStrength = 0.2f;
+        float heightChanger;
         void Awake()
         {
             rb = this.GetComponent<Rigidbody2D>();
             coll = this.GetComponent<PolygonCollider2D>();
+            swimStrength = Random.Range(0.4f, 0.8f);
         }
 
         void FixedUpdate()
         {
-            rb.AddForce(new Vector2(swimStrength * directionSwim, 0));
-        }
+            heightChanger = Random.Range(-0.6f, 0.6f);
+            // Sets a constant speed immediately
+            rb.linearVelocity = new Vector2(directionSwim * swimStrength, rb.linearVelocity.y);
 
+        }
         void OnCollisionEnter2D(Collision2D collision)
         {
             directionSwim *= -1;
+            transform.localScale = new Vector3(directionSwim, transform.localScale.y, transform.localScale.z);
         }
 
 

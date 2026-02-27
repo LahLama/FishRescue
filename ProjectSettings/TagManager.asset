@@ -10,6 +10,13 @@ TagManager:
   - aqua_trans
   - tankBounds
   - fish
+  - tankFrame
+  - tankFrame_beach
+  - tankFrame_river
+  - tankFrame_mountain
+  - beach_tank
+  - river_tank
+  - mountain_tank
   layers:
   - Default
   - TransparentFX

@@ -21,20 +21,23 @@ namespace LahLama
             if (currentSlot.transform.childCount > 1)
             {
                 newItem = Instantiate(prefabItem);
-                newItem.TryGetComponent<PolygonCollider2D>(out var polyColl);
+                newItem.transform.SetParent(defaultLocation.parent);
                 newItem.TryGetComponent<SpriteRenderer>(out var spriteRend);
 
-                if (polyColl != null && spriteRend != null)
+                if (spriteRend != null)
                 {
-                    //This should reset the current item to have a custom polygon collider
 
-                    DestroyImmediate(polyColl);
+
+                    this.gameObject.layer = LayerMask.NameToLayer("tankItems");
                     spriteRend.sprite = currentSlot.transform.GetChild(1).GetComponent<SpriteRenderer>().sprite;
                     if (currentSlot.transform.GetChild(1).tag == "fish")
+                    {
                         newItem.AddComponent<FishSwim>();
+                        newItem.GetComponent<Rigidbody2D>().gravityScale = 0;
+                    }
                     removeItemFromHotbar(currentSlot);
                     newItem.AddComponent<PolygonCollider2D>();
-                    newItem.AddComponent<DragTankItem>();
+
 
                     moveItemOnPointer(newItem);
 
