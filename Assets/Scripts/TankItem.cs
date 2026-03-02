@@ -1,4 +1,6 @@
 using LahLama;
+using TMPro;
+using UnityEditor.Analytics;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,33 +9,60 @@ namespace LahLama
     public class TankItem : MonoBehaviour
     {
 
-        public GameObject prefabItem;
+        public GameObject fishPrefabItem;
+        public GameObject tankPrefabItem;
         public GameObject newItem;
         public Transform defaultLocation;
         private PlayerInputActions inputActions;
+        public int numberOfItems;
+        public int numberOfFish;
+        int excludeMask;
 
         void Awake()
         {
             this.GetComponent<TankItem>().enabled = false;
+            excludeMask = LayerMask.GetMask("fish", "tankItems");
         }
         public GameObject MakeTankItem(GameObject currentSlot)
         {
             if (currentSlot.transform.childCount > 1)
             {
-                newItem = Instantiate(prefabItem);
+                if (currentSlot.transform.GetChild(1).tag == "fish")
+                {
+                    newItem = Instantiate(fishPrefabItem);
+                }
+                else
+                {
+                    newItem = Instantiate(tankPrefabItem);
+                }
+
                 newItem.transform.SetParent(defaultLocation.parent);
                 newItem.TryGetComponent<SpriteRenderer>(out var spriteRend);
+                newItem.transform.localScale = new Vector3(-1, 1, 1);
 
                 if (spriteRend != null)
                 {
-                    this.gameObject.layer = LayerMask.NameToLayer("tankItems");
+
                     spriteRend.sprite = currentSlot.transform.GetChild(1).GetComponent<SpriteRenderer>().sprite;
-                    if (currentSlot.transform.GetChild(1).tag == "fish")
+                    if (currentSlot.transform.GetChild(1).tag == "fish" && numberOfFish < 3)
                     {
+                        newItem.gameObject.layer = LayerMask.NameToLayer("fish");
+                        newItem.AddComponent<CapsuleCollider2D>();
+                        CapsuleCollider2D col = newItem.GetComponent<CapsuleCollider2D>();
+                        col.excludeLayers = excludeMask;
                         SpawnFish(GameObject.FindAnyObjectByType<FishNames>().GetRandomName());
+                        numberOfFish++;
+                    }
+                    else
+                    {
+                        newItem.gameObject.layer = LayerMask.NameToLayer("tankItems");
+                        newItem.AddComponent<PolygonCollider2D>();
+                        PolygonCollider2D col = newItem.GetComponent<PolygonCollider2D>();
+                        col.excludeLayers = LayerMask.NameToLayer("fish");
+                        numberOfItems++;
                     }
                     removeItemFromHotbar(currentSlot);
-                    newItem.AddComponent<PolygonCollider2D>();
+
 
 
                     moveItemOnPointer(newItem);
@@ -60,17 +89,16 @@ namespace LahLama
 
         void SpawnFish(string newName)
         {
-            newItem.AddComponent<FishSwim>();
-            newItem.GetComponent<Rigidbody2D>().gravityScale = 0;
-            newItem.AddComponent<FishPersonality>();
-
-            FishPersonality stats = newItem.GetComponent<FishPersonality>();
+            if (newItem.TryGetComponent<FishPersonality>(out FishPersonality stats))
+                stats = newItem.GetComponent<FishPersonality>();
 
             if (stats != null)
             {
                 stats.ChangeName(newName);
-                stats.ModifyHealth(10); // Give this specific fish a health boost
-                Debug.Log("Spawned " + stats.FishName);
+                stats.IntializeFish();
+                stats.ModifyHealth(10);
+                newItem.transform.GetChild(0).GetComponent<TextMeshPro>().text = stats.health.ToString();
+
             }
         }
 

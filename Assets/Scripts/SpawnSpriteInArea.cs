@@ -55,25 +55,28 @@ namespace LahLama
         }
         void DecideToSpawn()
         {
-            for (int i = 0; i < polyColliders.Length; i++)
+            for (int iteration = 0; iteration < 2; iteration++)
             {
-                var spawnArea = polyColliders[i];
-
-                Vector2 randomSpawn = FindRandomSpawnPoint(spawnArea);
-
-                if (randomSpawn.magnitude > 0)
+                for (int i = 0; i < polyColliders.Length; i++)
                 {
-                    float randomChance = Random.Range(0f, 1f);
-                    if (randomChance > 0.6f)
+                    var spawnArea = polyColliders[i];
+
+                    Vector2 randomSpawn = FindRandomSpawnPoint(spawnArea);
+
+                    if (randomSpawn.magnitude > 0)
                     {
-                        // Choose which array/parent to use based on the index 'i'
-                        // Assumes: 0 = Mountain, 1 = River, 2 = Ocean
-                        if (i == 0)
-                            SpawnInArea(mountain, areaParents[0], randomSpawn, ref currentCountMountain);
-                        else if (i == 1)
-                            SpawnInArea(river, areaParents[1], randomSpawn, ref currentCountRiver);
-                        else if (i == 2)
-                            SpawnInArea(ocean, areaParents[2], randomSpawn, ref currentCountOcean);
+                        float randomChance = Random.Range(0f, 1f);
+                        if (randomChance > 0.3f)
+                        {
+                            // Choose which array/parent to use based on the index 'i'
+                            // Assumes: 0 = Mountain, 1 = River, 2 = Ocean
+                            if (i == 0)
+                                SpawnInArea(mountain, areaParents[0], randomSpawn, ref currentCountMountain);
+                            else if (i == 1)
+                                SpawnInArea(river, areaParents[1], randomSpawn, ref currentCountRiver);
+                            else if (i == 2)
+                                SpawnInArea(ocean, areaParents[2], randomSpawn, ref currentCountOcean);
+                        }
                     }
                 }
             }
@@ -85,11 +88,20 @@ namespace LahLama
         void SpawnInArea(GameObject[] prefabArray, Transform spawnArea, Vector2 randomSpawn, ref int areaCounter)
         {
             int randomSpriteIndex = Random.Range(0, prefabArray.Length);
-            Debug.Log("Spawning " + prefabArray[randomSpriteIndex].name + " at " + randomSpawn + " in the " + spawnArea.name);
+            // Debug.Log("Spawning " + prefabArray[randomSpriteIndex].name + " at " + randomSpawn + " in the " + spawnArea.name);
             Instantiate(prefabArray[randomSpriteIndex], randomSpawn, Quaternion.identity, spawnArea);
             // Update the specific counter passed in
             areaCounter++;
-            Debug.Log("Current count of sprites: " + areaCounter);
+            // Debug.Log("Current count of sprites: " + areaCounter);
+        }
+
+        void DeleteItems()
+        {
+            pickUp[] pickUps = GameObject.FindObjectsByType<pickUp>(FindObjectsSortMode.None);
+            for (var i = 0; i < 2; i++)
+            {
+                DestroyImmediate(pickUps[Random.Range(0, pickUps.Length)]);
+            }
         }
     }
 }

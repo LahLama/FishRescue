@@ -25,7 +25,7 @@ namespace LahLama
         void OnCollisionEnter2D(Collision2D collision)
         {
             directionSwim *= -1;
-            transform.localScale = new Vector3(directionSwim, transform.localScale.y, transform.localScale.z);
+            GetComponent<SpriteRenderer>().flipX = !GetComponent<SpriteRenderer>().flipX;
         }
 
 
