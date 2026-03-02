@@ -12,6 +12,7 @@ namespace LahLama
         public int comfortability = 0;
         TextMeshPro stats;
         TankItem tank;
+        TakeFishOut takeFishOut;
         private float checkInterval = 10f;
         private float timer = 0f;
         public bool canBeReleased = false;
@@ -22,6 +23,7 @@ namespace LahLama
         {
             stats = transform.GetChild(0).GetComponent<TextMeshPro>();
             stats.text = $"{FishName} \t {health}\u2665 \n {hunger}\u2605 \t {comfortability}\u263A";
+            takeFishOut = GetComponent<TakeFishOut>();
             // Output: Nemo    100♥
             //         80★    90☺
         }
@@ -54,7 +56,7 @@ namespace LahLama
                     if (hunger >= 67 && comfortability > 67)
                     {
                         ModifyHealth(+6);
-                        canBeReleased = true;
+
                     }
                     else
                         ModifyHealth(-Random.Range(0, 3));
@@ -73,6 +75,11 @@ namespace LahLama
             {
                 health = 0;
                 isDead = true;
+            }
+            if (health >= 100)
+            {
+                canBeReleased = true;
+                takeFishOut.TakeOut();
             }
 
         }

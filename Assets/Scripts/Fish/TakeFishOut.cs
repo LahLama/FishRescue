@@ -1,16 +1,20 @@
 using UnityEngine;
-
-public class TakeFishOut : MonoBehaviour
+namespace LahLama
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public class TakeFishOut : MonoBehaviour
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        private EquipHotbarItem hotbar;
+        void Awake()
+        {
+            hotbar = FindAnyObjectByType<EquipHotbarItem>();
+        }
+        public void TakeOut()
+        {
+            var availbleSlot = hotbar.TryEquipItem();
+            if (availbleSlot != null)
+            {
+                hotbar.EquipItem(this.gameObject, availbleSlot);
+            }
+        }
     }
 }

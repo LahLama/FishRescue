@@ -11,7 +11,7 @@ namespace LahLama
         }
         public void Interact()
         {
-            Debug.Log("Pick me up");
+            //            Debug.Log("Pick me up");
             var availbleSlot = hotbar.TryEquipItem();
             if (availbleSlot != null)
             {

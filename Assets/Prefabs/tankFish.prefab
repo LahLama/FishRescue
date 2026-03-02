@@ -196,6 +196,7 @@ GameObject:
   - component: {fileID: 7284766165939077633}
   - component: {fileID: 23491946050654054}
   - component: {fileID: 6751111523681247293}
+  - component: {fileID: 7613964977571395107}
   m_Layer: 10
   m_Name: tankFish
   m_TagString: Untagged
@@ -334,6 +335,8 @@ MonoBehaviour:
   health: 39
   hunger: 0
   comfortability: 0
+  canBeReleased: 0
+  isDead: 0
 --- !u!114 &23491946050654054
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -358,3 +361,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c1d066ecfd585e46b2295d924788d88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FishDrag
+--- !u!114 &7613964977571395107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7760010121990144868}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ed42effdc07d3c45aa64093d891ca88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LahLama.TakeFishOut

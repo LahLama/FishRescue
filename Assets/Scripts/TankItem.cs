@@ -27,7 +27,7 @@ namespace LahLama
         {
             if (currentSlot.transform.childCount > 1)
             {
-                if (currentSlot.transform.GetChild(1).tag == "fish")
+                if (currentSlot.transform.GetChild(1).tag == "fish" && numberOfFish < 3)
                 {
                     newItem = Instantiate(fishPrefabItem);
                 }
@@ -44,7 +44,7 @@ namespace LahLama
                 {
 
                     spriteRend.sprite = currentSlot.transform.GetChild(1).GetComponent<SpriteRenderer>().sprite;
-                    if (currentSlot.transform.GetChild(1).tag == "fish" && numberOfFish < 3)
+                    if (currentSlot.transform.GetChild(1).tag == "fish")
                     {
                         newItem.gameObject.layer = LayerMask.NameToLayer("fish");
                         newItem.AddComponent<CapsuleCollider2D>();

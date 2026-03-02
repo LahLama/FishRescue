@@ -19,7 +19,7 @@ public class EquipHotbarItem : MonoBehaviour
             }
             else
             {
-                Debug.Log("slotFull");
+                //Debug.Log("slotFull");
             }
         }
         return null;

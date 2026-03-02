@@ -55,6 +55,10 @@ namespace LahLama
         }
         void DecideToSpawn()
         {
+            for (var j = 0; j < 2; j++)
+            {
+                DeleteItems();
+            }
             for (int iteration = 0; iteration < 2; iteration++)
             {
                 for (int i = 0; i < polyColliders.Length; i++)
@@ -79,6 +83,7 @@ namespace LahLama
                         }
                     }
                 }
+
             }
         }
 
@@ -98,10 +103,7 @@ namespace LahLama
         void DeleteItems()
         {
             pickUp[] pickUps = GameObject.FindObjectsByType<pickUp>(FindObjectsSortMode.None);
-            for (var i = 0; i < 2; i++)
-            {
-                DestroyImmediate(pickUps[Random.Range(0, pickUps.Length)]);
-            }
+            Destroy(pickUps[Random.Range(0, pickUps.Length)].gameObject);
         }
     }
 }
