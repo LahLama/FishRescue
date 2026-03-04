@@ -55,7 +55,7 @@ namespace LahLama
                     if (tank.numberOfItems >= 6 && tank.numberOfItems < 10)
                         ModifyComfortability(+11);
                     if (tank.numberOfFish > 1)
-                        ModifyComfortability(+2);
+                        ModifyComfortability(+9);
                     if (hunger >= 67 && comfortability > 67)
                     {
                         ModifyHealth(+6);

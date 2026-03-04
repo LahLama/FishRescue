@@ -1,5 +1,6 @@
 using LahLama;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEditor.Analytics;
 using UnityEngine;
 using UnityEngine.UI;
@@ -31,9 +32,13 @@ namespace LahLama
                 {
                     newItem = Instantiate(fishPrefabItem);
                 }
-                else
+                else if (currentSlot.transform.GetChild(1).tag != "fish")
                 {
                     newItem = Instantiate(tankPrefabItem);
+                }
+                else
+                {
+                    return null;
                 }
 
                 newItem.transform.SetParent(defaultLocation.parent);
@@ -49,6 +54,7 @@ namespace LahLama
                         newItem.gameObject.layer = LayerMask.NameToLayer("fish");
                         newItem.AddComponent<CapsuleCollider2D>();
                         CapsuleCollider2D col = newItem.GetComponent<CapsuleCollider2D>();
+                        newItem.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
                         col.excludeLayers = excludeMask;
                         SpawnFish(GameObject.FindAnyObjectByType<FishNames>().GetRandomName());
                         numberOfFish++;

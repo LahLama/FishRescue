@@ -38,16 +38,15 @@ namespace LahLama
             movieStarted = true;
             Destroy(fish);
             Debug.Log("A");
+            // had issues with instant deletetion, temporary fix
+            Invoke("StopVideo", 5f);
         }
 
-        void Update()
+
+        void StopVideo()
         {
-            if (movieStarted && !videoPlayer.isPlaying)
-            {
-                movieStarted = false;
-                Debug.Log("B");
-            }
+            videoPlayer.Stop();
+            rawImage.enabled = false;
         }
-
     }
 }

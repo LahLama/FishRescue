@@ -106,7 +106,9 @@ namespace LahLama
             // if (TryGetComponent<pickUp>(out var pickUpExists))
             {
                 pickUp[] pickUps = FindObjectsByType<pickUp>(FindObjectsSortMode.None);
-                if (pickUps.Length > 0)
+                float randomChance = Random.Range(0, 1);
+                // Allows for no items to spawn, atleast 2 will be left
+                if (pickUps.Length > 4 && randomChance > 0.2f)
                 {
                     int randomIndex = Random.Range(0, pickUps.Length);
                     // ensures that an equipped item cant be deleted.

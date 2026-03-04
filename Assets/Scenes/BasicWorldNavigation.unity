@@ -2113,7 +2113,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 611286236}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
   m_Name: 
@@ -2157,7 +2157,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 3700.4292, y: 2077.1094}
+  m_AnchoredPosition: {x: 0, y: 0.012207031}
   m_SizeDelta: {x: 1920, y: 1077.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &619394800
@@ -5547,6 +5547,7 @@ GameObject:
   - component: {fileID: 1541738077}
   - component: {fileID: 1541738076}
   - component: {fileID: 1541738078}
+  - component: {fileID: 1541738079}
   m_Layer: 0
   m_Name: Video Player
   m_TagString: Untagged
@@ -5621,6 +5622,22 @@ MonoBehaviour:
   - {fileID: 32900000, guid: af316f08744295e4a9e48ba1db64fe5d, type: 3}
   - {fileID: 32900000, guid: aa9ef12385e9ff84c86fff35dd4d66a7, type: 3}
   - {fileID: 32900000, guid: dfb490b2bae35894a98e2b948bf0f15c, type: 3}
+--- !u!114 &1541738079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1541738075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14f8dbe828820264bbe00f8017ecec7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LahLama.ManageVideoPlayer
+  pickUpPrefab: {fileID: 0}
+  videoPlayer: {fileID: 0}
+  rawImage: {fileID: 0}
+  clarifyTank: {fileID: 0}
 --- !u!1 &1588646686
 GameObject:
   m_ObjectHideFlags: 0
