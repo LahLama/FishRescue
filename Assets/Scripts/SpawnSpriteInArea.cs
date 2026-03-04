@@ -52,13 +52,13 @@ namespace LahLama
             {
                 DecideToSpawn();
             }
-        }
-        void DecideToSpawn()
-        {
             for (var j = 0; j < 2; j++)
             {
                 DeleteItems();
             }
+        }
+        void DecideToSpawn()
+        {
             for (int iteration = 0; iteration < 2; iteration++)
             {
                 for (int i = 0; i < polyColliders.Length; i++)
@@ -102,8 +102,22 @@ namespace LahLama
 
         void DeleteItems()
         {
-            pickUp[] pickUps = GameObject.FindObjectsByType<pickUp>(FindObjectsSortMode.None);
-            Destroy(pickUps[Random.Range(0, pickUps.Length)].gameObject);
+            //This checks if atleast one object that can be picked up exists.
+            // if (TryGetComponent<pickUp>(out var pickUpExists))
+            {
+                pickUp[] pickUps = FindObjectsByType<pickUp>(FindObjectsSortMode.None);
+                if (pickUps.Length > 0)
+                {
+                    int randomIndex = Random.Range(0, pickUps.Length);
+                    // ensures that an equipped item cant be deleted.
+                    if (!pickUps[randomIndex].transform.parent.CompareTag("smallSlot"))
+                    {
+                        var deletedItem = pickUps[randomIndex].gameObject;
+                        Debug.Log(deletedItem);
+                        Destroy(deletedItem);
+                    }
+                }
+            }
         }
     }
 }

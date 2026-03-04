@@ -46,6 +46,9 @@ namespace LahLama
                 timer += Time.fixedDeltaTime;
                 if (timer >= checkInterval)
                 {
+                    ModifyComfortability(-Random.Range(0, 3));
+                    ModifyHunger(-Random.Range(12, 25));
+
                     timer = 0f;
 
                     tank = FindFirstObjectByType<TankItem>();
@@ -56,14 +59,13 @@ namespace LahLama
                     if (hunger >= 67 && comfortability > 67)
                     {
                         ModifyHealth(+6);
-
                     }
                     else
+                    {
                         ModifyHealth(-Random.Range(0, 3));
+                    }
 
-                    ModifyComfortability(-Random.Range(0, 3));
 
-                    ModifyHunger(-Random.Range(12, 25));
                 }
             }
 
@@ -79,7 +81,7 @@ namespace LahLama
             if (health >= 100)
             {
                 canBeReleased = true;
-                takeFishOut.TakeOut();
+
             }
 
         }
@@ -95,12 +97,12 @@ namespace LahLama
         }
         public void ModifyHunger(int amt)
         {
-
-            if (hunger < 100)
+            // On Touch - Goes over 100
+            if (hunger < 100 || hunger > 0)
                 hunger += amt;
-            else if (amt > 0 && hunger > 100)
+            if (hunger > 100)
                 hunger = 100;
-            else if (amt < 0 && hunger < 0)
+            if (hunger < 0)
                 hunger = 0;
         }
         public void ModifyComfortability(int amt)

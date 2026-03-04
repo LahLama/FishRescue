@@ -373,3 +373,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ed42effdc07d3c45aa64093d891ca88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LahLama.TakeFishOut
+  pickUpPrefab: {fileID: 6862952850950523833, guid: d7a6a11154f1aa44a8764b0a0853c18b, type: 3}
