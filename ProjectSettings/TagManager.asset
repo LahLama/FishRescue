@@ -17,6 +17,7 @@ TagManager:
   - beach_tank
   - river_tank
   - mountain_tank
+  - videoTexture
   layers:
   - Default
   - TransparentFX
