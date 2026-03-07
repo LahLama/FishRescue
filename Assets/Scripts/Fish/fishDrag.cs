@@ -8,21 +8,25 @@ public class FishDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
     private RestrictMouseMovements tankBounds;
     TankItem tankItem;
     ClarifyTank clarifyTank;
+    Rigidbody2D rb;
+    Vector2 intialVelocity;
     void Awake()
     {
         tankItem = GameObject.FindAnyObjectByType<TankItem>();
         inputActions = new PlayerInputActions(); // Initialize Input Actions
         clarifyTank = GameObject.FindAnyObjectByType<ClarifyTank>();
-
+        rb = this.GetComponent<Rigidbody2D>();
         tankBounds = GameObject.FindAnyObjectByType<RestrictMouseMovements>();
 
     }
     public void OnBeginDrag(PointerEventData eventData)
     {
         tankBounds.SetTankBoundariesFromCollider(this.transform.parent.GetComponent<Collider2D>());
-        this.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
-        this.GetComponent<Rigidbody2D>().gravityScale = 0;
-        this.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
+        rb.bodyType = RigidbodyType2D.Dynamic;
+        rb.gravityScale = 0;
+        rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+        intialVelocity = rb.linearVelocity;
+        rb.linearVelocity = Vector2.zero;
         // this.transform.rotation = new Quaternion(0, 0, 0, 0);
 
         if (TryGetComponent<FishSwim>(out FishSwim fishSwim))
@@ -41,13 +45,15 @@ public class FishDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
 
     public void OnEndDrag(PointerEventData eventData)
     {
+
         if (TryGetComponent<FishSwim>(out FishSwim fishSwim))
         {
             fishSwim.enabled = true;
         }
-        this.GetComponent<Rigidbody2D>().gravityScale = 0f;
-        this.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
-        this.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
+        rb.gravityScale = 0f;
+        rb.linearVelocity = intialVelocity;
+        rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+        rb.constraints = RigidbodyConstraints2D.None;
 
 
     }

@@ -10,8 +10,10 @@ namespace LahLama
         ClarifyTank clarifyTank;
         private PlayerInputActions inputActions;
         private RestrictMouseMovements tankBounds;
+        private tankDeleteItem tankDeleteItem;
         bool isHeld = false;
         public float scrollSpeed = 100;
+        Rigidbody2D rb;
 
 
         void Awake()
@@ -19,8 +21,9 @@ namespace LahLama
             tankItem = GameObject.FindAnyObjectByType<TankItem>();
             inputActions = new PlayerInputActions(); // Initialize Input Actions
             clarifyTank = GameObject.FindAnyObjectByType<ClarifyTank>();
-
+            // tankDeleteItem = FindAnyObjectByType<tankDeleteItem>();
             tankBounds = GameObject.FindAnyObjectByType<RestrictMouseMovements>();
+            rb = this.GetComponent<Rigidbody2D>();
 
         }
 
@@ -51,14 +54,17 @@ namespace LahLama
         public void OnBeginDrag(PointerEventData eventData)
         {
             tankBounds.SetTankBoundariesFromCollider(this.transform.parent.GetComponent<Collider2D>());
-            this.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
-            this.GetComponent<Rigidbody2D>().gravityScale = 0;
-            this.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
+            rb.bodyType = RigidbodyType2D.Dynamic;
+            rb.gravityScale = 0;
+            rb.constraints = RigidbodyConstraints2D.FreezeRotation;
             // this.transform.rotation = new Quaternion(0, 0, 0, 0);
             isHeld = true;
 
+
             if (TryGetComponent<FishSwim>(out FishSwim fishSwim))
                 fishSwim.enabled = false;
+            else
+                rb.linearVelocity = Vector2.zero;
             if (TryGetComponent<FishPersonality>(out FishPersonality fishPeronality))
                 fishPeronality.ModifyHealth(+2);
 
@@ -73,15 +79,15 @@ namespace LahLama
 
         public void OnEndDrag(PointerEventData eventData)
         {
-            this.GetComponent<Rigidbody2D>().gravityScale = 0.6f;
+            rb.gravityScale = 0.6f;
 
-            this.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
+            rb.constraints = RigidbodyConstraints2D.None;
             isHeld = false;
             if (TryGetComponent<FishSwim>(out FishSwim fishSwim))
             {
                 fishSwim.enabled = true;
-                this.GetComponent<Rigidbody2D>().gravityScale = 0f;
-                this.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
+                rb.gravityScale = 0f;
+                rb.constraints = RigidbodyConstraints2D.FreezeRotation;
             }
 
         }

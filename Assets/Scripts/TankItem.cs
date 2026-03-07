@@ -100,6 +100,7 @@ namespace LahLama
 
             if (stats != null)
             {
+                newItem.tag = "fish";
                 stats.ChangeName(newName);
                 stats.IntializeFish();
                 stats.ModifyHealth(10);
