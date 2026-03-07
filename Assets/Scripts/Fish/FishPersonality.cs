@@ -22,7 +22,7 @@ namespace LahLama
         void Awake()
         {
             stats = transform.GetChild(0).GetComponent<TextMeshPro>();
-            stats.text = $"{FishName} \t {health}\u2665 \n {hunger}\u2605 \t {comfortability}\u263A";
+            stats.text = $"{FishName} \t {health}💗 \n {hunger}🍗  \t {comfortability}🛋️";
             takeFishOut = GetComponent<TakeFishOut>();
             // Output: Nemo    100♥
             //         80★    90☺
@@ -36,7 +36,8 @@ namespace LahLama
 
         void FixedUpdate()
         {
-            stats.text = $"{FishName} \t {health}\u2665 \n {hunger}\u2605 \t {comfortability}\u263A";
+
+            stats.text = $"{FishName} \t {health}💗 \n {hunger}🍗  \t {comfortability}🛋️";
             // Output: Nemo    100♥
             //         80★    90☺
 
