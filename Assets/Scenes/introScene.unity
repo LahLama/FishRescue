@@ -153,7 +153,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -4.300964, y: -546.4078}
+  m_AnchoredPosition: {x: -4.3009644, y: -546.4078}
   m_SizeDelta: {x: -1653.29, y: -628.06}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &53706510
@@ -1071,7 +1071,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: e24f1e3946411ea43a17be26e5404481, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.065
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1229,8 +1229,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\U0001F41F I'm Ready \U0001F41F"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 32fc6e1220a8bf14b84e00f32deb9a23, type: 2}
+  m_sharedMaterial: {fileID: 415786154314996480, guid: 32fc6e1220a8bf14b84e00f32deb9a23, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1266,7 +1266,7 @@ MonoBehaviour:
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_characterHorizontalScale: 1
-  m_wordSpacing: 0
+  m_wordSpacing: -113.58
   m_lineSpacing: 0
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
