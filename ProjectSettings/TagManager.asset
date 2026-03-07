@@ -18,6 +18,7 @@ TagManager:
   - river_tank
   - mountain_tank
   - videoTexture
+  - moneyText
   layers:
   - Default
   - TransparentFX
