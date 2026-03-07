@@ -3,7 +3,11 @@ using UnityEngine;
 public class FishNames : MonoBehaviour
 {
     public string[] fishNames =
-    { "abe", "sandy","greg","doug","dougless","Emma","jeff","thor","loki"
+    { "Bob", "Sandy","Patrick", "Krabs"
+    ,"Emma","Jeff","Thor","Loki",
+    "Fishy Mc FishFace" , "Swimmy McSwimFace", "Finny McFinFace"
+    ,"Fin","Nemo","Dory",
+    "Fin the Ultimate destroyer of all things not fish."
 
     };
 
