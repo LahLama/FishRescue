@@ -66,7 +66,6 @@ namespace LahLama
 
         void ChangeIcon(GameObject slot)
         {
-            Undo.RecordObject(slot.transform.GetChild(0).GetComponent<Image>(), "Clear Sprite");
             slot.transform.GetChild(0).GetComponent<Image>().sprite = null;
 
         }

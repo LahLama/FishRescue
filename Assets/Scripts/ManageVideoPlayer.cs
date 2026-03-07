@@ -10,7 +10,7 @@ namespace LahLama
         public RawImage rawImage;
         AvailibleVideos availibleVideos;
         public ClarifyTank clarifyTank;
-        private bool movieStarted;
+
         void Awake()
         {
             videoPlayer = GameObject.FindAnyObjectByType<VideoPlayer>();
@@ -35,7 +35,7 @@ namespace LahLama
 
             videoPlayer.Play();
             rawImage.enabled = true;
-            movieStarted = true;
+
             Destroy(fish);
             Debug.Log("A");
             // had issues with instant deletetion, temporary fix
