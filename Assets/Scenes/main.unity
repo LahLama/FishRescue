@@ -1463,16 +1463,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05f2ab9335fd1644386290f6ae8c3176, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FishNames
-  fishNames:
-  - abe
-  - sandy
-  - greg
-  - doug
-  - dougless
-  - Emma
-  - jeff
-  - thor
-  - loki
 --- !u!114 &295012203
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5261,7 +5251,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: $ 000000
+  m_text: R 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8a89fa14b10d46a99122fd4f73fca9a2, type: 2}
   m_sharedMaterial: {fileID: 2140474, guid: 8a89fa14b10d46a99122fd4f73fca9a2, type: 2}

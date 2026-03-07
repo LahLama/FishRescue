@@ -22,6 +22,7 @@ namespace LahLama
         void Awake()
         {
             stats = transform.GetChild(0).GetComponent<TextMeshPro>();
+            tank = FindAnyObjectByType<TankItem>();
             stats.text = $"{FishName} \t {health}💗 \n {hunger}🍗  \t {comfortability}🛋️";
             takeFishOut = GetComponent<TakeFishOut>();
             // Output: Nemo    100♥
@@ -41,7 +42,18 @@ namespace LahLama
             // Output: Nemo    100♥
             //         80★    90☺
 
-            tank = FindFirstObjectByType<TankItem>();
+
+            if (!tank.isActiveAndEnabled)
+            {
+                TankItem[] found = FindObjectsByType<TankItem>(
+                    FindObjectsInactive.Exclude,
+                    FindObjectsSortMode.None
+                );
+                tank = found[0];
+            }
+
+
+
             if (tank)
             {
                 timer += Time.fixedDeltaTime;
@@ -51,9 +63,7 @@ namespace LahLama
                     ModifyHunger(-Random.Range(12, 25));
 
                     timer = 0f;
-
-                    tank = FindFirstObjectByType<TankItem>();
-                    if (tank.numberOfItems >= 6 && tank.numberOfItems < 10)
+                    if (tank.numberOfItems >= 5 && tank.numberOfItems < 10)
                         ModifyComfortability(+11);
                     if (tank.numberOfFish > 1)
                         ModifyComfortability(+9);
@@ -73,7 +83,9 @@ namespace LahLama
             if (hunger < 0)
                 hunger = 0;
             if (comfortability < 0)
-                comfortability = 0;
+            {
+                comfortability = 0; Debug.Log("comfy is low");
+            }
             if (health < 0)
             {
                 health = 0;
@@ -89,11 +101,11 @@ namespace LahLama
         public void ModifyHealth(int amt)
         {
 
-            if (health < 100)
+            if (health < 100 || health > 0)
                 health += amt;
-            else if (amt > 0 && health > 100)
-                hunger = 100;
-            else if (amt < 0 && health < 0)
+            if (health > 100)
+                health = 100;
+            if (health < 0)
                 health = 0;
         }
         public void ModifyHunger(int amt)
@@ -108,12 +120,11 @@ namespace LahLama
         }
         public void ModifyComfortability(int amt)
         {
-
-            if (comfortability < 100)
+            if (comfortability < 100 || comfortability > 0)
                 comfortability += amt;
-            else if (amt > 0 && comfortability > 100)
-                hunger = 100;
-            else if (amt < 0 && comfortability < 0)
+            if (comfortability > 100)
+                comfortability = 100;
+            if (comfortability < 0)
                 comfortability = 0;
         }
         public void ChangeName(string newName)

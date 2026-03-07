@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class FishNames : MonoBehaviour
 {
-    public string[] fishNames =
+    string[] fishNames =
     { "Bob", "Sandy","Patrick", "Krabs"
     ,"Emma","Jeff","Thor","Loki",
     "Fishy Mc FishFace" , "Swimmy McSwimFace", "Finny McFinFace"

@@ -9,7 +9,7 @@ public class MoneyManager : MonoBehaviour
     public void incMoney(int amt)
     {
         moneyAmt += amt;
-        money.text = $" ${moneyAmt}";
+        money.text = $" R {moneyAmt}";
     }
 
 }
