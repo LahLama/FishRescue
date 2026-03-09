@@ -125,10 +125,10 @@ TextureImporter:
       name: mountain_fish__1
       rect:
         serializedVersion: 2
-        x: 1158
-        y: 737
-        width: 1152
-        height: 895
+        x: 1317
+        y: 928
+        width: 892
+        height: 496
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -147,10 +147,10 @@ TextureImporter:
       name: mountain_fish__2
       rect:
         serializedVersion: 2
-        x: 263
-        y: 142
-        width: 1120
-        height: 431
+        x: 257
+        y: 411
+        width: 835
+        height: 306
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}

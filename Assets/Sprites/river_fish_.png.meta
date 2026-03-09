@@ -103,12 +103,12 @@ TextureImporter:
       name: river_fish__0
       rect:
         serializedVersion: 2
-        x: 274
-        y: 1338
-        width: 800
-        height: 528
+        x: 347
+        y: 1372
+        width: 655
+        height: 404
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -125,12 +125,12 @@ TextureImporter:
       name: river_fish__1
       rect:
         serializedVersion: 2
-        x: 1403
-        y: 1234
-        width: 944
-        height: 534
+        x: 1528
+        y: 1372
+        width: 776
+        height: 396
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -147,12 +147,12 @@ TextureImporter:
       name: river_fish__2
       rect:
         serializedVersion: 2
-        x: 67
-        y: 613
-        width: 1204
-        height: 595
+        x: 148
+        y: 646
+        width: 1196
+        height: 477
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -169,12 +169,12 @@ TextureImporter:
       name: river_fish__3
       rect:
         serializedVersion: 2
-        x: 1167
+        x: 1422
         y: 93
-        width: 1053
-        height: 497
+        width: 798
+        height: 383
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
