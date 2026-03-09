@@ -7,18 +7,21 @@ namespace LahLama
         GameObject player;
         public GameObject tank;
         ClarifyTank clarifyTank;
-        Camera cam;
+        Camera mainCam;
+        Camera aquaCam;
 
 
         void Start()
         {
             player = GameObject.FindGameObjectWithTag("Player");
             clarifyTank = GameObject.FindAnyObjectByType<ClarifyTank>();
-            cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+            mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         }
         public void Interact()
         {
-            cam.enabled = !cam.isActiveAndEnabled;
+            mainCam.enabled = !mainCam.isActiveAndEnabled;
+
+
             clarifyTank.CurrentTank = tank;
             player.transform.position = tank.transform.position;
             player.GetComponent<Collider2D>().enabled = false;

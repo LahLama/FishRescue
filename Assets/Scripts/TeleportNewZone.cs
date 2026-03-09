@@ -5,6 +5,7 @@ namespace LahLama
     {
         Transform newLocation;
         private Camera cam;
+        private Camera aquaCam;
         GameObject player;
 
 
@@ -12,6 +13,7 @@ namespace LahLama
         {
             player = GameObject.FindGameObjectWithTag("Player");
             newLocation = transform.GetChild(0);
+            aquaCam = GameObject.FindGameObjectWithTag("AquariumCamera").GetComponent<Camera>();
 
             cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         }
@@ -21,7 +23,10 @@ namespace LahLama
             if (collision.tag == "Player")
                 player.transform.position = newLocation.position;
             if (this.tag == "aqua_trans")
+            {
                 cam.enabled = !cam.isActiveAndEnabled;
+                aquaCam.enabled = !aquaCam.isActiveAndEnabled;
+            }
         }
     }
 }
