@@ -1,3 +1,4 @@
+using System.Xml.Schema;
 using Unity.Multiplayer.Center.Common.Analytics;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -7,11 +8,14 @@ public class PlayerInteract : MonoBehaviour
     public IInteractable interactable;
     bool interactInput;
 
-
+    GameObject leftHand;
+    GameObject rightHand;
     InputSystem_Actions inputActions;
     void Awake()
     {
         inputActions = new InputSystem_Actions();
+        leftHand = GameObject.FindGameObjectWithTag("invL");
+        rightHand = GameObject.FindGameObjectWithTag("invR");
     }
 
     void OnEnable()
@@ -36,7 +40,7 @@ public class PlayerInteract : MonoBehaviour
         if (hasInteracted && hit.collider != null && hit.collider.TryGetComponent<IInteractable>(out interactable))
         {
             interactable.Interact(hit.collider);
-            Debug.Log("A");
+
         }
 
 

@@ -8,7 +8,7 @@ public class Dishes : MonoBehaviour
     public Dish currentDish = Dish.placeholder;
 
 
-    public OrderableDish[] allOrderableDishes = (OrderableDish[])Enum.GetValues(typeof(OrderableDish));
+    // public OrderableDish[] allOrderableDishes = (OrderableDish[])Enum.GetValues(typeof(OrderableDish));
     public Dish[] allDishes = (Dish[])Enum.GetValues(typeof(Dish));
 
 
@@ -22,42 +22,39 @@ public class Dishes : MonoBehaviour
         return allDishes[index];
     }
 
-    public OrderableDish getOrderableDish(int index)
-    {
-        return allOrderableDishes[index];
-    }
+    // public OrderableDish getOrderableDish(int index)
+    // {
+    //     return allOrderableDishes[index];
+    // }
 
     public enum Dish
     {
         placeholder,
-        //dish
-        raw_chicken,
-        cooked_chicken,
-        raw_beef,
-        cooked_beef,
-        raw_lamb,
-        cooked_lamb,
-        raw_potatoes,
-        potato_salad,
-        raw_salad,
-        green_salad,
-
-        //utilities
         wood,
-        briquettes
-    }
+        briquettes,
 
-    public enum OrderableDish
-    {
-        placeholder,
         //dish
-        cooked_chicken,
-        cooked_beef,
-        cooked_lamb,
-        potato_salad,
+        chicken,
+        beef,
+        lamb,
+        potato,
         green_salad,
 
     }
+
+    // public enum OrderableDish
+    // {
+    //     placeholder,
+    //     wood,
+    //     briquettes,
+
+    //     //dish
+    //     chicken,
+    //     beef,
+    //     lamb,
+    //     green_salad,
+
+    // }
 
 }
 

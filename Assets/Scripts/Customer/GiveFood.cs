@@ -20,17 +20,36 @@ public class GiveFood : MonoBehaviour, IInteractable
     }
     public string Interact(Collider col)
     {
-        if (RHMeshRenderer.enabled)
+
+        Dishes LHDish = leftHand.GetComponent<Dishes>();
+        Dishes RHDish = rightHand.GetComponent<Dishes>();
+        bool hasValidItemLeftHand = false;
+        bool hasValidItemRightHand = false;
+
+        if (col.TryGetComponent<AllowedItems>(out var LHAllowed))
+            hasValidItemLeftHand = LHAllowed.queryDish(LHDish.currentDish);
+
+        if (col.TryGetComponent<AllowedItems>(out var RHAllowed))
+            hasValidItemRightHand = RHAllowed.queryDish(RHDish.currentDish);
+
+
+        bool canGiveItem = hasValidItemLeftHand || hasValidItemRightHand;
+        if (canGiveItem)
         {
-            RHMeshRenderer.enabled = false;
-            RHDishes.setDish(RHDishes.getDish(0));
-            return null;
-        }
-        if (LHMeshRenderer.enabled)
-        {
-            LHMeshRenderer.enabled = false;
-            LHDishes.setDish(LHDishes.getDish(0));
-            return null;
+            if (RHMeshRenderer.enabled)
+            {
+                RHMeshRenderer.enabled = false;
+                RHDishes.setDish(RHDishes.getDish(0));
+                canGiveItem = false;
+                return null;
+            }
+            if (LHMeshRenderer.enabled)
+            {
+                LHMeshRenderer.enabled = false;
+                LHDishes.setDish(LHDishes.getDish(0));
+                canGiveItem = false;
+                return null;
+            }
         }
         return null;
     }

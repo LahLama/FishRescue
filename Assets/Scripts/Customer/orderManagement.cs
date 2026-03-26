@@ -4,29 +4,30 @@ using UnityEngine;
 public class orderManagement : MonoBehaviour
 {
     Dishes dishes;
-    List<Dishes.OrderableDish> orderedMeals = new List<Dishes.OrderableDish>();
+    AllowedItems allowedItems;
+    List<Dishes.Dish> orderedMeals = new List<Dishes.Dish>();
 
     void Awake()
     {
         dishes = GameObject.FindFirstObjectByType<Dishes>();
+        allowedItems = GetComponent<AllowedItems>();
 
         int attempts = 2;
-        int maxVal = dishes.allOrderableDishes.Length;
-        string orderList = "";
+        int startPoint = 3;
+        int maxVal = dishes.allDishes.Length;
+
 
         dishes = GameObject.FindAnyObjectByType<Dishes>();
 
         for (var i = 0; i < Random.Range(1, attempts + 1); i++)
         {
-            orderedMeals.Add(dishes.getOrderableDish(Random.Range(1, maxVal)));
+            dishes.currentDish = dishes.getDish(Random.Range(startPoint, maxVal));
+            // orderedMeals.Add(dishes.getDish(Random.Range(startPoint, maxVal)));
+            allowedItems.onlyAllowedItems.Add(dishes.currentDish);
         }
 
-        foreach (var item in orderedMeals)
-        {
-            orderList += (item.ToString() + '\t');
-        }
-
-        Debug.Log(name + " has ordered " + orderList);
+        string msg = name + " has ordered " + allowedItems.listDishes();
+        Debug.Log(msg);
     }
 
 
