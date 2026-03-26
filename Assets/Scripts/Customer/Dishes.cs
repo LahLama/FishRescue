@@ -35,6 +35,8 @@ public class Dishes : MonoBehaviour
         cooked_chicken,
         raw_beef,
         cooked_beef,
+        raw_lamb,
+        cooked_lamb,
         raw_potatoes,
         potato_salad,
         raw_salad,
@@ -51,6 +53,7 @@ public class Dishes : MonoBehaviour
         //dish
         cooked_chicken,
         cooked_beef,
+        cooked_lamb,
         potato_salad,
         green_salad,
 

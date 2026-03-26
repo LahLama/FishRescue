@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 802577265803962983}
   - component: {fileID: 5157849613950318711}
   - component: {fileID: 8558796020140033973}
+  - component: {fileID: 617947516047041070}
   m_Layer: 0
   m_Name: item
   m_TagString: Untagged
@@ -139,3 +140,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 110959153d1acc044a5ae1ab0b6851c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::getState
+--- !u!114 &617947516047041070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8785077067800155706}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c25edcd3b1858bc4b956ea2830501db8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Dishes
+  currentDish: 0
+  allOrderableDishes: 0000000001000000020000000300000004000000
+  allDishes: 000000000100000002000000030000000400000005000000060000000700000008000000090000000a000000
