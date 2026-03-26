@@ -4,7 +4,7 @@ using UnityEngine;
 public class orderManagement : MonoBehaviour
 {
     Dishes dishes;
-    List<string> orderedMeals = new List<string>();
+    List<Dishes.OrderableDish> orderedMeals = new List<Dishes.OrderableDish>();
 
     void Awake()
     {
@@ -23,7 +23,7 @@ public class orderManagement : MonoBehaviour
 
         foreach (var item in orderedMeals)
         {
-            orderList += (item + '\t');
+            orderList += (item.ToString() + '\t');
         }
 
         Debug.Log(name + " has ordered " + orderList);

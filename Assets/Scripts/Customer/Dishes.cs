@@ -17,14 +17,14 @@ public class Dishes : MonoBehaviour
         currentDish = newDish;
     }
 
-    public string getDish(int index)
+    public Dish getDish(int index)
     {
-        return allDishes[index].ToString();
+        return allDishes[index];
     }
 
-    public string getOrderableDish(int index)
+    public OrderableDish getOrderableDish(int index)
     {
-        return allOrderableDishes[index].ToString();
+        return allOrderableDishes[index];
     }
 
     public enum Dish

@@ -1,5 +1,6 @@
 using Unity.Multiplayer.Center.Common.Analytics;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerInteract : MonoBehaviour
 {
@@ -29,12 +30,15 @@ public class PlayerInteract : MonoBehaviour
 
 
 
-        interactInput = inputActions.Player.Interact.ReadValue<float>() > 0 ? true : false;
+        bool hasInteracted = inputActions.Player.Interact.WasPressedThisFrame();
 
-        if (interactInput && hit.collider.TryGetComponent<IInteractable>(out interactable))
+
+        if (hasInteracted && hit.collider != null && hit.collider.TryGetComponent<IInteractable>(out interactable))
         {
-            Debug.Log(interactable.Interact());
+            interactable.Interact(hit.collider);
+            Debug.Log("A");
         }
+
 
     }
 }

@@ -2,5 +2,5 @@ using UnityEngine;
 
 public interface IInteractable
 {
-    string Interact();
+    string Interact(Collider col);
 }
