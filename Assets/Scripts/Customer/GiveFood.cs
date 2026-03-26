@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class GiveFood : MonoBehaviour, IInteractable
@@ -8,6 +9,7 @@ public class GiveFood : MonoBehaviour, IInteractable
     Dishes RHDishes;
     MeshRenderer RHMeshRenderer;
     MeshRenderer LHMeshRenderer;
+    foodStates RHfoodStates;
     void Awake()
     {
         leftHand = GameObject.FindGameObjectWithTag("invL");
@@ -16,6 +18,7 @@ public class GiveFood : MonoBehaviour, IInteractable
         rightHand = GameObject.FindGameObjectWithTag("invR");
         RHMeshRenderer = rightHand.GetComponent<MeshRenderer>();
         RHDishes = rightHand.GetComponent<Dishes>();
+        RHfoodStates = rightHand.GetComponent<foodStates>();
 
     }
     public string Interact(Collider col)
@@ -36,8 +39,14 @@ public class GiveFood : MonoBehaviour, IInteractable
         bool canGiveItem = hasValidItemLeftHand || hasValidItemRightHand;
         if (canGiveItem)
         {
+
             if (RHMeshRenderer.enabled)
             {
+
+                if (col.transform.childCount > 0 && col.transform.GetChild(0).TryGetComponent<UpdatePOSitem>(out var updatePOSitem))
+                {
+                    updatePOSitem.AddItem(RHDish.currentDish, RHfoodStates.currentState);
+                }
                 RHMeshRenderer.enabled = false;
                 RHDishes.setDish(RHDishes.getDish(0));
                 canGiveItem = false;
@@ -45,6 +54,10 @@ public class GiveFood : MonoBehaviour, IInteractable
             }
             if (LHMeshRenderer.enabled)
             {
+                if (col.transform.childCount > 0 && col.transform.GetChild(0).TryGetComponent<UpdatePOSitem>(out var updatePOSitem))
+                {
+                    updatePOSitem.AddItem(RHDish.currentDish, RHfoodStates.currentState);
+                }
                 LHMeshRenderer.enabled = false;
                 LHDishes.setDish(LHDishes.getDish(0));
                 canGiveItem = false;

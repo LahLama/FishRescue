@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Xml.Schema;
 using Unity.Multiplayer.Center.Common.Analytics;
 using UnityEngine;
@@ -39,10 +40,12 @@ public class PlayerInteract : MonoBehaviour
 
         if (hasInteracted && hit.collider != null && hit.collider.TryGetComponent<IInteractable>(out interactable))
         {
-            interactable.Interact(hit.collider);
-
+            {
+                foreach (var script in hit.collider.GetComponents<IInteractable>())
+                {
+                    script.Interact(hit.collider);
+                }
+            }
         }
-
-
     }
 }
