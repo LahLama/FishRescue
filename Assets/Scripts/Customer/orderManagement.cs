@@ -8,21 +8,22 @@ public class orderManagement : MonoBehaviour
 
     void Awake()
     {
-        dishes = GameObject.FindAnyObjectByType<Dishes>();
+        dishes = GameObject.FindFirstObjectByType<Dishes>();
 
-        int maxVal = dishes.allDishes.Length - dishes.utilCount;
-        orderedMeals.Add(dishes.getDish(Random.Range(1, maxVal)));
-
-
-
+        int attempts = 2;
+        int maxVal = dishes.allOrderableDishes.Length;
         string orderList = "";
 
-        for (var i = 0; i < Random.Range(1, 3); i++)
+        dishes = GameObject.FindAnyObjectByType<Dishes>();
+
+        for (var i = 0; i < Random.Range(1, attempts + 1); i++)
         {
-            foreach (var item in orderedMeals)
-            {
-                orderList += (item + '\t');
-            }
+            orderedMeals.Add(dishes.getOrderableDish(Random.Range(1, maxVal)));
+        }
+
+        foreach (var item in orderedMeals)
+        {
+            orderList += (item + '\t');
         }
 
         Debug.Log(name + " has ordered " + orderList);

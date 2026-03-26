@@ -5,11 +5,14 @@ using System;
 
 public class Dishes : MonoBehaviour
 {
-    public orderableDish currentDish = orderableDish.placeholder;
-    public int utilCount = 2;
+    public Dish currentDish = Dish.placeholder;
 
-    public orderableDish[] allDishes = (orderableDish[])Enum.GetValues(typeof(orderableDish));
-    public void setDish(orderableDish newDish)
+
+    public OrderableDish[] allOrderableDishes = (OrderableDish[])Enum.GetValues(typeof(OrderableDish));
+    public Dish[] allDishes = (Dish[])Enum.GetValues(typeof(Dish));
+
+
+    public void setDish(Dish newDish)
     {
         currentDish = newDish;
     }
@@ -17,6 +20,11 @@ public class Dishes : MonoBehaviour
     public string getDish(int index)
     {
         return allDishes[index].ToString();
+    }
+
+    public string getOrderableDish(int index)
+    {
+        return allOrderableDishes[index].ToString();
     }
 
     public enum Dish
@@ -37,10 +45,11 @@ public class Dishes : MonoBehaviour
         briquettes
     }
 
-    public enum orderableDish
+    public enum OrderableDish
     {
         placeholder,
         //dish
+        cooked_chicken,
         cooked_beef,
         potato_salad,
         green_salad,
