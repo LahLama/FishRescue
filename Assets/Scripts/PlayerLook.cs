@@ -7,6 +7,8 @@ public class PlayerLook : MonoBehaviour
     CharacterController cc;
     Camera cam;
     Vector2 cursorLocation;
+    float verticalRotation = 0f;
+    public float verticalClamp = 80f;
     public float mouseSens = 0.1f;
     void Awake()
     {
@@ -30,5 +32,10 @@ public class PlayerLook : MonoBehaviour
         cursorLocation = inputActions.Player.Look.ReadValue<Vector2>();
         transform.Rotate(Vector3.up * cursorLocation.x * mouseSens);
         // Debug.Log(cursorLocation);
+        // Vertical — rotate the camera, clamped
+        verticalRotation -= cursorLocation.y * mouseSens;
+        verticalRotation = Mathf.Clamp(verticalRotation, -verticalClamp, verticalClamp);
+        cam.transform.localRotation = Quaternion.Euler(verticalRotation, 0f, 0f);
+
     }
 }

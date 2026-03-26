@@ -28,29 +28,23 @@ public class PlayerMovement : MonoBehaviour
         inputActions.Disable();
     }
 
-    void FixedUpdate()
+    void Update()
     {
         Vector2 moveInput = inputActions.Player.Move.ReadValue<Vector2>();
         float jumpInput = inputActions.Player.Jump.ReadValue<float>();
         bool sprintInput = inputActions.Player.Sprint.ReadValue<float>() > 0;
 
-        Vector3 move3d = new Vector3(moveInput.x, jumpInput, moveInput.y);
-        cc.Move(move3d * moveScale * Time.deltaTime);
+        moveScale = sprintInput ? sprintMod : walkMod;
 
+        // Movement relative to player facing direction
+        Vector3 move = transform.right * moveInput.x + transform.forward * moveInput.y;
+        move *= moveScale;
+        cc.Move(move * Time.deltaTime);
         if (!cc.isGrounded)
         {
             Vector3 gravityDown = new Vector3(0, -9.8f, 0);
             cc.SimpleMove(gravityDown);
         }
-
-        if (sprintInput)
-        {
-            moveScale = sprintMod;
-        }
-        else
-        {
-            moveScale = walkMod;
-        }
-        // Debug.Log(move3d * moveScale);
+        // Debug.Log(move * moveScale);
     }
 }
