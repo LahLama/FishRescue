@@ -2,23 +2,8 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!78 &1
 TagManager:
-  serializedVersion: 3
-  tags:
-  - smallSlot
-  - bigSlot
-  - AquariumCamera
-  - aqua_trans
-  - tankBounds
-  - fish
-  - tankFrame
-  - tankFrame_beach
-  - tankFrame_river
-  - tankFrame_mountain
-  - beach_tank
-  - river_tank
-  - mountain_tank
-  - videoTexture
-  - moneyText
+  serializedVersion: 2
+  tags: []
   layers:
   - Default
   - TransparentFX
@@ -30,8 +15,8 @@ TagManager:
   - 
   - 
   - 
-  - fish
-  - tankItems
+  - 
+  - 
   - 
   - 
   - 
@@ -56,8 +41,36 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: UI
-    uniqueID: 4028482161
-    locked: 0
   m_RenderingLayers:
   - Default
+  - Light Layer 1
+  - Light Layer 2
+  - Light Layer 3
+  - Light Layer 4
+  - Light Layer 5
+  - Light Layer 6
+  - Light Layer 7
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
