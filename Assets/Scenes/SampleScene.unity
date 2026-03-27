@@ -1034,6 +1034,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 110959153d1acc044a5ae1ab0b6851c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::getState
+--- !u!114 &484388382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 484388371}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1dff312552c15a947b6b9687902fb302, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PrepFood
+  originalPrepTime: 20
 --- !u!4 &597923981 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1192356006355828947, guid: 233077d1c3123534894d786b51c05931, type: 3}
@@ -1196,6 +1209,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1103326458}
     - target: {fileID: 6120961312059531987, guid: ea00e41dd35558a4e80244e7d4fefa3b, type: 3}
+      propertyPath: prepFood
+      value: 
+      objectReference: {fileID: 1103326462}
+    - target: {fileID: 6120961312059531987, guid: ea00e41dd35558a4e80244e7d4fefa3b, type: 3}
+      propertyPath: dishScript
+      value: 
+      objectReference: {fileID: 681235169}
+    - target: {fileID: 6120961312059531987, guid: ea00e41dd35558a4e80244e7d4fefa3b, type: 3}
       propertyPath: visualItem
       value: 
       objectReference: {fileID: 1103326458}
@@ -1203,6 +1224,10 @@ PrefabInstance:
       propertyPath: colliderItem
       value: 
       objectReference: {fileID: 1103326457}
+    - target: {fileID: 6120961312059531987, guid: ea00e41dd35558a4e80244e7d4fefa3b, type: 3}
+      propertyPath: foodStatesScript
+      value: 
+      objectReference: {fileID: 681235168}
     - target: {fileID: 7400121166437340265, guid: ea00e41dd35558a4e80244e7d4fefa3b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.673
@@ -1269,12 +1294,37 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2010202543207471073, guid: ea00e41dd35558a4e80244e7d4fefa3b, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1103326461}
+    - targetCorrespondingSourceObject: {fileID: 2010202543207471073, guid: ea00e41dd35558a4e80244e7d4fefa3b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1103326462}
   m_SourcePrefab: {fileID: 100100000, guid: ea00e41dd35558a4e80244e7d4fefa3b, type: 3}
 --- !u!4 &681235167 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7400121166437340265, guid: ea00e41dd35558a4e80244e7d4fefa3b, type: 3}
   m_PrefabInstance: {fileID: 681235166}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &681235168 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4031044022882958226, guid: ea00e41dd35558a4e80244e7d4fefa3b, type: 3}
+  m_PrefabInstance: {fileID: 681235166}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1103326451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 657d5e239b201c9428e13ef1723e6417, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::foodStates
+--- !u!114 &681235169 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3036859865552859902, guid: ea00e41dd35558a4e80244e7d4fefa3b, type: 3}
+  m_PrefabInstance: {fileID: 681235166}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1103326451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c25edcd3b1858bc4b956ea2830501db8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Dishes
 --- !u!1 &741900374
 GameObject:
   m_ObjectHideFlags: 0
@@ -1813,6 +1863,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 484388378}
     - target: {fileID: 6120961312059531987, guid: ea00e41dd35558a4e80244e7d4fefa3b, type: 3}
+      propertyPath: prepFood
+      value: 
+      objectReference: {fileID: 484388382}
+    - target: {fileID: 6120961312059531987, guid: ea00e41dd35558a4e80244e7d4fefa3b, type: 3}
+      propertyPath: dishScript
+      value: 
+      objectReference: {fileID: 1005797405}
+    - target: {fileID: 6120961312059531987, guid: ea00e41dd35558a4e80244e7d4fefa3b, type: 3}
       propertyPath: visualItem
       value: 
       objectReference: {fileID: 484388378}
@@ -1820,6 +1878,10 @@ PrefabInstance:
       propertyPath: colliderItem
       value: 
       objectReference: {fileID: 484388377}
+    - target: {fileID: 6120961312059531987, guid: ea00e41dd35558a4e80244e7d4fefa3b, type: 3}
+      propertyPath: foodStatesScript
+      value: 
+      objectReference: {fileID: 1005797404}
     - target: {fileID: 7400121166437340265, guid: ea00e41dd35558a4e80244e7d4fefa3b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.696
@@ -1890,12 +1952,37 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2010202543207471073, guid: ea00e41dd35558a4e80244e7d4fefa3b, type: 3}
       insertIndex: -1
       addedObject: {fileID: 484388381}
+    - targetCorrespondingSourceObject: {fileID: 2010202543207471073, guid: ea00e41dd35558a4e80244e7d4fefa3b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 484388382}
   m_SourcePrefab: {fileID: 100100000, guid: ea00e41dd35558a4e80244e7d4fefa3b, type: 3}
 --- !u!4 &1005797403 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7400121166437340265, guid: ea00e41dd35558a4e80244e7d4fefa3b, type: 3}
   m_PrefabInstance: {fileID: 1005797402}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1005797404 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4031044022882958226, guid: ea00e41dd35558a4e80244e7d4fefa3b, type: 3}
+  m_PrefabInstance: {fileID: 1005797402}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 484388371}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 657d5e239b201c9428e13ef1723e6417, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::foodStates
+--- !u!114 &1005797405 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3036859865552859902, guid: ea00e41dd35558a4e80244e7d4fefa3b, type: 3}
+  m_PrefabInstance: {fileID: 1005797402}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 484388371}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c25edcd3b1858bc4b956ea2830501db8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Dishes
 --- !u!1 &1009190045
 GameObject:
   m_ObjectHideFlags: 0
@@ -2036,6 +2123,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 110959153d1acc044a5ae1ab0b6851c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::getState
+--- !u!114 &1103326462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1103326451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1dff312552c15a947b6b9687902fb302, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PrepFood
+  originalPrepTime: 20
 --- !u!1001 &1175507185
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2190,6 +2290,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 110959153d1acc044a5ae1ab0b6851c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::getState
+--- !u!114 &1332676665
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1332676654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1dff312552c15a947b6b9687902fb302, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PrepFood
+  originalPrepTime: 3
+--- !u!114 &1332676666 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4031044022882958226, guid: ea00e41dd35558a4e80244e7d4fefa3b, type: 3}
+  m_PrefabInstance: {fileID: 2133774521366368843}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1332676654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 657d5e239b201c9428e13ef1723e6417, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::foodStates
+--- !u!114 &1332676667 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3036859865552859902, guid: ea00e41dd35558a4e80244e7d4fefa3b, type: 3}
+  m_PrefabInstance: {fileID: 2133774521366368843}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1332676654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c25edcd3b1858bc4b956ea2830501db8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Dishes
 --- !u!1001 &1495402193
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2827,6 +2962,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6120961312059531987, guid: ea00e41dd35558a4e80244e7d4fefa3b, type: 3}
+      propertyPath: prepFood
+      value: 
+      objectReference: {fileID: 1332676665}
+    - target: {fileID: 6120961312059531987, guid: ea00e41dd35558a4e80244e7d4fefa3b, type: 3}
+      propertyPath: dishScript
+      value: 
+      objectReference: {fileID: 1332676667}
+    - target: {fileID: 6120961312059531987, guid: ea00e41dd35558a4e80244e7d4fefa3b, type: 3}
       propertyPath: visualItem
       value: 
       objectReference: {fileID: 1332676661}
@@ -2834,6 +2977,10 @@ PrefabInstance:
       propertyPath: colliderItem
       value: 
       objectReference: {fileID: 1332676660}
+    - target: {fileID: 6120961312059531987, guid: ea00e41dd35558a4e80244e7d4fefa3b, type: 3}
+      propertyPath: foodStatesScript
+      value: 
+      objectReference: {fileID: 1332676666}
     - target: {fileID: 7400121166437340265, guid: ea00e41dd35558a4e80244e7d4fefa3b, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.23
@@ -2895,15 +3042,16 @@ PrefabInstance:
       value: Braai
       objectReference: {fileID: 0}
     m_RemovedComponents:
-    - {fileID: 7682035275883537397, guid: ea00e41dd35558a4e80244e7d4fefa3b, type: 3}
-    - {fileID: 2709809599593822636, guid: ea00e41dd35558a4e80244e7d4fefa3b, type: 3}
     - {fileID: 1497871555917907566, guid: ea00e41dd35558a4e80244e7d4fefa3b, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 2010202543207471073, guid: ea00e41dd35558a4e80244e7d4fefa3b, type: 3}
-      insertIndex: -1
+      insertIndex: 5
       addedObject: {fileID: 1332676664}
+    - targetCorrespondingSourceObject: {fileID: 2010202543207471073, guid: ea00e41dd35558a4e80244e7d4fefa3b, type: 3}
+      insertIndex: 6
+      addedObject: {fileID: 1332676665}
   m_SourcePrefab: {fileID: 100100000, guid: ea00e41dd35558a4e80244e7d4fefa3b, type: 3}
 --- !u!4 &8905811905014709303 stripped
 Transform:

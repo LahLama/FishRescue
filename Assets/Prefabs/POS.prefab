@@ -12,10 +12,10 @@ GameObject:
   - component: {fileID: 2379663577900725296}
   - component: {fileID: 3157742398955064908}
   - component: {fileID: 7578470040179305404}
-  - component: {fileID: 2709809599593822636}
   - component: {fileID: 1497871555917907566}
-  - component: {fileID: 7682035275883537397}
+  - component: {fileID: 3036859865552859902}
   - component: {fileID: 6120961312059531987}
+  - component: {fileID: 4031044022882958226}
   m_Layer: 0
   m_Name: VisualItem
   m_TagString: Untagged
@@ -116,19 +116,6 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &2709809599593822636
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2010202543207471073}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 657d5e239b201c9428e13ef1723e6417, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::foodStates
-  currentState: 2
 --- !u!114 &1497871555917907566
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -141,14 +128,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 110959153d1acc044a5ae1ab0b6851c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::getState
---- !u!114 &7682035275883537397
+--- !u!114 &3036859865552859902
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2010202543207471073}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c25edcd3b1858bc4b956ea2830501db8, type: 3}
   m_Name: 
@@ -168,8 +155,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UpdatePOSitem
   visualItem: {fileID: 0}
+  colliderItem: {fileID: 0}
   dish: 0
   state: 0
+  dishScript: {fileID: 0}
+  foodStatesScript: {fileID: 0}
+  prepFood: {fileID: 0}
+--- !u!114 &4031044022882958226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2010202543207471073}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 657d5e239b201c9428e13ef1723e6417, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::foodStates
+  currentState: 0
 --- !u!1 &8397503453304377827
 GameObject:
   m_ObjectHideFlags: 0
