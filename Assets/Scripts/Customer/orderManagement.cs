@@ -22,6 +22,7 @@ public class orderManagement : MonoBehaviour
         for (var i = 0; i < Random.Range(1, attempts + 1); i++)
         {
             dishes.currentDish = dishes.getDish(Random.Range(startPoint, maxVal));
+
             // orderedMeals.Add(dishes.getDish(Random.Range(startPoint, maxVal)));
             allowedItems.onlyAllowedItems.Add(dishes.currentDish);
         }

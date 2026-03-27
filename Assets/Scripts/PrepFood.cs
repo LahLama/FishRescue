@@ -6,11 +6,12 @@ public class PrepFood : MonoBehaviour
     UpdatePOSitem updatePOSitem;
     float PrepTime;
     public float originalPrepTime = 20f;
-
+    SetFoodMaterials setFoodMaterials;
 
     void Awake()
     {
         updatePOSitem = GetComponent<UpdatePOSitem>();
+        setFoodMaterials = FindAnyObjectByType<SetFoodMaterials>();
         this.enabled = false;
     }
 
@@ -23,8 +24,9 @@ public class PrepFood : MonoBehaviour
     {
         PrepTime = originalPrepTime;
 
-
+        //Replace the current item with the same dish, just a differnt state
         updatePOSitem.AddItem(updatePOSitem.dish, foodStates.State.Preping);
+        setFoodMaterials.SetFoodMaterial(updatePOSitem.gameObject, updatePOSitem.state, updatePOSitem.dish);
 
         while (PrepTime > 0 && this.enabled)
         {
@@ -32,7 +34,15 @@ public class PrepFood : MonoBehaviour
             yield return null; // waits one frame, then continues
         }
         updatePOSitem.AddItem(updatePOSitem.dish, foodStates.State.Done);
+        setFoodMaterials.SetFoodMaterial(updatePOSitem.gameObject, updatePOSitem.state, updatePOSitem.dish);
+
         Debug.Log("Prep done!");
+
+        StartCoroutine(TrashCoolDown());
+    }
+
+    IEnumerator TrashCoolDown()
+    {
 
         PrepTime = originalPrepTime;
         while (PrepTime > 0 && this.enabled)
@@ -42,12 +52,14 @@ public class PrepFood : MonoBehaviour
         }
 
         updatePOSitem.AddItem(updatePOSitem.dish, foodStates.State.Trash);
+        setFoodMaterials.SetFoodMaterial(updatePOSitem.gameObject, updatePOSitem.state, updatePOSitem.dish);
+
         Debug.Log("Item is trashed!");
     }
 
     void OnDisable()
     {
-        StopCoroutine(PrepCountdown());
+        StopAllCoroutines();
         PrepTime = originalPrepTime;
     }
 
