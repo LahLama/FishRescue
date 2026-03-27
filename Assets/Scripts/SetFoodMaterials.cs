@@ -1,3 +1,4 @@
+using System.Collections.Specialized;
 using UnityEngine;
 
 public class SetFoodMaterials : MonoBehaviour
@@ -9,6 +10,15 @@ public class SetFoodMaterials : MonoBehaviour
     public Material raw_Beef;
     public Material preping_Beef;
     public Material done_Beef;
+    public Material raw_lamb;
+    public Material preping_lamb;
+    public Material done_lamb;
+    public Material raw_potato;
+    public Material preping_potato;
+    public Material done_potato;
+    public Material raw_salad;
+    public Material preping_salad;
+    public Material done_salad;
 
 
     public void SetFoodMaterial(GameObject obj, foodStates.State state, Dishes.Dish dish)
@@ -27,34 +37,60 @@ public class SetFoodMaterials : MonoBehaviour
                     case string c when c.ToLower().Contains("beef"):
                         obj.GetComponent<MeshRenderer>().material = raw_Beef;
                         break;
+                    case string d when d.ToLower().Contains("lamb"):
+                        obj.GetComponent<MeshRenderer>().material = raw_lamb;
+                        break;
+                    case string e when e.ToLower().Contains("potato"):
+                        obj.GetComponent<MeshRenderer>().material = raw_potato;
+                        break;
+                    case string f when f.ToLower().Contains("salad"):
+                        obj.GetComponent<MeshRenderer>().material = raw_salad;
+                        break;
                     default:
                         break;
                 }
                 break;
 
-            case string c when c.ToLower().Contains("preping"):
+            case string a when a.ToLower().Contains("preping"):
                 switch (msg)
                 {
-                    case string d when d.ToLower().Contains("chicken"):
+                    case string b when b.ToLower().Contains("chicken"):
                         obj.GetComponent<MeshRenderer>().material = preping_chicken;
                         break;
-                    case string e when e.ToLower().Contains("beef"):
+                    case string c when c.ToLower().Contains("beef"):
                         obj.GetComponent<MeshRenderer>().material = preping_Beef;
                         break;
+                    case string d when d.ToLower().Contains("lamb"):
+                        obj.GetComponent<MeshRenderer>().material = preping_lamb;
+                        break;
+                    case string e when e.ToLower().Contains("potato"):
+                        obj.GetComponent<MeshRenderer>().material = preping_potato;
+                        break;
+                    case string f when f.ToLower().Contains("salad"):
+                        obj.GetComponent<MeshRenderer>().material = preping_salad;
+                        break;
+
                     default:
                         break;
                 }
                 break;
-            case string d when d.ToLower().Contains("done"):
+            case string a when a.ToLower().Contains("done"):
                 switch (msg)
                 {
-                    case string e when e.ToLower().Contains("chicken"):
+                    case string b when b.ToLower().Contains("chicken"):
                         obj.GetComponent<MeshRenderer>().material = done_chicken;
                         break;
-                    case string f when f.ToLower().Contains("beef"):
+                    case string c when c.ToLower().Contains("beef"):
                         obj.GetComponent<MeshRenderer>().material = done_Beef;
                         break;
-                    default:
+                    case string d when d.ToLower().Contains("lamb"):
+                        obj.GetComponent<MeshRenderer>().material = done_lamb;
+                        break;
+                    case string e when e.ToLower().Contains("potato"):
+                        obj.GetComponent<MeshRenderer>().material = done_potato;
+                        break;
+                    case string f when f.ToLower().Contains("salad"):
+                        obj.GetComponent<MeshRenderer>().material = done_salad;
                         break;
                 }
                 break;

@@ -26,6 +26,7 @@ public class getState : MonoBehaviour, IInteractable
         if (!RHMeshRenderer.enabled)
         {
             RHMeshRenderer.enabled = true;
+            RHMeshRenderer.material = GetComponent<MeshRenderer>().material;
             RHFoodStates.SetState(col.GetComponent<foodStates>().currentState);
             RHDishes.setDish(col.GetComponent<Dishes>().currentDish);
             return null;
@@ -33,6 +34,7 @@ public class getState : MonoBehaviour, IInteractable
         if (!LHMeshRenderer.enabled)
         {
             LHMeshRenderer.enabled = true;
+            LHMeshRenderer.material = GetComponent<MeshRenderer>().material;
             LHFoodStates.SetState(col.GetComponent<foodStates>().currentState);
             LHDishes.setDish(col.GetComponent<Dishes>().currentDish);
             return null;

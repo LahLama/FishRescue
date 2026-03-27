@@ -997,6 +997,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5322687853954027415, guid: 233077d1c3123534894d786b51c05931, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 07020fd66ea519042892a2f938e0db00, type: 2}
     - target: {fileID: 8785077067800155706, guid: 233077d1c3123534894d786b51c05931, type: 3}
       propertyPath: m_Name
       value: item (5)
@@ -1046,7 +1050,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1dff312552c15a947b6b9687902fb302, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PrepFood
-  originalPrepTime: 20
+  originalPrepTime: 3
 --- !u!4 &597923981 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1192356006355828947, guid: 233077d1c3123534894d786b51c05931, type: 3}
@@ -1116,6 +1120,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5322687853954027415, guid: 233077d1c3123534894d786b51c05931, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 8f66eea5dd7de224cbce82ed3bf9588c, type: 2}
     - target: {fileID: 8785077067800155706, guid: 233077d1c3123534894d786b51c05931, type: 3}
       propertyPath: m_Name
       value: item (4)
@@ -1686,6 +1694,10 @@ PrefabInstance:
       propertyPath: currentState
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5322687853954027415, guid: 233077d1c3123534894d786b51c05931, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 960d54c667fcf0544b36f3ab88c9b4ad, type: 2}
     - target: {fileID: 8785077067800155706, guid: 233077d1c3123534894d786b51c05931, type: 3}
       propertyPath: m_Name
       value: item (2)
@@ -2135,7 +2147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1dff312552c15a947b6b9687902fb302, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PrepFood
-  originalPrepTime: 20
+  originalPrepTime: 4
 --- !u!1001 &1175507185
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2563,6 +2575,10 @@ PrefabInstance:
       propertyPath: currentState
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5322687853954027415, guid: 233077d1c3123534894d786b51c05931, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 5daf5bb5eddcdd6439189faba5145488, type: 2}
     - target: {fileID: 8785077067800155706, guid: 233077d1c3123534894d786b51c05931, type: 3}
       propertyPath: m_Name
       value: item (3)
@@ -2821,6 +2837,66 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1192356006355828947, guid: 233077d1c3123534894d786b51c05931, type: 3}
   m_PrefabInstance: {fileID: 618539072}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2046610119
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2046610121}
+  - component: {fileID: 2046610120}
+  m_Layer: 0
+  m_Name: MealMaterialManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2046610120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2046610119}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 919f084931b95fd45aaac5290308dc05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SetFoodMaterials
+  Trash: {fileID: 2100000, guid: b21276536f4bbce41966edb1ccf39131, type: 2}
+  raw_chicken: {fileID: 2100000, guid: c33bd3fe5d3c0f2469c89635dac5d8fc, type: 2}
+  preping_chicken: {fileID: 2100000, guid: df78d32c6f830d142ab94a84350ea862, type: 2}
+  done_chicken: {fileID: 2100000, guid: 44d4bd97567105d4ca95372759f84766, type: 2}
+  raw_Beef: {fileID: 2100000, guid: 960d54c667fcf0544b36f3ab88c9b4ad, type: 2}
+  preping_Beef: {fileID: 2100000, guid: bf130790b796d4448bce1af0517ccf63, type: 2}
+  done_Beef: {fileID: 2100000, guid: 3dc295c648a90594c93eb9f20c7cef61, type: 2}
+  raw_lamb: {fileID: 2100000, guid: 5daf5bb5eddcdd6439189faba5145488, type: 2}
+  preping_lamb: {fileID: 2100000, guid: ae94df5bfd3d7af439f0dc79b8b77afa, type: 2}
+  done_lamb: {fileID: 2100000, guid: f70c52c4663ae144ebf07aa78f32e011, type: 2}
+  raw_potato: {fileID: 2100000, guid: 07020fd66ea519042892a2f938e0db00, type: 2}
+  preping_potato: {fileID: 2100000, guid: b4cf8b9a25ae17a48a6029ab3c21524d, type: 2}
+  done_potato: {fileID: 2100000, guid: 0be60b15a92be3a4b862c2e8b20f3fac, type: 2}
+  raw_salad: {fileID: 2100000, guid: 8f66eea5dd7de224cbce82ed3bf9588c, type: 2}
+  preping_salad: {fileID: 2100000, guid: c95ff1ae53b9c7148bd9b04dc6b6c37e, type: 2}
+  done_salad: {fileID: 2100000, guid: 6bf84e2933318214dbcf031923d5ce25, type: 2}
+--- !u!4 &2046610121
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2046610119}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 8.81752, y: 0, z: 7.40704}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2090413710
 GameObject:
   m_ObjectHideFlags: 0
@@ -3072,3 +3148,4 @@ SceneRoots:
   - {fileID: 2143218523}
   - {fileID: 1796891520}
   - {fileID: 977045327}
+  - {fileID: 2046610121}

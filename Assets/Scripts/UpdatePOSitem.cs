@@ -42,6 +42,7 @@ public class UpdatePOSitem : MonoBehaviour, IInteractable
         visualItem.enabled = false;
         colliderItem.enabled = false;
         prepFood.enabled = false;
+        this.state = foodStates.State.Raw;
 
 
     }

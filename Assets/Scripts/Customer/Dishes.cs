@@ -38,7 +38,7 @@ public class Dishes : MonoBehaviour
         beef,
         lamb,
         potato,
-        green_salad,
+        salad,
 
     }
 
