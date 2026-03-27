@@ -3,18 +3,18 @@ using UnityEngine;
 
 public class GiveFood : MonoBehaviour, IInteractable
 {
-    GameObject leftHand;
+    // GameObject leftHand;
     GameObject rightHand;
-    Dishes LHDishes;
+    // Dishes LHDishes;
     Dishes RHDishes;
     MeshRenderer RHMeshRenderer;
-    MeshRenderer LHMeshRenderer;
+    // MeshRenderer LHMeshRenderer;
     foodStates RHfoodStates;
     void Awake()
     {
-        leftHand = GameObject.FindGameObjectWithTag("invL");
-        LHMeshRenderer = leftHand.GetComponent<MeshRenderer>();
-        LHDishes = leftHand.GetComponent<Dishes>();
+        // leftHand = GameObject.FindGameObjectWithTag("invL");
+        // LHMeshRenderer = leftHand.GetComponent<MeshRenderer>();
+        // LHDishes = leftHand.GetComponent<Dishes>();
         rightHand = GameObject.FindGameObjectWithTag("invR");
         RHMeshRenderer = rightHand.GetComponent<MeshRenderer>();
         RHDishes = rightHand.GetComponent<Dishes>();
@@ -24,13 +24,13 @@ public class GiveFood : MonoBehaviour, IInteractable
     public string Interact(Collider col)
     {
 
-        Dishes LHDish = leftHand.GetComponent<Dishes>();
+        // Dishes LHDish = leftHand.GetComponent<Dishes>();
         Dishes RHDish = rightHand.GetComponent<Dishes>();
         bool hasValidItemLeftHand = false;
         bool hasValidItemRightHand = false;
 
-        if (col.TryGetComponent<AllowedItems>(out var LHAllowed))
-            hasValidItemLeftHand = LHAllowed.queryDish(LHDish.currentDish);
+        // if (col.TryGetComponent<AllowedItems>(out var LHAllowed))
+        // hasValidItemLeftHand = LHAllowed.queryDish(LHDish.currentDish);
 
         if (col.TryGetComponent<AllowedItems>(out var RHAllowed))
             hasValidItemRightHand = RHAllowed.queryDish(RHDish.currentDish);
@@ -53,17 +53,17 @@ public class GiveFood : MonoBehaviour, IInteractable
                 canGiveItem = false;
                 return null;
             }
-            if (LHMeshRenderer.enabled)
-            {
-                if (col.transform.childCount > 0 && col.transform.GetChild(0).TryGetComponent<UpdatePOSitem>(out var updatePOSitem))
-                {
-                    updatePOSitem.AddItem(RHDish.currentDish, RHfoodStates.currentState);
-                }
-                LHMeshRenderer.enabled = false;
-                LHDishes.setDish(LHDishes.getDish(0));
-                canGiveItem = false;
-                return null;
-            }
+            // if (LHMeshRenderer.enabled)
+            // {
+            //     if (col.transform.childCount > 0 && col.transform.GetChild(0).TryGetComponent<UpdatePOSitem>(out var updatePOSitem))
+            //     {
+            //         updatePOSitem.AddItem(RHDish.currentDish, RHfoodStates.currentState);
+            //     }
+            //     LHMeshRenderer.enabled = false;
+            //     LHDishes.setDish(LHDishes.getDish(0));
+            //     canGiveItem = false;
+            //     return null;
+            // }
         }
         return null;
     }

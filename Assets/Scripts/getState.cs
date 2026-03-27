@@ -2,20 +2,20 @@ using UnityEngine;
 
 public class getState : MonoBehaviour, IInteractable
 {
-    GameObject leftHand;
+    // GameObject leftHand;
     GameObject rightHand;
-    Dishes LHDishes;
+    // Dishes LHDishes;
     Dishes RHDishes;
-    foodStates LHFoodStates;
+    // foodStates LHFoodStates;
     foodStates RHFoodStates;
     MeshRenderer RHMeshRenderer;
-    MeshRenderer LHMeshRenderer;
+    // MeshRenderer LHMeshRenderer;
     void Awake()
     {
-        leftHand = GameObject.FindGameObjectWithTag("invL");
-        LHMeshRenderer = leftHand.GetComponent<MeshRenderer>();
-        LHDishes = leftHand.GetComponent<Dishes>();
-        LHFoodStates = leftHand.GetComponent<foodStates>();
+        // leftHand = GameObject.FindGameObjectWithTag("invL");
+        // LHMeshRenderer = leftHand.GetComponent<MeshRenderer>();
+        // LHDishes = leftHand.GetComponent<Dishes>();
+        // LHFoodStates = leftHand.GetComponent<foodStates>();
         rightHand = GameObject.FindGameObjectWithTag("invR");
         RHMeshRenderer = rightHand.GetComponent<MeshRenderer>();
         RHDishes = rightHand.GetComponent<Dishes>();
@@ -31,14 +31,14 @@ public class getState : MonoBehaviour, IInteractable
             RHDishes.setDish(col.GetComponent<Dishes>().currentDish);
             return null;
         }
-        if (!LHMeshRenderer.enabled)
-        {
-            LHMeshRenderer.enabled = true;
-            LHMeshRenderer.material = GetComponent<MeshRenderer>().material;
-            LHFoodStates.SetState(col.GetComponent<foodStates>().currentState);
-            LHDishes.setDish(col.GetComponent<Dishes>().currentDish);
-            return null;
-        }
+        // if (!LHMeshRenderer.enabled)
+        // {
+        //     LHMeshRenderer.enabled = true;
+        //     LHMeshRenderer.material = GetComponent<MeshRenderer>().material;
+        //     LHFoodStates.SetState(col.GetComponent<foodStates>().currentState);
+        //     LHDishes.setDish(col.GetComponent<Dishes>().currentDish);
+        //     return null;
+        // }
 
         return null;
     }
