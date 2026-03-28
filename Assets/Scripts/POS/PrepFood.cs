@@ -22,11 +22,13 @@ public class PrepFood : MonoBehaviour
 
     void OnEnable()
     {
-        updatePOSitem.colliderItem.enabled = false; // Disable the collider when starting to prep food
+
         StartCoroutine(RawCountdown());
     }
     IEnumerator RawCountdown()
     {
+        updatePOSitem.colliderItem.enabled = true; // Enable the collider when food is still raw, allowing it to be interacted with (e.g., thrown in the trash)
+
         notReady.SetActive(true);
         ready.SetActive(false);
         trash.SetActive(false);
@@ -44,7 +46,10 @@ public class PrepFood : MonoBehaviour
             yield return null; // waits one frame, then continues
         }
 
+
+
         Debug.Log("Raw Done!");
+        updatePOSitem.colliderItem.enabled = false; // Disable the collider while food is being prepped, preventing it from being thrown in the trash during the prep phase
 
         StartCoroutine(PrepCountdown());
     }
@@ -97,6 +102,8 @@ public class PrepFood : MonoBehaviour
 
     void OnDisable()
     {
+        // if the player removes the item during the raw phase, stop the coroutine and disable the shake effect
+        shakePOS.enabled = false;
         notReady.SetActive(false);
         ready.SetActive(false);
         trash.SetActive(false);
