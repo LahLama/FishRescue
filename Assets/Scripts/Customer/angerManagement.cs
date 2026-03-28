@@ -17,6 +17,16 @@ public class angerManagement : MonoBehaviour
     public GameObject veryAngryParticles;
     public GameObject sucessParticles;
 
+    public enum AngerLevel
+    {
+        VeryCalm = 150,
+        Calm = 125,
+        Angry = 100,
+        VeryAngry = 75
+    }
+
+    public AngerLevel currentAngerLevel;
+
     public void startAnger()
     {
         plane.SetActive(true);
@@ -37,22 +47,30 @@ public class angerManagement : MonoBehaviour
         {
             switch (bar.transform.localScale.x)
             {
+                case float n when (n <= 0):
+                    // Debug.Log("Customer is gone");
+                    this.gameObject.SetActive(false);
+                    break;
                 case float n when (n <= angerOneFour):
                     // Debug.Log("Customer is very angry");
+                    currentAngerLevel = AngerLevel.VeryAngry;
                     angryParticles.SetActive(false);
                     veryAngryParticles.SetActive(true);
                     break;
                 case float n when (n > angerOneFour && n <= angerTwoFour):
+                    currentAngerLevel = AngerLevel.Angry;
                     // Debug.Log("Customer is getting angry");
                     calmParticles.SetActive(false);
                     angryParticles.SetActive(true);
                     break;
                 case float n when (n > angerTwoFour && n <= angerThreeFour):
+                    currentAngerLevel = AngerLevel.Calm;
                     // Debug.Log("Customer is calm");
                     veryCalmParticles.SetActive(false);
                     calmParticles.SetActive(true);
                     break;
                 default:
+                    currentAngerLevel = AngerLevel.VeryCalm;
                     // Debug.Log("Customer is very calm");
                     veryCalmParticles.SetActive(true);
                     break;

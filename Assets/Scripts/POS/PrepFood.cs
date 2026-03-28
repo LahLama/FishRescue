@@ -22,6 +22,7 @@ public class PrepFood : MonoBehaviour
 
     void OnEnable()
     {
+        updatePOSitem.colliderItem.enabled = false; // Disable the collider when starting to prep food
         StartCoroutine(RawCountdown());
     }
     IEnumerator RawCountdown()
@@ -64,6 +65,7 @@ public class PrepFood : MonoBehaviour
         ready.SetActive(true);
         trash.SetActive(false);
 
+        updatePOSitem.colliderItem.enabled = true; // Re-enable the collider when food is ready
         updatePOSitem.AddItem(updatePOSitem.dish, foodStates.State.Done);
         setFoodMaterials.SetFoodMaterial(updatePOSitem.gameObject, updatePOSitem.state, updatePOSitem.dish);
         shakePOS.enabled = false;
