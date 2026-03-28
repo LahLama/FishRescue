@@ -33,6 +33,7 @@ public class PrepFood : MonoBehaviour
         shakePOS.enabled = true;
         PrepTime = originalPrepTime / 2;
 
+
         //Replace the current item with the same dish, just a differnt state
         updatePOSitem.AddItem(updatePOSitem.dish, foodStates.State.Raw);
         setFoodMaterials.SetFoodMaterial(updatePOSitem.gameObject, updatePOSitem.state, updatePOSitem.dish);

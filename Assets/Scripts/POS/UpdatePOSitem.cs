@@ -23,7 +23,7 @@ public class UpdatePOSitem : MonoBehaviour, IInteractable
         foodStatesScript.currentState = newState;
 
         visualItem.enabled = true;
-        colliderItem.enabled = true;
+
         prepFood.enabled = true;
         getState = GetComponent<getState>();
 
