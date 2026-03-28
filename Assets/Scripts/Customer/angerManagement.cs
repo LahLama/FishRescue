@@ -48,12 +48,10 @@ public class angerManagement : MonoBehaviour
             switch (bar.transform.localScale.x)
             {
                 case float n when (n <= 0):
-                    // Debug.Log("Customer is gone");
-                    this.gameObject.SetActive(false);
+                    Debug.Log("Customer is gone");
+
                     break;
-                case float n when (n <= angerOneFour):
-                    // Debug.Log("Customer is very angry");
-                    currentAngerLevel = AngerLevel.VeryAngry;
+                case float n when (n <= angerOneFour && n > 0):
                     angryParticles.SetActive(false);
                     veryAngryParticles.SetActive(true);
                     break;
@@ -79,6 +77,11 @@ public class angerManagement : MonoBehaviour
 
             yield return new WaitForSeconds(angerStepTime);
             bar.transform.localScale = new Vector3(bar.transform.localScale.x - 0.1f, bar.transform.localScale.y, bar.transform.localScale.z);
+            if (bar.transform.localScale.x < 0)
+            {
+                bar.transform.localScale = new Vector3(0, bar.transform.localScale.y, bar.transform.localScale.z);
+                this.transform.parent.gameObject.SetActive(false);
+            }
             StartCoroutine(angerTimer());
         }
     }
