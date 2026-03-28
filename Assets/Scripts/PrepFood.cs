@@ -7,6 +7,9 @@ public class PrepFood : MonoBehaviour
     float PrepTime;
     public float originalPrepTime = 20f;
     SetFoodMaterials setFoodMaterials;
+    public GameObject notReady;
+    public GameObject ready;
+    public GameObject trash;
 
     void Awake()
     {
@@ -21,6 +24,9 @@ public class PrepFood : MonoBehaviour
     }
     IEnumerator RawCountdown()
     {
+        notReady.SetActive(true);
+        ready.SetActive(false);
+        trash.SetActive(false);
         PrepTime = originalPrepTime / 2;
 
         //Replace the current item with the same dish, just a differnt state
@@ -51,6 +57,10 @@ public class PrepFood : MonoBehaviour
             PrepTime -= Time.deltaTime;
             yield return null; // waits one frame, then continues
         }
+        notReady.SetActive(false);
+        ready.SetActive(true);
+        trash.SetActive(false);
+
         updatePOSitem.AddItem(updatePOSitem.dish, foodStates.State.Done);
         setFoodMaterials.SetFoodMaterial(updatePOSitem.gameObject, updatePOSitem.state, updatePOSitem.dish);
 
@@ -72,11 +82,18 @@ public class PrepFood : MonoBehaviour
         updatePOSitem.AddItem(updatePOSitem.dish, foodStates.State.Trash);
         setFoodMaterials.SetFoodMaterial(updatePOSitem.gameObject, updatePOSitem.state, updatePOSitem.dish);
 
+        notReady.SetActive(false);
+        ready.SetActive(false);
+        trash.SetActive(true);
+
         Debug.Log("Item is trashed!");
     }
 
     void OnDisable()
     {
+        notReady.SetActive(false);
+        ready.SetActive(false);
+        trash.SetActive(false);
         StopAllCoroutines();
         PrepTime = originalPrepTime;
     }

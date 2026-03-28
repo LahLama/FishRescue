@@ -1,35 +1,71 @@
 using System.Collections.Generic;
+using UnityEditor.Animations;
 using UnityEngine;
 
-public class orderManagement : MonoBehaviour
+public class orderManagement : MonoBehaviour, IInteractable
 {
     Dishes dishes;
     AllowedItems allowedItems;
+    SetFoodMaterials setFoodMaterials;
     List<Dishes.Dish> orderedMeals = new List<Dishes.Dish>();
 
-    void Awake()
+    public string Interact(Collider col)
     {
-        dishes = GameObject.FindFirstObjectByType<Dishes>();
-        allowedItems = GetComponent<AllowedItems>();
 
+        if (!this.enabled)
+        {
+            return null;
+        }
+        dishes = GetComponent<Dishes>();
+        if (dishes == null)
+        {
+            Debug.LogError("Dishes component not found on " + gameObject.name);
+            return null;
+        }
+        allowedItems = GetComponent<AllowedItems>();
+        if (allowedItems == null)
+        {
+            Debug.LogError("AllowedItems component not found on " + gameObject.name);
+            return null;
+        }
+        setFoodMaterials = FindAnyObjectByType<SetFoodMaterials>();
+        if (setFoodMaterials == null)
+        {
+            Debug.LogError("SetFoodMaterials component not");
+            return null;
+        }
         int attempts = 2;
         int startPoint = 3;
-        int maxVal = dishes.allDishes.Length;
+        // int maxVal = dishes.allDishes.Length;
+        int maxVal = 7 + 1;
 
 
-        dishes = GameObject.FindAnyObjectByType<Dishes>();
+
+
 
         for (var i = 0; i < Random.Range(1, attempts + 1); i++)
         {
             dishes.currentDish = dishes.getDish(Random.Range(startPoint, maxVal));
-
-            // orderedMeals.Add(dishes.getDish(Random.Range(startPoint, maxVal)));
             allowedItems.onlyAllowedItems.Add(dishes.currentDish);
+        }
+
+        // assumes no more than 2 orders 
+        for (int j = 0; j < allowedItems.onlyAllowedItems.Count; j++)
+        {
+            transform.GetChild(j).gameObject.SetActive(true);
+            dishes = transform.GetChild(j).GetComponent<Dishes>();
+            dishes.currentDish = allowedItems.onlyAllowedItems[j];
+            setFoodMaterials.SetCustomerPreview(transform.GetChild(j).gameObject, allowedItems.onlyAllowedItems[j]);
         }
 
         string msg = name + " has ordered " + allowedItems.listDishes();
         Debug.Log(msg);
+
+        this.enabled = false;
+        return null;
     }
+
+
 
 
 

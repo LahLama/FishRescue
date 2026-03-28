@@ -48,6 +48,11 @@ public class GiveFood : MonoBehaviour, IInteractable
                     if (RHfoodStates.currentState == foodStates.State.Raw)
                         updatePOSitem.AddItem(RHDish.currentDish, RHfoodStates.currentState);
                 }
+                if (col.transform.childCount > 0 && col.TryGetComponent<RemoveCustomerPreviews>(out var removeCustomerPreviews))
+                {
+                    removeCustomerPreviews.RemovePreview(RHDish.currentDish);
+                }
+
                 RHMeshRenderer.enabled = false;
                 RHDishes.setDish(RHDishes.getDish(0));
                 canGiveItem = false;

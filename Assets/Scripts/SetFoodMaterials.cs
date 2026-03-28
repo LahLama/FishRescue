@@ -21,6 +21,8 @@ public class SetFoodMaterials : MonoBehaviour
     public Material done_salad;
 
 
+
+
     public void SetFoodMaterial(GameObject obj, foodStates.State state, Dishes.Dish dish)
     {
         string msg = state.ToString() + "_" + dish.ToString();
@@ -29,6 +31,7 @@ public class SetFoodMaterials : MonoBehaviour
         switch (msg)
         {
             case string a when a.ToLower().Contains("raw"):
+
                 switch (msg)
                 {
                     case string b when b.ToLower().Contains("chicken"):
@@ -52,6 +55,7 @@ public class SetFoodMaterials : MonoBehaviour
                 break;
 
             case string a when a.ToLower().Contains("preping"):
+
                 switch (msg)
                 {
                     case string b when b.ToLower().Contains("chicken"):
@@ -75,6 +79,7 @@ public class SetFoodMaterials : MonoBehaviour
                 }
                 break;
             case string a when a.ToLower().Contains("done"):
+
                 switch (msg)
                 {
                     case string b when b.ToLower().Contains("chicken"):
@@ -96,9 +101,35 @@ public class SetFoodMaterials : MonoBehaviour
                 break;
 
             case string d when d.Contains("Trash"):
+
                 obj.GetComponent<MeshRenderer>().material = Trash;
                 break;
 
+            default:
+                break;
+        }
+
+    }
+
+    public void SetCustomerPreview(GameObject obj, Dishes.Dish dish)
+    {
+        switch (dish)
+        {
+            case Dishes.Dish.chicken:
+                obj.GetComponent<MeshRenderer>().material = done_chicken;
+                break;
+            case Dishes.Dish.beef:
+                obj.GetComponent<MeshRenderer>().material = done_Beef;
+                break;
+            case Dishes.Dish.lamb:
+                obj.GetComponent<MeshRenderer>().material = done_lamb;
+                break;
+            case Dishes.Dish.potato:
+                obj.GetComponent<MeshRenderer>().material = done_potato;
+                break;
+            case Dishes.Dish.salad:
+                obj.GetComponent<MeshRenderer>().material = done_salad;
+                break;
             default:
                 break;
         }
