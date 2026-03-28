@@ -1,16 +1,62 @@
+using System.Collections;
+using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 
 public class angerManagement : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    public GameObject bar;
+    float angerOneFour;
+    float angerTwoFour;
+    float angerThreeFour;
+    public float angerStepTime;
 
-    // Update is called once per frame
-    void Update()
+    public GameObject veryCalmParticles;
+    public GameObject calmParticles;
+    public GameObject angryParticles;
+    public GameObject veryAngryParticles;
+
+    public void startAnger()
     {
-        
+        float angerLevel = bar.transform.localScale.x;
+        angerOneFour = (1f / 4f) * bar.transform.localScale.x;
+        angerTwoFour = (2f / 4f) * bar.transform.localScale.x;
+        angerThreeFour = (3f / 4f) * bar.transform.localScale.x;
+
+        Debug.Log(angerOneFour + " " + angerTwoFour + " " + angerThreeFour + " " + angerLevel);
+
+        StartCoroutine(angerTimer());
+    }
+    public IEnumerator angerTimer()
+    {
+        if (bar.transform.localScale.x > 0)
+        {
+            switch (bar.transform.localScale.x)
+            {
+                case float n when (n <= angerOneFour):
+                    Debug.Log("Customer is very angry");
+                    angryParticles.SetActive(false);
+                    veryAngryParticles.SetActive(true);
+                    break;
+                case float n when (n > angerOneFour && n <= angerTwoFour):
+                    Debug.Log("Customer is getting angry");
+                    calmParticles.SetActive(false);
+                    angryParticles.SetActive(true);
+                    break;
+                case float n when (n > angerTwoFour && n <= angerThreeFour):
+                    Debug.Log("Customer is calm");
+                    veryCalmParticles.SetActive(false);
+                    calmParticles.SetActive(true);
+                    break;
+                default:
+                    Debug.Log("Customer is very calm");
+                    veryCalmParticles.SetActive(true);
+                    break;
+            }
+
+
+            yield return new WaitForSeconds(angerStepTime);
+            bar.transform.localScale = new Vector3(bar.transform.localScale.x - 0.1f, bar.transform.localScale.y, bar.transform.localScale.z);
+            StartCoroutine(angerTimer());
+        }
     }
 }

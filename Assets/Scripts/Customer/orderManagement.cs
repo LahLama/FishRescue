@@ -7,6 +7,7 @@ public class orderManagement : MonoBehaviour, IInteractable
     Dishes dishes;
     AllowedItems allowedItems;
     SetFoodMaterials setFoodMaterials;
+    public angerManagement angerManagement;
     List<Dishes.Dish> orderedMeals = new List<Dishes.Dish>();
 
     public string Interact(Collider col)
@@ -66,7 +67,15 @@ public class orderManagement : MonoBehaviour, IInteractable
     }
 
 
+    void OnDisable()
+    {
+        Debug.Log("A");
 
+        if (angerManagement != null)
+        {
+            angerManagement.startAnger();
+        }
+    }
 
 
 
