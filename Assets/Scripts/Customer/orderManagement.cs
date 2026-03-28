@@ -69,8 +69,6 @@ public class orderManagement : MonoBehaviour, IInteractable
 
     void OnDisable()
     {
-        Debug.Log("A");
-
         if (angerManagement != null)
         {
             angerManagement.startAnger();
