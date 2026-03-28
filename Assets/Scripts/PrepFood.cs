@@ -10,12 +10,14 @@ public class PrepFood : MonoBehaviour
     public GameObject notReady;
     public GameObject ready;
     public GameObject trash;
+    public ShakePOS shakePOS;
 
     void Awake()
     {
         updatePOSitem = GetComponent<UpdatePOSitem>();
         setFoodMaterials = FindAnyObjectByType<SetFoodMaterials>();
         this.enabled = false;
+        shakePOS.enabled = false;
     }
 
     void OnEnable()
@@ -27,6 +29,7 @@ public class PrepFood : MonoBehaviour
         notReady.SetActive(true);
         ready.SetActive(false);
         trash.SetActive(false);
+        shakePOS.enabled = true;
         PrepTime = originalPrepTime / 2;
 
         //Replace the current item with the same dish, just a differnt state
@@ -63,7 +66,7 @@ public class PrepFood : MonoBehaviour
 
         updatePOSitem.AddItem(updatePOSitem.dish, foodStates.State.Done);
         setFoodMaterials.SetFoodMaterial(updatePOSitem.gameObject, updatePOSitem.state, updatePOSitem.dish);
-
+        shakePOS.enabled = false;
         Debug.Log("Prep done!");
 
         StartCoroutine(TrashCoolDown());

@@ -47,6 +47,7 @@ public class GiveFood : MonoBehaviour, IInteractable
                 {
                     if (RHfoodStates.currentState == foodStates.State.Raw)
                         updatePOSitem.AddItem(RHDish.currentDish, RHfoodStates.currentState);
+
                 }
                 if (col.transform.childCount > 0 && col.TryGetComponent<RemoveCustomerPreviews>(out var removeCustomerPreviews))
                 {

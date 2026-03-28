@@ -889,6 +889,7 @@ MonoBehaviour:
   notReady: {fileID: 1005797408}
   ready: {fileID: 1005797407}
   trash: {fileID: 1005797406}
+  shakePOS: {fileID: 1808096189}
 --- !u!4 &511330229 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4265378416399858145, guid: a3ae5cc82b31aca438ed888b4f7aa63f, type: 3}
@@ -1364,6 +1365,17 @@ Transform:
   - {fileID: 1495402194}
   m_Father: {fileID: 2130132565}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &823213711 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4113678509763730908, guid: ea00e41dd35558a4e80244e7d4fefa3b, type: 3}
+  m_PrefabInstance: {fileID: 681235166}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3a944cce39fdef44af3b749d07ca40f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ShakePOS
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -2171,6 +2183,7 @@ MonoBehaviour:
   notReady: {fileID: 681235172}
   ready: {fileID: 681235171}
   trash: {fileID: 681235170}
+  shakePOS: {fileID: 823213711}
 --- !u!65 &1103326466
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2481,6 +2494,7 @@ MonoBehaviour:
   notReady: {fileID: 2056735562}
   ready: {fileID: 1178362014}
   trash: {fileID: 1031361505}
+  shakePOS: {fileID: 8905811905014709309}
 --- !u!114 &1332676666 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4031044022882958226, guid: ea00e41dd35558a4e80244e7d4fefa3b, type: 3}
@@ -2679,7 +2693,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bin
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4113678509763730908, guid: ea00e41dd35558a4e80244e7d4fefa3b, type: 3}
     m_RemovedGameObjects:
     - {fileID: 2010202543207471073, guid: ea00e41dd35558a4e80244e7d4fefa3b, type: 3}
     - {fileID: 374562637357503358, guid: ea00e41dd35558a4e80244e7d4fefa3b, type: 3}
@@ -3040,6 +3055,17 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1808096189 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4113678509763730908, guid: ea00e41dd35558a4e80244e7d4fefa3b, type: 3}
+  m_PrefabInstance: {fileID: 1005797402}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3a944cce39fdef44af3b749d07ca40f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ShakePOS
 --- !u!4 &1836917320 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1192356006355828947, guid: 233077d1c3123534894d786b51c05931, type: 3}
@@ -3546,6 +3572,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7400121166437340265, guid: ea00e41dd35558a4e80244e7d4fefa3b, type: 3}
   m_PrefabInstance: {fileID: 2133774521366368843}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8905811905014709309 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4113678509763730908, guid: ea00e41dd35558a4e80244e7d4fefa3b, type: 3}
+  m_PrefabInstance: {fileID: 2133774521366368843}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3a944cce39fdef44af3b749d07ca40f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ShakePOS
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
