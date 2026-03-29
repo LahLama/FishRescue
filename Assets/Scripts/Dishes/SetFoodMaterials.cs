@@ -30,8 +30,20 @@ public class SetFoodMaterials : MonoBehaviour
 
         switch (msg)
         {
-            case string a when a.ToLower().Contains("raw"):
+            case string z when z.ToLower().Contains("unwashed"):
+                switch (msg)
+                {
+                    case string b when b.ToLower().Contains("potato"):
+                        obj.GetComponent<MeshRenderer>().material = raw_potato;
+                        break;
+                    case string c when c.ToLower().Contains("lettuce"):
+                        obj.GetComponent<MeshRenderer>().material = raw_salad;
+                        break;
+                }
+                break;
 
+
+            case string a when a.ToLower().Contains("raw"):
                 switch (msg)
                 {
                     case string b when b.ToLower().Contains("chicken"):
