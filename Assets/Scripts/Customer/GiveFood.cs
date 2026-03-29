@@ -45,8 +45,10 @@ public class GiveFood : MonoBehaviour, IInteractable
                 // If there is a child that has "UpdatePosItem, then you are interacting with a Point of Service.
                 if (col.transform.childCount > 0 && col.transform.GetChild(0).TryGetComponent<UpdatePOSitem>(out var updatePOSitem))
                 {
-                    if (RHfoodStates.currentState == foodStates.State.Raw)
+                    if (RHfoodStates.currentState == foodStates.State.Raw || (this.tag == "noChange" && RHfoodStates.currentState == foodStates.State.UnWashed))
                         updatePOSitem.AddItem(RHDish.currentDish, RHfoodStates.currentState);
+                    else
+                        return null;
 
                 }
                 if (col.transform.childCount > 0 && col.TryGetComponent<RemoveCustomerPreviews>(out var removeCustomerPreviews))

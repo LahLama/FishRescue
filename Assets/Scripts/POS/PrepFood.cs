@@ -1,4 +1,5 @@
 using System.Collections;
+using TMPro;
 using UnityEngine;
 
 public class PrepFood : MonoBehaviour
@@ -22,9 +23,38 @@ public class PrepFood : MonoBehaviour
 
     void OnEnable()
     {
-
-        StartCoroutine(RawCountdown());
+        if (this.tag == "noChange")
+        {
+            StartCoroutine(WashCountdown());
+            Debug.Log("Washing item!");
+            return;
+        }
+        else
+            StartCoroutine(RawCountdown());
     }
+
+    IEnumerator WashCountdown()
+    {
+        PrepTime = originalPrepTime / 2;
+        shakePOS.enabled = true;
+        //Replace the current item with the same dish, just a differnt state
+        updatePOSitem.AddItem(updatePOSitem.dish, foodStates.State.UnWashed);
+        updatePOSitem.colliderItem.enabled = false;
+        setFoodMaterials.SetFoodMaterial(updatePOSitem.gameObject, updatePOSitem.state, updatePOSitem.dish);
+
+        while (PrepTime > 0 && this.enabled)
+        {
+            PrepTime -= Time.deltaTime;
+            yield return null; // waits one frame, then continues
+        }
+        updatePOSitem.AddItem(updatePOSitem.dish, foodStates.State.Raw);
+        shakePOS.enabled = false;
+        updatePOSitem.colliderItem.enabled = true;
+        ready.SetActive(true);
+        Debug.Log("Wash Done!");
+
+    }
+
     IEnumerator RawCountdown()
     {
         updatePOSitem.colliderItem.enabled = true; // Enable the collider when food is still raw, allowing it to be interacted with (e.g., thrown in the trash)
