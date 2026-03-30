@@ -16,6 +16,10 @@ public class angerManagement : MonoBehaviour
     public GameObject angryParticles;
     public GameObject veryAngryParticles;
     public GameObject sucessParticles;
+    public Material veryCalmMat;
+    public Material calmMat;
+    public Material angryMat;
+    public Material veryAngryMat;
 
     public enum AngerLevel
     {
@@ -29,8 +33,7 @@ public class angerManagement : MonoBehaviour
 
     public void startAnger()
     {
-        plane.SetActive(true);
-        bar.SetActive(true);
+
 
         float angerLevel = bar.transform.localScale.x;
         angerOneFour = (1f / 4f) * angerLevel;
@@ -43,6 +46,9 @@ public class angerManagement : MonoBehaviour
     }
     public IEnumerator angerTimer()
     {
+        plane.SetActive(true);
+        bar.SetActive(true);
+
         if (bar.transform.localScale.x > 0)
         {
             switch (bar.transform.localScale.x)
@@ -52,17 +58,21 @@ public class angerManagement : MonoBehaviour
 
                     break;
                 case float n when (n <= angerOneFour && n > 0):
+                    currentAngerLevel = AngerLevel.VeryAngry;
                     angryParticles.SetActive(false);
                     veryAngryParticles.SetActive(true);
+                    bar.GetComponent<MeshRenderer>().material = veryAngryMat;
                     break;
                 case float n when (n > angerOneFour && n <= angerTwoFour):
                     currentAngerLevel = AngerLevel.Angry;
+                    bar.GetComponent<MeshRenderer>().material = angryMat;
                     // Debug.Log("Customer is getting angry");
                     calmParticles.SetActive(false);
                     angryParticles.SetActive(true);
                     break;
                 case float n when (n > angerTwoFour && n <= angerThreeFour):
                     currentAngerLevel = AngerLevel.Calm;
+                    bar.GetComponent<MeshRenderer>().material = calmMat;
                     // Debug.Log("Customer is calm");
                     veryCalmParticles.SetActive(false);
                     calmParticles.SetActive(true);
@@ -71,6 +81,7 @@ public class angerManagement : MonoBehaviour
                     currentAngerLevel = AngerLevel.VeryCalm;
                     // Debug.Log("Customer is very calm");
                     veryCalmParticles.SetActive(true);
+                    bar.GetComponent<MeshRenderer>().material = veryCalmMat;
                     break;
             }
 
