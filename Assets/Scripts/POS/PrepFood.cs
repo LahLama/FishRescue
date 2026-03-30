@@ -12,9 +12,13 @@ public class PrepFood : MonoBehaviour
     public GameObject ready;
     public GameObject trash;
     public ShakePOS shakePOS;
+    SoundPlayer soundPlayer;
+    AudioSource audioSource;
 
     void Awake()
     {
+        soundPlayer = FindAnyObjectByType<SoundPlayer>();
+        audioSource = GetComponentInParent<AudioSource>();
         updatePOSitem = GetComponent<UpdatePOSitem>();
         setFoodMaterials = FindAnyObjectByType<SetFoodMaterials>();
         this.enabled = false;
@@ -35,6 +39,9 @@ public class PrepFood : MonoBehaviour
 
     IEnumerator WashCountdown()
     {
+        //play the sound that is attached to the parent object (the POS counter) when the washing process starts, and stop it when the washing process ends
+
+        soundPlayer.PlaySound(audioSource);
         PrepTime = originalPrepTime / 2;
         shakePOS.enabled = true;
         //Replace the current item with the same dish, just a differnt state
@@ -51,6 +58,7 @@ public class PrepFood : MonoBehaviour
         shakePOS.enabled = false;
         updatePOSitem.colliderItem.enabled = true;
         ready.SetActive(true);
+        soundPlayer.StopSound(audioSource);
         Debug.Log("Wash Done!");
 
     }
@@ -58,7 +66,7 @@ public class PrepFood : MonoBehaviour
     IEnumerator RawCountdown()
     {
         updatePOSitem.colliderItem.enabled = true; // Enable the collider when food is still raw, allowing it to be interacted with (e.g., thrown in the trash)
-
+        soundPlayer.PlaySound(audioSource);
         notReady.SetActive(true);
         ready.SetActive(false);
         trash.SetActive(false);
@@ -106,7 +114,7 @@ public class PrepFood : MonoBehaviour
         setFoodMaterials.SetFoodMaterial(updatePOSitem.gameObject, updatePOSitem.state, updatePOSitem.dish);
         shakePOS.enabled = false;
         Debug.Log("Prep done!");
-
+        soundPlayer.StopSound(audioSource);
         StartCoroutine(TrashCoolDown());
     }
 

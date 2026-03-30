@@ -1,23 +1,27 @@
+using System;
 using UnityEngine;
 
-public class SoundPlayer : MonoBehaviour, IInteractable
+public class SoundPlayer : MonoBehaviour
 {
     public AudioSource audioSource;
-    public AudioClip audioClip;
 
-    void Awake()
+
+    public enum soundList
     {
-        audioSource = GetComponent<AudioSource>();
-        audioClip = audioSource.clip;
+        water = 0
     }
-    public string Interact(Collider col)
+
+    public string PlaySound(AudioSource source)
     {
-        PlaySound();
+        // Play the sound at the collider's position
+        source.Play();
+
+
         return null;
     }
 
-    public void PlaySound()
+    public void StopSound(AudioSource source)
     {
-        
+        source.Stop();
     }
 }
