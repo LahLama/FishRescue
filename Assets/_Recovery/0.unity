@@ -505,37 +505,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1563481209}
     m_Modifications:
-    - target: {fileID: 1647058139997486798, guid: a039304eaf96d5a4289ad1e72f779513, type: 3}
-      propertyPath: m_text
-      value: LETTUCE
-      objectReference: {fileID: 0}
-    - target: {fileID: 1647058139997486798, guid: a039304eaf96d5a4289ad1e72f779513, type: 3}
-      propertyPath: m_fontColor.b
-      value: 0.03875134
-      objectReference: {fileID: 0}
-    - target: {fileID: 1647058139997486798, guid: a039304eaf96d5a4289ad1e72f779513, type: 3}
-      propertyPath: m_fontColor.g
-      value: 0.4943396
-      objectReference: {fileID: 0}
-    - target: {fileID: 1647058139997486798, guid: a039304eaf96d5a4289ad1e72f779513, type: 3}
-      propertyPath: m_fontColor.r
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1647058139997486798, guid: a039304eaf96d5a4289ad1e72f779513, type: 3}
-      propertyPath: m_fontColor32.rgba
-      value: 4278877696
-      objectReference: {fileID: 0}
     - target: {fileID: 1703218275117577301, guid: a039304eaf96d5a4289ad1e72f779513, type: 3}
       propertyPath: m_Name
       value: LettuceRaw
-      objectReference: {fileID: 0}
-    - target: {fileID: 6188860940743816941, guid: a039304eaf96d5a4289ad1e72f779513, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -0.134
-      objectReference: {fileID: 0}
-    - target: {fileID: 6188860940743816941, guid: a039304eaf96d5a4289ad1e72f779513, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -0.166
       objectReference: {fileID: 0}
     - target: {fileID: 6702005490236242527, guid: a039304eaf96d5a4289ad1e72f779513, type: 3}
       propertyPath: m_LocalScale.x
@@ -593,7 +565,7 @@ PrefabInstance:
       propertyPath: m_text
       value: 'Reminder!
 
-        DO NOT PULL, genty TAKE ________ OUT'
+        DO NOT PULL, genty TAKE LETTUCE OUT'
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2100,33 +2072,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1563481209}
     m_Modifications:
-    - target: {fileID: 1647058139997486798, guid: a039304eaf96d5a4289ad1e72f779513, type: 3}
-      propertyPath: m_text
-      value: TRASH.
-      objectReference: {fileID: 0}
-    - target: {fileID: 1647058139997486798, guid: a039304eaf96d5a4289ad1e72f779513, type: 3}
-      propertyPath: m_fontColor.b
-      value: 0.19886792
-      objectReference: {fileID: 0}
-    - target: {fileID: 1647058139997486798, guid: a039304eaf96d5a4289ad1e72f779513, type: 3}
-      propertyPath: m_fontColor.g
-      value: 0.19886792
-      objectReference: {fileID: 0}
-    - target: {fileID: 1647058139997486798, guid: a039304eaf96d5a4289ad1e72f779513, type: 3}
-      propertyPath: m_fontColor.r
-      value: 0.19999999
-      objectReference: {fileID: 0}
-    - target: {fileID: 1647058139997486798, guid: a039304eaf96d5a4289ad1e72f779513, type: 3}
-      propertyPath: m_fontColor32.rgba
-      value: 4281545523
-      objectReference: {fileID: 0}
     - target: {fileID: 1703218275117577301, guid: a039304eaf96d5a4289ad1e72f779513, type: 3}
       propertyPath: m_Name
       value: Bin
-      objectReference: {fileID: 0}
-    - target: {fileID: 6188860940743816941, guid: a039304eaf96d5a4289ad1e72f779513, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -0.114
       objectReference: {fileID: 0}
     - target: {fileID: 6702005490236242527, guid: a039304eaf96d5a4289ad1e72f779513, type: 3}
       propertyPath: m_LocalScale.x
@@ -2184,7 +2132,7 @@ PrefabInstance:
       propertyPath: m_text
       value: 'Reminder!
 
-        THROW AWAY ______. WE SERVE ONLY THE BEST!'
+        THROW AWAY TRASH. WE SERVE ONLY THE BEST!'
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2697,37 +2645,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1563481209}
     m_Modifications:
-    - target: {fileID: 1647058139997486798, guid: a039304eaf96d5a4289ad1e72f779513, type: 3}
-      propertyPath: m_text
-      value: MEATS
-      objectReference: {fileID: 0}
-    - target: {fileID: 1647058139997486798, guid: a039304eaf96d5a4289ad1e72f779513, type: 3}
-      propertyPath: m_fontColor.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1647058139997486798, guid: a039304eaf96d5a4289ad1e72f779513, type: 3}
-      propertyPath: m_fontColor.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1647058139997486798, guid: a039304eaf96d5a4289ad1e72f779513, type: 3}
-      propertyPath: m_fontColor.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1647058139997486798, guid: a039304eaf96d5a4289ad1e72f779513, type: 3}
-      propertyPath: m_fontColor32.rgba
-      value: 4278190335
-      objectReference: {fileID: 0}
     - target: {fileID: 1703218275117577301, guid: a039304eaf96d5a4289ad1e72f779513, type: 3}
       propertyPath: m_Name
       value: Braai (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6188860940743816941, guid: a039304eaf96d5a4289ad1e72f779513, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0.053
-      objectReference: {fileID: 0}
-    - target: {fileID: 6188860940743816941, guid: a039304eaf96d5a4289ad1e72f779513, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0.112
       objectReference: {fileID: 0}
     - target: {fileID: 6702005490236242527, guid: a039304eaf96d5a4289ad1e72f779513, type: 3}
       propertyPath: m_LocalScale.x
@@ -2780,15 +2700,6 @@ PrefabInstance:
     - target: {fileID: 6702005490236242527, guid: a039304eaf96d5a4289ad1e72f779513, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8489508858406599730, guid: a039304eaf96d5a4289ad1e72f779513, type: 3}
-      propertyPath: m_text
-      value: 'Reminder!
-
-        ONLY ______ ON THE BRAAI
-
-        NO POTATOES OR
-        LETTUCE'
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4089,37 +4000,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1563481209}
     m_Modifications:
-    - target: {fileID: 1647058139997486798, guid: a039304eaf96d5a4289ad1e72f779513, type: 3}
-      propertyPath: m_text
-      value: POTATO
-      objectReference: {fileID: 0}
-    - target: {fileID: 1647058139997486798, guid: a039304eaf96d5a4289ad1e72f779513, type: 3}
-      propertyPath: m_fontColor.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1647058139997486798, guid: a039304eaf96d5a4289ad1e72f779513, type: 3}
-      propertyPath: m_fontColor.g
-      value: 0.3127449
-      objectReference: {fileID: 0}
-    - target: {fileID: 1647058139997486798, guid: a039304eaf96d5a4289ad1e72f779513, type: 3}
-      propertyPath: m_fontColor.r
-      value: 0.6679245
-      objectReference: {fileID: 0}
-    - target: {fileID: 1647058139997486798, guid: a039304eaf96d5a4289ad1e72f779513, type: 3}
-      propertyPath: m_fontColor32.rgba
-      value: 4278210730
-      objectReference: {fileID: 0}
     - target: {fileID: 1703218275117577301, guid: a039304eaf96d5a4289ad1e72f779513, type: 3}
       propertyPath: m_Name
       value: PotatoRaw
-      objectReference: {fileID: 0}
-    - target: {fileID: 6188860940743816941, guid: a039304eaf96d5a4289ad1e72f779513, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -0.133
-      objectReference: {fileID: 0}
-    - target: {fileID: 6188860940743816941, guid: a039304eaf96d5a4289ad1e72f779513, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -0.172
       objectReference: {fileID: 0}
     - target: {fileID: 6702005490236242527, guid: a039304eaf96d5a4289ad1e72f779513, type: 3}
       propertyPath: m_LocalScale.x
@@ -4177,7 +4060,7 @@ PrefabInstance:
       propertyPath: m_text
       value: 'Reminder!
 
-        DO NOT PULL, genty TAKE _______ OUT'
+        DO NOT PULL, genty TAKE POTATO OUT'
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4262,37 +4145,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1563481209}
     m_Modifications:
-    - target: {fileID: 1647058139997486798, guid: a039304eaf96d5a4289ad1e72f779513, type: 3}
-      propertyPath: m_text
-      value: HAPPY
-      objectReference: {fileID: 0}
-    - target: {fileID: 1647058139997486798, guid: a039304eaf96d5a4289ad1e72f779513, type: 3}
-      propertyPath: m_fontColor.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1647058139997486798, guid: a039304eaf96d5a4289ad1e72f779513, type: 3}
-      propertyPath: m_fontColor.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1647058139997486798, guid: a039304eaf96d5a4289ad1e72f779513, type: 3}
-      propertyPath: m_fontColor.r
-      value: 0.07630861
-      objectReference: {fileID: 0}
-    - target: {fileID: 1647058139997486798, guid: a039304eaf96d5a4289ad1e72f779513, type: 3}
-      propertyPath: m_fontColor32.rgba
-      value: 4278255379
-      objectReference: {fileID: 0}
     - target: {fileID: 1703218275117577301, guid: a039304eaf96d5a4289ad1e72f779513, type: 3}
       propertyPath: m_Name
       value: Customers
-      objectReference: {fileID: 0}
-    - target: {fileID: 6188860940743816941, guid: a039304eaf96d5a4289ad1e72f779513, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0.245
-      objectReference: {fileID: 0}
-    - target: {fileID: 6188860940743816941, guid: a039304eaf96d5a4289ad1e72f779513, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0.184
       objectReference: {fileID: 0}
     - target: {fileID: 6702005490236242527, guid: a039304eaf96d5a4289ad1e72f779513, type: 3}
       propertyPath: m_LocalScale.x
@@ -4348,7 +4203,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8489508858406599730, guid: a039304eaf96d5a4289ad1e72f779513, type: 3}
       propertyPath: m_text
-      value: "Reminder!\nWe want ______ customers. Serve them as quickly as you CAN.
+      value: "Reminder!\nWe want HAPPY customers. Serve them as quickly as you CAN.
         \nYOU MUST."
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -4600,37 +4455,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1563481209}
     m_Modifications:
-    - target: {fileID: 1647058139997486798, guid: a039304eaf96d5a4289ad1e72f779513, type: 3}
-      propertyPath: m_text
-      value: WASH
-      objectReference: {fileID: 0}
-    - target: {fileID: 1647058139997486798, guid: a039304eaf96d5a4289ad1e72f779513, type: 3}
-      propertyPath: m_fontColor.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1647058139997486798, guid: a039304eaf96d5a4289ad1e72f779513, type: 3}
-      propertyPath: m_fontColor.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1647058139997486798, guid: a039304eaf96d5a4289ad1e72f779513, type: 3}
-      propertyPath: m_fontColor.r
-      value: 0.11998272
-      objectReference: {fileID: 0}
-    - target: {fileID: 1647058139997486798, guid: a039304eaf96d5a4289ad1e72f779513, type: 3}
-      propertyPath: m_fontColor32.rgba
-      value: 4294901791
-      objectReference: {fileID: 0}
     - target: {fileID: 1703218275117577301, guid: a039304eaf96d5a4289ad1e72f779513, type: 3}
       propertyPath: m_Name
       value: WasherBasin
-      objectReference: {fileID: 0}
-    - target: {fileID: 6188860940743816941, guid: a039304eaf96d5a4289ad1e72f779513, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -0.126
-      objectReference: {fileID: 0}
-    - target: {fileID: 6188860940743816941, guid: a039304eaf96d5a4289ad1e72f779513, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0.063
       objectReference: {fileID: 0}
     - target: {fileID: 6702005490236242527, guid: a039304eaf96d5a4289ad1e72f779513, type: 3}
       propertyPath: m_LocalScale.x
@@ -4688,7 +4515,7 @@ PrefabInstance:
       propertyPath: m_text
       value: 'Reminder!
 
-        _____ THE POTATOES AND LETTUCE OFF'
+        WASH THE POTATOES AND LETTUCE OFF'
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6009,37 +5836,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1563481209}
     m_Modifications:
-    - target: {fileID: 1647058139997486798, guid: a039304eaf96d5a4289ad1e72f779513, type: 3}
-      propertyPath: m_text
-      value: COOK
-      objectReference: {fileID: 0}
-    - target: {fileID: 1647058139997486798, guid: a039304eaf96d5a4289ad1e72f779513, type: 3}
-      propertyPath: m_fontColor.b
-      value: 0.094645746
-      objectReference: {fileID: 0}
-    - target: {fileID: 1647058139997486798, guid: a039304eaf96d5a4289ad1e72f779513, type: 3}
-      propertyPath: m_fontColor.g
-      value: 0.25805184
-      objectReference: {fileID: 0}
-    - target: {fileID: 1647058139997486798, guid: a039304eaf96d5a4289ad1e72f779513, type: 3}
-      propertyPath: m_fontColor.r
-      value: 0.79622644
-      objectReference: {fileID: 0}
-    - target: {fileID: 1647058139997486798, guid: a039304eaf96d5a4289ad1e72f779513, type: 3}
-      propertyPath: m_fontColor32.rgba
-      value: 4279780043
-      objectReference: {fileID: 0}
     - target: {fileID: 1703218275117577301, guid: a039304eaf96d5a4289ad1e72f779513, type: 3}
       propertyPath: m_Name
       value: meatRaw
-      objectReference: {fileID: 0}
-    - target: {fileID: 6188860940743816941, guid: a039304eaf96d5a4289ad1e72f779513, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -0.302
-      objectReference: {fileID: 0}
-    - target: {fileID: 6188860940743816941, guid: a039304eaf96d5a4289ad1e72f779513, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0.123
       objectReference: {fileID: 0}
     - target: {fileID: 6702005490236242527, guid: a039304eaf96d5a4289ad1e72f779513, type: 3}
       propertyPath: m_LocalScale.x
@@ -6101,7 +5900,7 @@ PrefabInstance:
       propertyPath: m_text
       value: 'Reminder!
 
-        _____ THE MEAT!
+        COOK THE MEAT!
 
         DON''T SERVE RAW MEAT TO
         CUSTOMERS'
@@ -6136,45 +5935,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1563481209}
     m_Modifications:
-    - target: {fileID: 1647058139997486798, guid: a039304eaf96d5a4289ad1e72f779513, type: 3}
-      propertyPath: m_text
-      value: 'POTATOES '
-      objectReference: {fileID: 0}
-    - target: {fileID: 1647058139997486798, guid: a039304eaf96d5a4289ad1e72f779513, type: 3}
-      propertyPath: m_fontSize
-      value: 0.9
-      objectReference: {fileID: 0}
-    - target: {fileID: 1647058139997486798, guid: a039304eaf96d5a4289ad1e72f779513, type: 3}
-      propertyPath: m_fontColor.b
-      value: 0.075849034
-      objectReference: {fileID: 0}
-    - target: {fileID: 1647058139997486798, guid: a039304eaf96d5a4289ad1e72f779513, type: 3}
-      propertyPath: m_fontColor.g
-      value: 0.37971365
-      objectReference: {fileID: 0}
-    - target: {fileID: 1647058139997486798, guid: a039304eaf96d5a4289ad1e72f779513, type: 3}
-      propertyPath: m_fontColor.r
-      value: 0.5999999
-      objectReference: {fileID: 0}
-    - target: {fileID: 1647058139997486798, guid: a039304eaf96d5a4289ad1e72f779513, type: 3}
-      propertyPath: m_fontSizeBase
-      value: 0.9
-      objectReference: {fileID: 0}
-    - target: {fileID: 1647058139997486798, guid: a039304eaf96d5a4289ad1e72f779513, type: 3}
-      propertyPath: m_fontColor32.rgba
-      value: 4279460249
-      objectReference: {fileID: 0}
     - target: {fileID: 1703218275117577301, guid: a039304eaf96d5a4289ad1e72f779513, type: 3}
       propertyPath: m_Name
       value: PotatoPrep
-      objectReference: {fileID: 0}
-    - target: {fileID: 6188860940743816941, guid: a039304eaf96d5a4289ad1e72f779513, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0.192
-      objectReference: {fileID: 0}
-    - target: {fileID: 6188860940743816941, guid: a039304eaf96d5a4289ad1e72f779513, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0.111
       objectReference: {fileID: 0}
     - target: {fileID: 6702005490236242527, guid: a039304eaf96d5a4289ad1e72f779513, type: 3}
       propertyPath: m_LocalScale.x
@@ -6232,7 +5995,7 @@ PrefabInstance:
       propertyPath: m_text
       value: 'Reminder!
 
-        WASH ________ BEFORE PREPPING THEM HERE'
+        WASH POTATOES BEFORE PREPPING THEM HERE'
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6378,45 +6141,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1563481209}
     m_Modifications:
-    - target: {fileID: 1647058139997486798, guid: a039304eaf96d5a4289ad1e72f779513, type: 3}
-      propertyPath: m_text
-      value: LETTUCE
-      objectReference: {fileID: 0}
-    - target: {fileID: 1647058139997486798, guid: a039304eaf96d5a4289ad1e72f779513, type: 3}
-      propertyPath: m_fontSize
-      value: 0.9
-      objectReference: {fileID: 0}
-    - target: {fileID: 1647058139997486798, guid: a039304eaf96d5a4289ad1e72f779513, type: 3}
-      propertyPath: m_fontColor.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1647058139997486798, guid: a039304eaf96d5a4289ad1e72f779513, type: 3}
-      propertyPath: m_fontColor.g
-      value: 0.554717
-      objectReference: {fileID: 0}
-    - target: {fileID: 1647058139997486798, guid: a039304eaf96d5a4289ad1e72f779513, type: 3}
-      propertyPath: m_fontColor.r
-      value: 0.015141857
-      objectReference: {fileID: 0}
-    - target: {fileID: 1647058139997486798, guid: a039304eaf96d5a4289ad1e72f779513, type: 3}
-      propertyPath: m_fontSizeBase
-      value: 0.9
-      objectReference: {fileID: 0}
-    - target: {fileID: 1647058139997486798, guid: a039304eaf96d5a4289ad1e72f779513, type: 3}
-      propertyPath: m_fontColor32.rgba
-      value: 4278226180
-      objectReference: {fileID: 0}
     - target: {fileID: 1703218275117577301, guid: a039304eaf96d5a4289ad1e72f779513, type: 3}
       propertyPath: m_Name
       value: LettucePrep
-      objectReference: {fileID: 0}
-    - target: {fileID: 6188860940743816941, guid: a039304eaf96d5a4289ad1e72f779513, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6188860940743816941, guid: a039304eaf96d5a4289ad1e72f779513, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0.122
       objectReference: {fileID: 0}
     - target: {fileID: 6702005490236242527, guid: a039304eaf96d5a4289ad1e72f779513, type: 3}
       propertyPath: m_LocalScale.x
@@ -6474,7 +6201,7 @@ PrefabInstance:
       propertyPath: m_text
       value: 'Reminder!
 
-        WASH _______ BEFORE PREPPING THEM HERE'
+        WASH LETTUCE BEFORE PREPPING THEM HERE'
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7535,57 +7262,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1563481209}
     m_Modifications:
-    - target: {fileID: 1240945696735926738, guid: a039304eaf96d5a4289ad1e72f779513, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0.015
-      objectReference: {fileID: 0}
-    - target: {fileID: 1647058139997486798, guid: a039304eaf96d5a4289ad1e72f779513, type: 3}
-      propertyPath: m_text
-      value: MEATS
-      objectReference: {fileID: 0}
-    - target: {fileID: 1647058139997486798, guid: a039304eaf96d5a4289ad1e72f779513, type: 3}
-      propertyPath: m_fontSize
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1647058139997486798, guid: a039304eaf96d5a4289ad1e72f779513, type: 3}
-      propertyPath: m_fontColor.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1647058139997486798, guid: a039304eaf96d5a4289ad1e72f779513, type: 3}
-      propertyPath: m_fontColor.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1647058139997486798, guid: a039304eaf96d5a4289ad1e72f779513, type: 3}
-      propertyPath: m_fontColor.r
-      value: 0.9924528
-      objectReference: {fileID: 0}
-    - target: {fileID: 1647058139997486798, guid: a039304eaf96d5a4289ad1e72f779513, type: 3}
-      propertyPath: m_fontSizeBase
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1647058139997486798, guid: a039304eaf96d5a4289ad1e72f779513, type: 3}
-      propertyPath: m_characterSpacing
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1647058139997486798, guid: a039304eaf96d5a4289ad1e72f779513, type: 3}
-      propertyPath: m_fontColor32.rgba
-      value: 4278190333
-      objectReference: {fileID: 0}
     - target: {fileID: 1703218275117577301, guid: a039304eaf96d5a4289ad1e72f779513, type: 3}
       propertyPath: m_Name
       value: Braai
-      objectReference: {fileID: 0}
-    - target: {fileID: 6188860940743816941, guid: a039304eaf96d5a4289ad1e72f779513, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0.017
-      objectReference: {fileID: 0}
-    - target: {fileID: 6188860940743816941, guid: a039304eaf96d5a4289ad1e72f779513, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0.067
-      objectReference: {fileID: 0}
-    - target: {fileID: 6188860940743816941, guid: a039304eaf96d5a4289ad1e72f779513, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0.114
       objectReference: {fileID: 0}
     - target: {fileID: 6702005490236242527, guid: a039304eaf96d5a4289ad1e72f779513, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7626,15 +7305,6 @@ PrefabInstance:
     - target: {fileID: 6702005490236242527, guid: a039304eaf96d5a4289ad1e72f779513, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8489508858406599730, guid: a039304eaf96d5a4289ad1e72f779513, type: 3}
-      propertyPath: m_text
-      value: 'Reminder!
-
-        ONLY ______ ON THE BRAAI
-
-        NO POTATOES OR
-        LETTUCE'
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

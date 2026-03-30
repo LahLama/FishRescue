@@ -30,7 +30,7 @@ public class RemoveCustomerPreviews : MonoBehaviour
             float moneyEarned = 25f * ((float)angerManagement.currentAngerLevel / 100);
             moneyEarned = Mathf.Floor(moneyEarned);
             addMoneyVisual.StartMoney(moneyEarned);
-            addMoneyVisual.EndMoney();
+
             FindAnyObjectByType<MainMoney>().AddMoney(moneyEarned);
 
 

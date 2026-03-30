@@ -10,7 +10,7 @@ public class AddMoneyVisual : MonoBehaviour
     }
     public void StartMoney(float amount)
     {
-        this.GetComponent<TextMeshProUGUI>().text = "+" + amount.ToString();
+        this.GetComponent<TextMeshProUGUI>().text = "+R" + amount.ToString();
         StartCoroutine(MoveUpAndFade());
     }
 
@@ -35,6 +35,7 @@ public class AddMoneyVisual : MonoBehaviour
         // Ensure final position and color are set
         transform.position = endPosition;
         GetComponent<TextMeshProUGUI>().color = endColor;
+        EndMoney();
     }
 
     public void EndMoney()
