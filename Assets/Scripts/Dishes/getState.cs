@@ -31,15 +31,6 @@ public class getState : MonoBehaviour, IInteractable
             RHDishes.setDish(col.GetComponent<Dishes>().currentDish);
             return null;
         }
-        // if (!LHMeshRenderer.enabled)
-        // {
-        //     LHMeshRenderer.enabled = true;
-        //     LHMeshRenderer.material = GetComponent<MeshRenderer>().material;
-        //     LHFoodStates.SetState(col.GetComponent<foodStates>().currentState);
-        //     LHDishes.setDish(col.GetComponent<Dishes>().currentDish);
-        //     return null;
-        // }
-
         return null;
     }
 }

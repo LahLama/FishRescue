@@ -26,7 +26,7 @@ public class SetFoodMaterials : MonoBehaviour
     public void SetFoodMaterial(GameObject obj, foodStates.State state, Dishes.Dish dish)
     {
         string msg = state.ToString() + "_" + dish.ToString();
-        Debug.Log(msg);
+        //Debug.Log(msg);
 
         switch (msg)
         {

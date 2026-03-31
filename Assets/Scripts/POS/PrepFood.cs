@@ -30,7 +30,7 @@ public class PrepFood : MonoBehaviour
         if (this.tag == "noChange")
         {
             StartCoroutine(WashCountdown());
-            Debug.Log("Washing item!");
+            // Debug.Log("Washing item!");
             return;
         }
         else
@@ -59,7 +59,7 @@ public class PrepFood : MonoBehaviour
         updatePOSitem.colliderItem.enabled = true;
         ready.SetActive(true);
         soundPlayer.StopSound(audioSource);
-        Debug.Log("Wash Done!");
+        //Debug.Log("Wash Done!");
 
     }
 
@@ -86,7 +86,7 @@ public class PrepFood : MonoBehaviour
 
 
 
-        Debug.Log("Raw Done!");
+        //Debug.Log("Raw Done!");
         updatePOSitem.colliderItem.enabled = false; // Disable the collider while food is being prepped, preventing it from being thrown in the trash during the prep phase
 
         StartCoroutine(PrepCountdown());
@@ -113,7 +113,7 @@ public class PrepFood : MonoBehaviour
         updatePOSitem.AddItem(updatePOSitem.dish, foodStates.State.Done);
         setFoodMaterials.SetFoodMaterial(updatePOSitem.gameObject, updatePOSitem.state, updatePOSitem.dish);
         shakePOS.enabled = false;
-        Debug.Log("Prep done!");
+        //Debug.Log("Prep done!");
         soundPlayer.StopSound(audioSource);
         StartCoroutine(TrashCoolDown());
     }
@@ -135,7 +135,7 @@ public class PrepFood : MonoBehaviour
         ready.SetActive(false);
         trash.SetActive(true);
 
-        Debug.Log("Item is trashed!");
+        //Debug.Log("Item is trashed!");
     }
 
     void OnDisable()

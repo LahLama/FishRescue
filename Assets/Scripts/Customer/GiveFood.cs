@@ -10,6 +10,7 @@ public class GiveFood : MonoBehaviour, IInteractable
     MeshRenderer RHMeshRenderer;
     // MeshRenderer LHMeshRenderer;
     foodStates RHfoodStates;
+    PlayerReasoning playerReasoning;
     void Awake()
     {
         // leftHand = GameObject.FindGameObjectWithTag("invL");
@@ -19,6 +20,7 @@ public class GiveFood : MonoBehaviour, IInteractable
         RHMeshRenderer = rightHand.GetComponent<MeshRenderer>();
         RHDishes = rightHand.GetComponent<Dishes>();
         RHfoodStates = rightHand.GetComponent<foodStates>();
+        playerReasoning = FindAnyObjectByType<PlayerReasoning>();
 
     }
     public string Interact(Collider col)
@@ -32,6 +34,16 @@ public class GiveFood : MonoBehaviour, IInteractable
         // if (col.TryGetComponent<AllowedItems>(out var LHAllowed))
         // hasValidItemLeftHand = LHAllowed.queryDish(LHDish.currentDish);
 
+        bool isPOS = col.transform.childCount > 0 && col.transform.GetChild(0).TryGetComponent<UpdatePOSitem>(out var updatePOSitem);
+        bool isRaw = RHfoodStates.currentState == foodStates.State.Raw;
+        bool isBasin = this.tag == "noChange" && RHfoodStates.currentState == foodStates.State.UnWashed;
+        bool isTrashCan = this.tag == "trashBin";
+        bool canGiveToPOS = isPOS && (isRaw || isBasin);
+
+        bool isCustomer = col.transform.childCount > 0;
+        bool isFoodDone = RHfoodStates.currentState == foodStates.State.Done;
+        bool canServeCustomerFood = isCustomer && isFoodDone;
+
         if (col.TryGetComponent<AllowedItems>(out var RHAllowed))
             hasValidItemRightHand = RHAllowed.queryDish(RHDish.currentDish);
 
@@ -43,25 +55,51 @@ public class GiveFood : MonoBehaviour, IInteractable
             if (RHMeshRenderer.enabled)
             {
                 // If there is a child that has "UpdatePosItem, then you are interacting with a Point of Service.
-                if (col.transform.childCount > 0 && col.transform.GetChild(0).TryGetComponent<UpdatePOSitem>(out var updatePOSitem))
+                if (isPOS || isTrashCan)
                 {
-                    if (RHfoodStates.currentState == foodStates.State.Raw || (this.tag == "noChange" && RHfoodStates.currentState == foodStates.State.UnWashed))
-                        updatePOSitem.AddItem(RHDish.currentDish, RHfoodStates.currentState);
+                    if (canGiveToPOS)
+                    {
+                        col.transform.GetChild(0).GetComponent<UpdatePOSitem>().AddItem(RHDish.currentDish, RHfoodStates.currentState);
+                        RHMeshRenderer.enabled = false;
+                        RHDishes.setDish(RHDishes.getDish(0));
+                        canGiveItem = false;
+                    }
+                    else if (isTrashCan)
+                    {
+                        RHMeshRenderer.enabled = false;
+                        RHDishes.setDish(RHDishes.getDish(0));
+                        canGiveItem = false;
+                    }
                     else
+                    {
+                        playerReasoning.StopAllCoroutines();
+                        playerReasoning.StartCoroutine(playerReasoning.showDialuogeue("I need to wash this food first. Let me read the posters"));
+                        Debug.Log("ITEM NOT READY TO BE GIVEN");
                         return null;
-
+                    }
                 }
-                if (col.transform.childCount > 0 && col.TryGetComponent<RemoveCustomerPreviews>(out var removeCustomerPreviews))
+                else if (canServeCustomerFood && col.TryGetComponent<RemoveCustomerPreviews>(out RemoveCustomerPreviews removeCustomerPreviews))
                 {
-                    removeCustomerPreviews.RemovePreview(RHDish.currentDish);
-                }
 
-                RHMeshRenderer.enabled = false;
-                RHDishes.setDish(RHDishes.getDish(0));
-                canGiveItem = false;
+                    removeCustomerPreviews.RemovePreview(RHDish.currentDish);
+                    RHMeshRenderer.enabled = false;
+                    RHDishes.setDish(RHDishes.getDish(0));
+                    canGiveItem = false;
+
+                }
+                else
+                {
+                    playerReasoning.StopAllCoroutines();
+                    playerReasoning.StartCoroutine(playerReasoning.showDialuogeue("I need to prep this food first. I can't give the customer raw food!"));
+                }
                 return null;
             }
-            // if (LHMeshRenderer.enabled)
+            else
+            {
+                playerReasoning.StopAllCoroutines();
+                playerReasoning.StartCoroutine(playerReasoning.showDialuogeue("I need to pick up the trash first!"));
+            }
+            // }if (LHMeshRenderer.enabled)
             // {
             //     if (col.transform.childCount > 0 && col.transform.GetChild(0).TryGetComponent<UpdatePOSitem>(out var updatePOSitem))
             //     {
@@ -73,6 +111,8 @@ public class GiveFood : MonoBehaviour, IInteractable
             //     return null;
             // }
         }
+        else
+            playerReasoning.StartCoroutine(playerReasoning.showDialuogeue("I can't do this yet, let me read the posters."));
         return null;
     }
 }

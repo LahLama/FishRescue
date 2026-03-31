@@ -7,6 +7,8 @@ TagManager:
   - invL
   - invR
   - noChange
+  - customer
+  - trashBin
   layers:
   - Default
   - TransparentFX
