@@ -9747,7 +9747,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1dff312552c15a947b6b9687902fb302, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PrepFood
-  originalPrepTime: 3
+  originalPrepTime: 5
   notReady: {fileID: 1332019576}
   ready: {fileID: 408980851}
   trash: {fileID: 1624754186}

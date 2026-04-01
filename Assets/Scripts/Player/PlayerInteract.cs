@@ -1,6 +1,5 @@
 using UnityEngine.UI;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class PlayerInteract : MonoBehaviour
 {

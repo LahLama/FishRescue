@@ -39,6 +39,6 @@ public class CustomerSpawning : MonoBehaviour
             child.gameObject.SetActive(false); // Ensure all customers are initially inactive
         }
 
-        InvokeRepeating("spawnCustomer", 10f, 10f);
+        InvokeRepeating("spawnCustomer", 25f, 25f);
     }
 }
