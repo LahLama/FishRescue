@@ -17,6 +17,7 @@ public class CustomerSpawning : MonoBehaviour
         availlebleCustomers[randomIndex].SetActive(true);
         availlebleCustomers.RemoveAt(randomIndex);
         customerLight.material = onLight;
+        customerLight.gameObject.GetComponent<Light>().enabled = true;
         customerLight.gameObject.GetComponent<AudioSource>().Play();
         Invoke("TurnOffLight", 4f);
 
@@ -26,6 +27,7 @@ public class CustomerSpawning : MonoBehaviour
     void TurnOffLight()
     {
         customerLight.material = offLight;
+        customerLight.gameObject.GetComponent<Light>().enabled = false;
     }
 
     // Random spawning of customers every 10 seconds
@@ -39,6 +41,6 @@ public class CustomerSpawning : MonoBehaviour
             child.gameObject.SetActive(false); // Ensure all customers are initially inactive
         }
 
-        InvokeRepeating("spawnCustomer", 25f, 25f);
+        InvokeRepeating("spawnCustomer", 10f, 25f);
     }
 }
