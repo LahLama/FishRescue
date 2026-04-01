@@ -69,6 +69,8 @@ public class GiveFood : MonoBehaviour, IInteractable
                         RHMeshRenderer.enabled = false;
                         RHDishes.setDish(RHDishes.getDish(0));
                         canGiveItem = false;
+                        this.gameObject.GetComponent<AudioSource>().Play();
+
                     }
                     else
                     {

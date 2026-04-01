@@ -2130,6 +2130,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 642616661127176913, guid: ea00e41dd35558a4e80244e7d4fefa3b, type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 642616661127176913, guid: ea00e41dd35558a4e80244e7d4fefa3b, type: 3}
+      propertyPath: m_Volume
+      value: 0.114
+      objectReference: {fileID: 0}
+    - target: {fileID: 642616661127176913, guid: ea00e41dd35558a4e80244e7d4fefa3b, type: 3}
       propertyPath: m_Resource
       value: 
       objectReference: {fileID: 8300000, guid: f3474fdc4e893d440b3237b454ad4578, type: 3}
@@ -4270,6 +4278,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 642616661127176913, guid: ea00e41dd35558a4e80244e7d4fefa3b, type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 642616661127176913, guid: ea00e41dd35558a4e80244e7d4fefa3b, type: 3}
+      propertyPath: m_Volume
+      value: 0.114
+      objectReference: {fileID: 0}
+    - target: {fileID: 642616661127176913, guid: ea00e41dd35558a4e80244e7d4fefa3b, type: 3}
       propertyPath: m_Resource
       value: 
       objectReference: {fileID: 8300000, guid: 46ca0cc036affa04d9fc8f2d74b0268e, type: 3}
@@ -4544,6 +4560,14 @@ PrefabInstance:
     - target: {fileID: 374562637357503358, guid: ea00e41dd35558a4e80244e7d4fefa3b, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 642616661127176913, guid: ea00e41dd35558a4e80244e7d4fefa3b, type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 642616661127176913, guid: ea00e41dd35558a4e80244e7d4fefa3b, type: 3}
+      propertyPath: m_Volume
+      value: 0.114
       objectReference: {fileID: 0}
     - target: {fileID: 642616661127176913, guid: ea00e41dd35558a4e80244e7d4fefa3b, type: 3}
       propertyPath: m_Resource
@@ -7231,6 +7255,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 773361839}
     m_Modifications:
+    - target: {fileID: 642616661127176913, guid: ea00e41dd35558a4e80244e7d4fefa3b, type: 3}
+      propertyPath: m_Volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 642616661127176913, guid: ea00e41dd35558a4e80244e7d4fefa3b, type: 3}
+      propertyPath: m_Resource
+      value: 
+      objectReference: {fileID: 8300000, guid: 7ed2fb1822dce5043b10e103044bada1, type: 3}
     - target: {fileID: 941038415694940960, guid: ea00e41dd35558a4e80244e7d4fefa3b, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -7786,6 +7818,14 @@ PrefabInstance:
     - target: {fileID: 374562637357503358, guid: ea00e41dd35558a4e80244e7d4fefa3b, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 642616661127176913, guid: ea00e41dd35558a4e80244e7d4fefa3b, type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 642616661127176913, guid: ea00e41dd35558a4e80244e7d4fefa3b, type: 3}
+      propertyPath: m_Volume
+      value: 0.114
       objectReference: {fileID: 0}
     - target: {fileID: 941038415694940960, guid: ea00e41dd35558a4e80244e7d4fefa3b, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -10650,6 +10690,14 @@ PrefabInstance:
     - target: {fileID: 374562637357503358, guid: ea00e41dd35558a4e80244e7d4fefa3b, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 642616661127176913, guid: ea00e41dd35558a4e80244e7d4fefa3b, type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 642616661127176913, guid: ea00e41dd35558a4e80244e7d4fefa3b, type: 3}
+      propertyPath: m_Volume
+      value: 0.114
       objectReference: {fileID: 0}
     - target: {fileID: 642616661127176913, guid: ea00e41dd35558a4e80244e7d4fefa3b, type: 3}
       propertyPath: m_Resource
