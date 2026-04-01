@@ -1,5 +1,4 @@
 using System.Collections;
-using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 
 public class angerManagement : MonoBehaviour
@@ -42,7 +41,8 @@ public class angerManagement : MonoBehaviour
 
         // Debug.Log(angerOneFour + " " + angerTwoFour + " " + angerThreeFour + " " + angerLevel);
 
-        StartCoroutine(angerTimer());
+        if (this.gameObject.activeInHierarchy)
+            StartCoroutine(angerTimer());
     }
     public IEnumerator angerTimer()
     {

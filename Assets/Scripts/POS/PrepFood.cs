@@ -1,5 +1,4 @@
 using System.Collections;
-using TMPro;
 using UnityEngine;
 
 public class PrepFood : MonoBehaviour
@@ -44,9 +43,20 @@ public class PrepFood : MonoBehaviour
         soundPlayer.PlaySound(audioSource);
         PrepTime = originalPrepTime / 2;
         shakePOS.enabled = true;
-        //Replace the current item with the same dish, just a differnt state
-        updatePOSitem.AddItem(updatePOSitem.dish, foodStates.State.UnWashed);
         updatePOSitem.colliderItem.enabled = false;
+
+        if (setFoodMaterials == null)
+        {
+            Debug.Log("ABC");
+        }
+        if (updatePOSitem == null)
+        {
+            Debug.Log("DEF");
+        }
+
+
+        //Replace the current item with the same dish, just a differnt state
+        updatePOSitem.AddItem(updatePOSitem.dish, foodStates.State.Raw);
         setFoodMaterials.SetFoodMaterial(updatePOSitem.gameObject, updatePOSitem.state, updatePOSitem.dish);
 
         while (PrepTime > 0 && this.enabled)
@@ -54,7 +64,6 @@ public class PrepFood : MonoBehaviour
             PrepTime -= Time.deltaTime;
             yield return null; // waits one frame, then continues
         }
-        updatePOSitem.AddItem(updatePOSitem.dish, foodStates.State.Raw);
         shakePOS.enabled = false;
         updatePOSitem.colliderItem.enabled = true;
         ready.SetActive(true);

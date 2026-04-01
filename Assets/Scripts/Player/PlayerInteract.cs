@@ -1,6 +1,4 @@
-using System.Collections.Generic;
-using System.Xml.Schema;
-using Unity.Multiplayer.Center.Common.Analytics;
+using UnityEngine.UI;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -12,6 +10,7 @@ public class PlayerInteract : MonoBehaviour
     GameObject leftHand;
     GameObject rightHand;
     InputSystem_Actions inputActions;
+    public RectTransform reticle;
     void Awake()
     {
         inputActions = new InputSystem_Actions();
@@ -30,15 +29,27 @@ public class PlayerInteract : MonoBehaviour
     void Update()
     {
         RaycastHit hit;
-        Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity);
+        Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, 12f);
         Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.red);
 
 
-
+        bool isLookingAtInteractable = hit.collider != null && hit.collider.TryGetComponent<IInteractable>(out interactable);
         bool hasInteracted = inputActions.Player.Interact.WasPressedThisFrame();
 
+        if (isLookingAtInteractable)
+        {
+            // Change reticle to half the size
+            reticle.gameObject.GetComponent<RawImage>().color = Color.grey;
+            reticle.localScale = new Vector3(0.5f, 0.5f, 0.5f);
+        }
+        else
+        {
+            // Change reticle back to original size
+            reticle.gameObject.GetComponent<RawImage>().color = Color.white;
+            reticle.localScale = new Vector3(1f, 1f, 1f);
+        }
 
-        if (hasInteracted && hit.collider != null && hit.collider.TryGetComponent<IInteractable>(out interactable))
+        if (hasInteracted && isLookingAtInteractable)
         {
             {
                 foreach (var script in hit.collider.GetComponents<IInteractable>())

@@ -17,7 +17,7 @@ public class CustomerSpawning : MonoBehaviour
         availlebleCustomers[randomIndex].SetActive(true);
         availlebleCustomers.RemoveAt(randomIndex);
         customerLight.material = onLight;
-
+        customerLight.gameObject.GetComponent<AudioSource>().Play();
         Invoke("TurnOffLight", 4f);
 
 
