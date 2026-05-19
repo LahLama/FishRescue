@@ -14,9 +14,12 @@ public class PrepFood : MonoBehaviour
     SoundPlayer soundPlayer;
     AudioSource audioSource;
 
+    SoundsManager soundsManager;
+
     void Awake()
     {
         soundPlayer = FindAnyObjectByType<SoundPlayer>();
+        soundsManager = FindAnyObjectByType<SoundsManager>();
         audioSource = GetComponentInParent<AudioSource>();
         updatePOSitem = GetComponent<UpdatePOSitem>();
         setFoodMaterials = FindAnyObjectByType<SetFoodMaterials>();
@@ -36,11 +39,25 @@ public class PrepFood : MonoBehaviour
             StartCoroutine(RawCountdown());
     }
 
+    void PlaySound(string clipName, bool loop = true)
+    {
+        AudioClip clip = soundsManager.GetClipByName(clipName);
+        if (clip != null)
+        {
+            audioSource.clip = clip;
+            audioSource.loop = loop;
+            soundPlayer.PlaySound(audioSource);
+        }
+        else
+        {
+            Debug.LogWarning($"Audio clip '{clipName}' not found in SoundsManager.");
+        }
+    }
     IEnumerator WashCountdown()
     {
         //play the sound that is attached to the parent object (the POS counter) when the washing process starts, and stop it when the washing process ends
+        PlaySound("wash", true);
 
-        soundPlayer.PlaySound(audioSource);
         PrepTime = originalPrepTime / 2;
         shakePOS.enabled = true;
         updatePOSitem.colliderItem.enabled = false;
@@ -68,6 +85,9 @@ public class PrepFood : MonoBehaviour
         updatePOSitem.colliderItem.enabled = true;
         ready.SetActive(true);
         soundPlayer.StopSound(audioSource);
+
+        PlaySound("customer_arrive", false);
+
         //Debug.Log("Wash Done!");
 
     }
@@ -114,6 +134,11 @@ public class PrepFood : MonoBehaviour
             PrepTime -= Time.deltaTime;
             yield return null; // waits one frame, then continues
         }
+        endPrep();
+    }
+
+    private void endPrep()
+    {
         notReady.SetActive(false);
         ready.SetActive(true);
         trash.SetActive(false);
@@ -122,11 +147,10 @@ public class PrepFood : MonoBehaviour
         updatePOSitem.AddItem(updatePOSitem.dish, foodStates.State.Done);
         setFoodMaterials.SetFoodMaterial(updatePOSitem.gameObject, updatePOSitem.state, updatePOSitem.dish);
         shakePOS.enabled = false;
-        //Debug.Log("Prep done!");
+
         soundPlayer.StopSound(audioSource);
         StartCoroutine(TrashCoolDown());
     }
-
     IEnumerator TrashCoolDown()
     {
 
