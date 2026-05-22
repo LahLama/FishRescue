@@ -1,5 +1,7 @@
 using System.Collections;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PrepFood : MonoBehaviour
 {
@@ -15,6 +17,7 @@ public class PrepFood : MonoBehaviour
     AudioSource audioSource;
 
     SoundsManager soundsManager;
+    public TextMeshPro timerText;
 
     void Awake()
     {
@@ -29,6 +32,7 @@ public class PrepFood : MonoBehaviour
 
     void OnEnable()
     {
+        timerText.text = "";
         if (this.tag == "noChange")
         {
             StartCoroutine(WashCountdown());
@@ -78,9 +82,11 @@ public class PrepFood : MonoBehaviour
 
         while (PrepTime > 0 && this.enabled)
         {
+            timerText.text = Mathf.Ceil(PrepTime).ToString();
             PrepTime -= Time.deltaTime;
             yield return null; // waits one frame, then continues
         }
+        timerText.text = "";
         shakePOS.enabled = false;
         updatePOSitem.colliderItem.enabled = true;
         ready.SetActive(true);
@@ -92,10 +98,12 @@ public class PrepFood : MonoBehaviour
 
     }
 
-    IEnumerator RawCountdown()
+    IEnumerator RawCountdown()  //this is like the first phase of washing but for meat
     {
         updatePOSitem.colliderItem.enabled = true; // Enable the collider when food is still raw, allowing it to be interacted with (e.g., thrown in the trash)
-        soundPlayer.PlaySound(audioSource);
+
+
+
         notReady.SetActive(true);
         ready.SetActive(false);
         trash.SetActive(false);
@@ -109,6 +117,7 @@ public class PrepFood : MonoBehaviour
 
         while (PrepTime > 0 && this.enabled)
         {
+            timerText.text = Mathf.Ceil(PrepTime).ToString();
             PrepTime -= Time.deltaTime;
             yield return null; // waits one frame, then continues
         }
@@ -125,12 +134,26 @@ public class PrepFood : MonoBehaviour
     {
         PrepTime = originalPrepTime;
 
+        if (this.CompareTag("potatoeStand"))
+        {
+            PlaySound("chop", true);
+        }
+        else if (this.CompareTag("saladStand"))
+        {
+            PlaySound("chop", true);
+        }
+        else if (this.CompareTag("braai"))
+        {
+            PlaySound("braai", true);
+        }
+
         //Replace the current item with the same dish, just a differnt state
         updatePOSitem.AddItem(updatePOSitem.dish, foodStates.State.Preping);
         setFoodMaterials.SetFoodMaterial(updatePOSitem.gameObject, updatePOSitem.state, updatePOSitem.dish);
 
         while (PrepTime > 0 && this.enabled)
         {
+            timerText.text = Mathf.Ceil(PrepTime).ToString();
             PrepTime -= Time.deltaTime;
             yield return null; // waits one frame, then continues
         }
@@ -147,7 +170,7 @@ public class PrepFood : MonoBehaviour
         updatePOSitem.AddItem(updatePOSitem.dish, foodStates.State.Done);
         setFoodMaterials.SetFoodMaterial(updatePOSitem.gameObject, updatePOSitem.state, updatePOSitem.dish);
         shakePOS.enabled = false;
-
+        timerText.text = "";
         soundPlayer.StopSound(audioSource);
         StartCoroutine(TrashCoolDown());
     }
@@ -157,10 +180,11 @@ public class PrepFood : MonoBehaviour
         PrepTime = originalPrepTime;
         while (PrepTime > 0 && this.enabled)
         {
+            timerText.text = Mathf.Ceil(PrepTime).ToString();
             PrepTime -= Time.deltaTime;
             yield return null; // waits one frame, then continues
         }
-
+        timerText.text = "";
         updatePOSitem.AddItem(updatePOSitem.dish, foodStates.State.Trash);
         setFoodMaterials.SetFoodMaterial(updatePOSitem.gameObject, updatePOSitem.state, updatePOSitem.dish);
 
