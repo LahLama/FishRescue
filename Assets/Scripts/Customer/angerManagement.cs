@@ -20,6 +20,9 @@ public class angerManagement : MonoBehaviour
     public Material angryMat;
     public Material veryAngryMat;
 
+    public CustomerSounds customerSounds;
+    bool hasChangedAngerLevel = false;
+
     public enum AngerLevel
     {
         VeryCalm = 150,
@@ -28,18 +31,21 @@ public class angerManagement : MonoBehaviour
         VeryAngry = 75
     }
 
+    public float angerVal;
     public AngerLevel currentAngerLevel;
+    public AngerLevel previousAngerLevel;
+
+
 
     public void startAnger()
     {
+        customerSounds.audioSource = this.GetComponentInParent<AudioSource>();
 
+        angerVal = bar.transform.localScale.x;
+        angerOneFour = (1f / 4f) * angerVal;
+        angerTwoFour = (2f / 4f) * angerVal;
+        angerThreeFour = (3f / 4f) * angerVal;
 
-        float angerLevel = bar.transform.localScale.x;
-        angerOneFour = (1f / 4f) * angerLevel;
-        angerTwoFour = (2f / 4f) * angerLevel;
-        angerThreeFour = (3f / 4f) * angerLevel;
-
-        // Debug.Log(angerOneFour + " " + angerTwoFour + " " + angerThreeFour + " " + angerLevel);
 
         if (this.gameObject.activeInHierarchy)
             StartCoroutine(angerTimer());
@@ -49,51 +55,79 @@ public class angerManagement : MonoBehaviour
         plane.SetActive(true);
         bar.SetActive(true);
 
-        if (bar.transform.localScale.x > 0)
-        {
-            switch (bar.transform.localScale.x)
-            {
-                case float n when (n <= 0):
-                    Debug.Log("Customer is gone");
+        currentAngerLevel = AngerLevel.VeryCalm;
+        previousAngerLevel = AngerLevel.VeryCalm; // Match so no change fires on start
+        ApplyAngerLevelEffects(currentAngerLevel); // Explicitly trigger the first state once
+        customerSounds.PlaySound("veryCalm", false);
 
-                    break;
-                case float n when (n <= angerOneFour && n > 0):
-                    currentAngerLevel = AngerLevel.VeryAngry;
-                    angryParticles.SetActive(false);
-                    veryAngryParticles.SetActive(true);
-                    bar.GetComponent<MeshRenderer>().material = veryAngryMat;
-                    break;
-                case float n when (n > angerOneFour && n <= angerTwoFour):
-                    currentAngerLevel = AngerLevel.Angry;
-                    bar.GetComponent<MeshRenderer>().material = angryMat;
-                    // Debug.Log("Customer is getting angry");
-                    calmParticles.SetActive(false);
-                    angryParticles.SetActive(true);
-                    break;
-                case float n when (n > angerTwoFour && n <= angerThreeFour):
-                    currentAngerLevel = AngerLevel.Calm;
-                    bar.GetComponent<MeshRenderer>().material = calmMat;
-                    // Debug.Log("Customer is calm");
-                    veryCalmParticles.SetActive(false);
-                    calmParticles.SetActive(true);
-                    break;
-                default:
-                    currentAngerLevel = AngerLevel.VeryCalm;
-                    // Debug.Log("Customer is very calm");
-                    veryCalmParticles.SetActive(true);
-                    bar.GetComponent<MeshRenderer>().material = veryCalmMat;
-                    break;
+        while (bar.transform.localScale.x > 0)
+        {
+            float n = bar.transform.localScale.x;
+
+            // Determine level - no effects here, just assignment
+            if (n <= angerOneFour && n > 0)
+                currentAngerLevel = AngerLevel.VeryAngry;
+            else if (n > angerOneFour && n <= angerTwoFour)
+                currentAngerLevel = AngerLevel.Angry;
+            else if (n > angerTwoFour && n <= angerThreeFour)
+                currentAngerLevel = AngerLevel.Calm;
+            else if (n > angerThreeFour && n <= angerVal)
+                currentAngerLevel = AngerLevel.VeryCalm;
+
+            // Only trigger effects on state change
+            if (currentAngerLevel != previousAngerLevel)
+            {
+                hasChangedAngerLevel = true;
+                previousAngerLevel = currentAngerLevel;
+                ApplyAngerLevelEffects(currentAngerLevel);
+            }
+            else
+            {
+                hasChangedAngerLevel = false;
             }
 
-
             yield return new WaitForSeconds(angerStepTime);
+
+            // Bar handling
             bar.transform.localScale = new Vector3(bar.transform.localScale.x - 0.1f, bar.transform.localScale.y, bar.transform.localScale.z);
             if (bar.transform.localScale.x < 0)
             {
                 bar.transform.localScale = new Vector3(0, bar.transform.localScale.y, bar.transform.localScale.z);
                 this.transform.parent.gameObject.SetActive(false);
             }
-            StartCoroutine(angerTimer());
+        }
+    }
+
+    void ApplyAngerLevelEffects(AngerLevel level)
+    {
+        // Reset all particles first
+        veryCalmParticles.SetActive(false);
+        calmParticles.SetActive(false);
+        angryParticles.SetActive(false);
+        veryAngryParticles.SetActive(false);
+
+        switch (level)
+        {
+            case AngerLevel.VeryAngry:
+                veryAngryParticles.SetActive(true);
+                bar.GetComponent<MeshRenderer>().material = veryAngryMat;
+                customerSounds.PlaySound("veryAngry", false);
+                break;
+            case AngerLevel.Angry:
+                angryParticles.SetActive(true);
+                bar.GetComponent<MeshRenderer>().material = angryMat;
+                customerSounds.PlaySound("angry", false);
+                break;
+            case AngerLevel.Calm:
+                calmParticles.SetActive(true);
+                bar.GetComponent<MeshRenderer>().material = calmMat;
+                customerSounds.PlaySound("calm", false);
+                break;
+            case AngerLevel.VeryCalm:
+                veryCalmParticles.SetActive(true);
+                bar.GetComponent<MeshRenderer>().material = veryCalmMat;
+                customerSounds.PlaySound("veryCalm", false);
+                break;
         }
     }
 

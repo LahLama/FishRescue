@@ -1220,6 +1220,10 @@ PrefabInstance:
       propertyPath: angerStepTime
       value: 12
       objectReference: {fileID: 0}
+    - target: {fileID: 4973250581580124917, guid: ac70c5c93273a824990553e5f73ed6f9, type: 3}
+      propertyPath: customerSounds
+      value: 
+      objectReference: {fileID: 1844722635}
     - target: {fileID: 6202576370485442695, guid: ac70c5c93273a824990553e5f73ed6f9, type: 3}
       propertyPath: m_Name
       value: CustomerV4 (6)
@@ -2337,6 +2341,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lettuce
       objectReference: {fileID: 0}
+    - target: {fileID: 8397503453304377827, guid: ea00e41dd35558a4e80244e7d4fefa3b, type: 3}
+      propertyPath: m_TagString
+      value: saladStand
+      objectReference: {fileID: 0}
     - target: {fileID: 8614805377514009859, guid: ea00e41dd35558a4e80244e7d4fefa3b, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -2540,6 +2548,10 @@ PrefabInstance:
       propertyPath: angerStepTime
       value: 12
       objectReference: {fileID: 0}
+    - target: {fileID: 4973250581580124917, guid: ac70c5c93273a824990553e5f73ed6f9, type: 3}
+      propertyPath: customerSounds
+      value: 
+      objectReference: {fileID: 1844722635}
     - target: {fileID: 6202576370485442695, guid: ac70c5c93273a824990553e5f73ed6f9, type: 3}
       propertyPath: m_Name
       value: CustomerV4 (5)
@@ -5857,6 +5869,10 @@ PrefabInstance:
       propertyPath: angerStepTime
       value: 12
       objectReference: {fileID: 0}
+    - target: {fileID: 4973250581580124917, guid: ac70c5c93273a824990553e5f73ed6f9, type: 3}
+      propertyPath: customerSounds
+      value: 
+      objectReference: {fileID: 1844722635}
     - target: {fileID: 6202576370485442695, guid: ac70c5c93273a824990553e5f73ed6f9, type: 3}
       propertyPath: m_Name
       value: CustomerV4 (4)
@@ -6668,6 +6684,10 @@ PrefabInstance:
       propertyPath: angerStepTime
       value: 12
       objectReference: {fileID: 0}
+    - target: {fileID: 4973250581580124917, guid: ac70c5c93273a824990553e5f73ed6f9, type: 3}
+      propertyPath: customerSounds
+      value: 
+      objectReference: {fileID: 1844722635}
     - target: {fileID: 6202576370485442695, guid: ac70c5c93273a824990553e5f73ed6f9, type: 3}
       propertyPath: m_Name
       value: CustomerV4 (3)
@@ -7461,6 +7481,10 @@ PrefabInstance:
       propertyPath: angerStepTime
       value: 12
       objectReference: {fileID: 0}
+    - target: {fileID: 4973250581580124917, guid: ac70c5c93273a824990553e5f73ed6f9, type: 3}
+      propertyPath: customerSounds
+      value: 
+      objectReference: {fileID: 1844722635}
     - target: {fileID: 6202576370485442695, guid: ac70c5c93273a824990553e5f73ed6f9, type: 3}
       propertyPath: m_Name
       value: CustomerV4 (7)
@@ -9818,6 +9842,74 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 10.000002, y: 0.00000056199497, z: 10.000002}
   m_Center: {x: 0.0000076293945, y: 0.0000076293945, z: 0.0000009536743}
+--- !u!1 &1844722634
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1844722637}
+  - component: {fileID: 1844722636}
+  - component: {fileID: 1844722635}
+  m_Layer: 0
+  m_Name: CustomerSoundPlayer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1844722635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1844722634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7b4ed746b12114449bc75f770f04d76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CustomerSounds
+  audioClips:
+  - name: veryCalm
+    clip: {fileID: 8300000, guid: 50a5d786cd70f1e42bc18dd12587d7d0, type: 3}
+  - name: calm
+    clip: {fileID: 8300000, guid: efe5b83bb56a48e4b8caf3033ee05cc9, type: 3}
+  - name: angry
+    clip: {fileID: 8300000, guid: 3dc361ddd8e0a3a4eba9ed0d1c2fd344, type: 3}
+  - name: veryAngry
+    clip: {fileID: 8300000, guid: a709d6ba43bfdc34d9ffe3ef549453a9, type: 3}
+  audioSource: {fileID: 1864749831}
+--- !u!114 &1844722636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1844722634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 512f5d03958d16b46a59599616fa20b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SoundPlayer
+  audioSource: {fileID: 0}
+--- !u!4 &1844722637
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1844722634}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1860481815 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3754712923773159809, guid: ea00e41dd35558a4e80244e7d4fefa3b, type: 3}
@@ -10534,6 +10626,10 @@ PrefabInstance:
       propertyPath: angerStepTime
       value: 12
       objectReference: {fileID: 0}
+    - target: {fileID: 4973250581580124917, guid: ac70c5c93273a824990553e5f73ed6f9, type: 3}
+      propertyPath: customerSounds
+      value: 
+      objectReference: {fileID: 1844722635}
     - target: {fileID: 6202576370485442695, guid: ac70c5c93273a824990553e5f73ed6f9, type: 3}
       propertyPath: m_Name
       value: CustomerV4 (1)
@@ -10989,6 +11085,10 @@ PrefabInstance:
       propertyPath: angerStepTime
       value: 12
       objectReference: {fileID: 0}
+    - target: {fileID: 4973250581580124917, guid: ac70c5c93273a824990553e5f73ed6f9, type: 3}
+      propertyPath: customerSounds
+      value: 
+      objectReference: {fileID: 1844722635}
     - target: {fileID: 6202576370485442695, guid: ac70c5c93273a824990553e5f73ed6f9, type: 3}
       propertyPath: m_Name
       value: CustomerV4 (2)
@@ -11553,4 +11653,5 @@ SceneRoots:
   - {fileID: 1796891520}
   - {fileID: 977045327}
   - {fileID: 691164751}
+  - {fileID: 1844722637}
   - {fileID: 2046610121}
