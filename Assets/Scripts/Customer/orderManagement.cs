@@ -9,6 +9,7 @@ public class orderManagement : MonoBehaviour, IInteractable
     public angerManagement angerManagement;
     List<Dishes.Dish> orderedMeals = new List<Dishes.Dish>();
 
+    
     public string Interact(Collider col)
     {
 
@@ -45,6 +46,7 @@ public class orderManagement : MonoBehaviour, IInteractable
 
         for (var i = 0; i < Random.Range(1, attempts + 1); i++)
         {
+            allowedItems.onlyAllowedItems.Clear();
             dishes.currentDish = dishes.getDish(Random.Range(startPoint, maxVal));
             allowedItems.onlyAllowedItems.Add(dishes.currentDish);
         }

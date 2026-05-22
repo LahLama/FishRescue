@@ -20,7 +20,7 @@ public class GiveFood : MonoBehaviour, IInteractable
         RHMeshRenderer = rightHand.GetComponent<MeshRenderer>();
         RHDishes = rightHand.GetComponent<Dishes>();
         RHfoodStates = rightHand.GetComponent<foodStates>();
-        playerReasoning = FindAnyObjectByType<PlayerReasoning>();
+        //playerReasoning = FindAnyObjectByType<//playerReasoning>();
 
     }
     public string Interact(Collider col)
@@ -74,8 +74,8 @@ public class GiveFood : MonoBehaviour, IInteractable
                     }
                     else
                     {
-                        playerReasoning.StopAllCoroutines();
-                        playerReasoning.StartCoroutine(playerReasoning.showDialuogeue("I need to wash this food first. Let me read the posters"));
+                        //playerReasoning.StopAllCoroutines();
+                        //playerReasoning.StartCoroutine(//playerReasoning.showDialuogeue("I need to wash this food first. Let me read the posters"));
                         Debug.Log("ITEM NOT READY TO BE GIVEN");
                         return null;
                     }
@@ -91,15 +91,15 @@ public class GiveFood : MonoBehaviour, IInteractable
                 }
                 else
                 {
-                    playerReasoning.StopAllCoroutines();
-                    playerReasoning.StartCoroutine(playerReasoning.showDialuogeue("I need to prep this food first. I can't give the customer raw food!"));
+                    //playerReasoning.StopAllCoroutines();
+                    //playerReasoning.StartCoroutine(//playerReasoning.showDialuogeue("I need to prep this food first. I can't give the customer raw food!"));
                 }
                 return null;
             }
             else
             {
-                playerReasoning.StopAllCoroutines();
-                playerReasoning.StartCoroutine(playerReasoning.showDialuogeue("I need to pick up the trash first!"));
+                //playerReasoning.StopAllCoroutines();
+                //playerReasoning.StartCoroutine(//playerReasoning.showDialuogeue("I need to pick up the trash first!"));
             }
             // }if (LHMeshRenderer.enabled)
             // {
@@ -113,8 +113,8 @@ public class GiveFood : MonoBehaviour, IInteractable
             //     return null;
             // }
         }
-        else
-            playerReasoning.StartCoroutine(playerReasoning.showDialuogeue("I can't do this yet, let me read the posters."));
+        // else
+        //playerReasoning.StartCoroutine(playerReasoning.showDialuogeue("I can't do this yet, let me read the posters."));
         return null;
     }
 }

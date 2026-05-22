@@ -53,7 +53,10 @@ public class PlayerInteract : MonoBehaviour
             {
                 foreach (var script in hit.collider.GetComponents<IInteractable>())
                 {
-                    script.Interact(hit.collider);
+                    if (script != null)
+                        script.Interact(hit.collider);
+                    else
+                        Debug.LogWarning("*********************** interact script not found ***********************");
                 }
             }
         }

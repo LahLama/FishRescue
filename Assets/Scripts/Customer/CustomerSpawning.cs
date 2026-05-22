@@ -14,6 +14,8 @@ public class CustomerSpawning : MonoBehaviour
     public void spawnCustomer()
     {
         int randomIndex = Random.Range(0, availlebleCustomers.Count);
+
+
         availlebleCustomers[randomIndex].SetActive(true);
         availlebleCustomers.RemoveAt(randomIndex);
         customerLight.material = onLight;
@@ -31,7 +33,7 @@ public class CustomerSpawning : MonoBehaviour
     }
 
     // Random spawning of customers every 10 seconds
-    void Start()
+    public void Start()
     {
         availlebleCustomers = new List<GameObject>();
         // Add all customers to the list
@@ -39,8 +41,11 @@ public class CustomerSpawning : MonoBehaviour
         {
             availlebleCustomers.Add(child.gameObject);
             child.gameObject.SetActive(false); // Ensure all customers are initially inactive
+            child.TryGetComponent<orderManagement>(out var orderManageScript);
+            if (orderManageScript != null)
+                orderManageScript.enabled = true;
         }
 
-        InvokeRepeating("spawnCustomer", 10f, 25f);
+        // InvokeRepeating("spawnCustomer", 10f, 25f);
     }
 }

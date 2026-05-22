@@ -23,6 +23,7 @@ public class angerManagement : MonoBehaviour
     public CustomerSounds customerSounds;
     bool hasChangedAngerLevel = false;
 
+    public levelTemplate levelTemplate;
     public enum AngerLevel
     {
         VeryCalm = 150,
@@ -55,6 +56,9 @@ public class angerManagement : MonoBehaviour
         plane.SetActive(true);
         bar.SetActive(true);
 
+        levelTemplate = FindObjectsByType<levelTemplate>(FindObjectsInactive.Exclude, FindObjectsSortMode.None)[0];
+        Debug.Log("Level: " + levelTemplate.level);
+
         currentAngerLevel = AngerLevel.VeryCalm;
         previousAngerLevel = AngerLevel.VeryCalm; // Match so no change fires on start
         ApplyAngerLevelEffects(currentAngerLevel); // Explicitly trigger the first state once
@@ -73,6 +77,13 @@ public class angerManagement : MonoBehaviour
                 currentAngerLevel = AngerLevel.Calm;
             else if (n > angerThreeFour && n <= angerVal)
                 currentAngerLevel = AngerLevel.VeryCalm;
+            else
+                if (n < 0 && bar != null)
+                {
+                    stopAnger();
+                    Debug.Log("player has failed to serve");
+                }
+
 
             // Only trigger effects on state change
             if (currentAngerLevel != previousAngerLevel)
@@ -93,7 +104,7 @@ public class angerManagement : MonoBehaviour
             if (bar.transform.localScale.x < 0)
             {
                 bar.transform.localScale = new Vector3(0, bar.transform.localScale.y, bar.transform.localScale.z);
-                this.transform.parent.gameObject.SetActive(false);
+                stopAnger();
             }
         }
     }
@@ -133,6 +144,7 @@ public class angerManagement : MonoBehaviour
 
     public void stopAnger()
     {
+
         sucessParticles.SetActive(true);
         StopAllCoroutines();
         plane.SetActive(false);
@@ -142,5 +154,10 @@ public class angerManagement : MonoBehaviour
         calmParticles.SetActive(false);
         angryParticles.SetActive(false);
         veryAngryParticles.SetActive(false);
+        levelTemplate.completedCustomers++;
+        Debug.Log("levelTemplate.completedCustomers: " + levelTemplate.completedCustomers);
+
+        this.transform.parent.gameObject.SetActive(false);
+
     }
 }
