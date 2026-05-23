@@ -76,7 +76,7 @@ public class GiveFood : MonoBehaviour, IInteractable
                     {
                         //playerReasoning.StopAllCoroutines();
                         //playerReasoning.StartCoroutine(//playerReasoning.showDialuogeue("I need to wash this food first. Let me read the posters"));
-                        Debug.Log("ITEM NOT READY TO BE GIVEN");
+                        // Debug.Log("ITEM NOT READY TO BE GIVEN");
                         return null;
                     }
                 }

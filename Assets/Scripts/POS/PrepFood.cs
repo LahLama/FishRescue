@@ -66,14 +66,7 @@ public class PrepFood : MonoBehaviour
         shakePOS.enabled = true;
         updatePOSitem.colliderItem.enabled = false;
 
-        if (setFoodMaterials == null)
-        {
-            Debug.Log("ABC");
-        }
-        if (updatePOSitem == null)
-        {
-            Debug.Log("DEF");
-        }
+
 
 
         //Replace the current item with the same dish, just a differnt state
@@ -92,7 +85,7 @@ public class PrepFood : MonoBehaviour
         ready.SetActive(true);
         soundPlayer.StopSound(audioSource);
 
-        PlaySound("customer_arrive", false);
+        PlaySound("washEnd", false);
 
         //Debug.Log("Wash Done!");
 
@@ -109,6 +102,19 @@ public class PrepFood : MonoBehaviour
         trash.SetActive(false);
         shakePOS.enabled = true;
         PrepTime = originalPrepTime / 2;
+
+        if (this.CompareTag("potatoeStand"))
+        {
+            PlaySound("chopStart", false);
+        }
+        else if (this.CompareTag("saladStand"))
+        {
+            PlaySound("chopStart", false);
+        }
+        else if (this.CompareTag("braai"))
+        {
+            PlaySound("braaiStart", false);
+        }
 
 
         //Replace the current item with the same dish, just a differnt state
@@ -166,12 +172,26 @@ public class PrepFood : MonoBehaviour
         ready.SetActive(true);
         trash.SetActive(false);
 
+        if (this.CompareTag("potatoeStand"))
+        {
+            PlaySound("chopEnd", false);
+        }
+        else if (this.CompareTag("saladStand"))
+        {
+            PlaySound("chopEnd", false);
+        }
+        else if (this.CompareTag("braai"))
+        {
+            PlaySound("braaiEnd", false);
+        }
+
+
         updatePOSitem.colliderItem.enabled = true; // Re-enable the collider when food is ready
         updatePOSitem.AddItem(updatePOSitem.dish, foodStates.State.Done);
         setFoodMaterials.SetFoodMaterial(updatePOSitem.gameObject, updatePOSitem.state, updatePOSitem.dish);
         shakePOS.enabled = false;
         timerText.text = "";
-        soundPlayer.StopSound(audioSource);
+
         StartCoroutine(TrashCoolDown());
     }
     IEnumerator TrashCoolDown()
@@ -184,6 +204,7 @@ public class PrepFood : MonoBehaviour
             PrepTime -= Time.deltaTime;
             yield return null; // waits one frame, then continues
         }
+        PlaySound("trash", false);
         timerText.text = "";
         updatePOSitem.AddItem(updatePOSitem.dish, foodStates.State.Trash);
         setFoodMaterials.SetFoodMaterial(updatePOSitem.gameObject, updatePOSitem.state, updatePOSitem.dish);

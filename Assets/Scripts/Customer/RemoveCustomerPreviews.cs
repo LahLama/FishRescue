@@ -7,8 +7,11 @@ public class RemoveCustomerPreviews : MonoBehaviour
     AllowedItems allowedItems;
     public angerManagement angerManagement;
     public AddMoneyVisual addMoneyVisual;
+    public AudioSource audioSource;
+
     public void RemovePreview(Dishes.Dish dish)
     {
+
         allowedItems = GetComponent<AllowedItems>();
 
         // Debug.Log("Giving the customer the " + dish);
@@ -23,7 +26,12 @@ public class RemoveCustomerPreviews : MonoBehaviour
         {
 
             CustomerSounds customerSounds = FindAnyObjectByType<CustomerSounds>();
+            SoundsManager soundsManager = FindAnyObjectByType<SoundsManager>();
             customerSounds.PlaySound("thankyou", false);
+            // Money Sound
+            audioSource.Play();
+
+
 
             angerManagement.stopAnger();
             // Should have a EndCustomer script that handles the end of the customer, this is just a placeholder for now
@@ -37,7 +45,7 @@ public class RemoveCustomerPreviews : MonoBehaviour
             FindAnyObjectByType<MainMoney>().AddMoney(moneyEarned);
 
 
-            Debug.Log("Customer has received all their orders");
+            // Debug.Log("Customer has received all their orders");
         }
 
     }

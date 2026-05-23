@@ -36,16 +36,19 @@ public class angerManagement : MonoBehaviour
     public AngerLevel currentAngerLevel;
     public AngerLevel previousAngerLevel;
 
-    void Start()
+    public void OnEnable()
     {
         levelTemplate = FindObjectsByType<levelTemplate>(FindObjectsInactive.Exclude, FindObjectsSortMode.None)[0];
         Debug.Log("Level: " + levelTemplate.level);
+        Debug.Log("step time ------" + angerStepTime);
+        angerStepTime = levelTemplate.angerStep;
+        Debug.Log("step time ++++++" + angerStepTime);
     }
 
     public void startAnger()
     {
         customerSounds.audioSource = this.GetComponentInParent<AudioSource>();
-        angerStepTime = levelTemplate.angerStep;
+
         angerVal = bar.transform.localScale.x;
         angerOneFour = (1f / 4f) * angerVal;
         angerTwoFour = (2f / 4f) * angerVal;

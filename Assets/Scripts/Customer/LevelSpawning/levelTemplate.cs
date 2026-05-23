@@ -49,8 +49,7 @@ public class levelTemplate : MonoBehaviour
     {
         if (nextLevel != null)
         {
-            nextLevel.SetActive(true);
-            this.gameObject.SetActive(false);
+            GetComponentInParent<LevelManager>().TransitionToLevel(this.gameObject, nextLevel);
         }
     }
 

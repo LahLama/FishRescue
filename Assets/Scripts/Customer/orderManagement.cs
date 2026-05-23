@@ -62,7 +62,7 @@ public class orderManagement : MonoBehaviour, IInteractable
         }
 
         string msg = name + " has ordered " + allowedItems.listDishes();
-        Debug.Log(msg);
+        // Debug.Log(msg);
 
         this.enabled = false;
         return null;
