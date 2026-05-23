@@ -8,7 +8,7 @@ public class levelTemplate : MonoBehaviour
 
     public int maxNum = 3;
     public string level = "0";
-    public const float waitTime = 5;
+    public float waitTime = 5;
     // How often the anger is ticked
     public float angerStep = 15;
     public int completedCustomers = 0;

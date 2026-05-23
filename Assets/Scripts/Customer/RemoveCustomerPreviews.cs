@@ -7,7 +7,7 @@ public class RemoveCustomerPreviews : MonoBehaviour
     AllowedItems allowedItems;
     public angerManagement angerManagement;
     public AddMoneyVisual addMoneyVisual;
-    public AudioSource audioSource;
+
 
     public void RemovePreview(Dishes.Dish dish)
     {
@@ -28,8 +28,7 @@ public class RemoveCustomerPreviews : MonoBehaviour
             CustomerSounds customerSounds = FindAnyObjectByType<CustomerSounds>();
             SoundsManager soundsManager = FindAnyObjectByType<SoundsManager>();
             customerSounds.PlaySound("thankyou", false);
-            // Money Sound
-            audioSource.Play();
+          
 
 
 

@@ -37,8 +37,9 @@ public class GiveFood : MonoBehaviour, IInteractable
         bool isPOS = col.transform.childCount > 0 && col.transform.GetChild(0).TryGetComponent<UpdatePOSitem>(out var updatePOSitem);
         bool isRaw = RHfoodStates.currentState == foodStates.State.Raw;
         bool isBasin = this.tag == "noChange" && RHfoodStates.currentState == foodStates.State.UnWashed;
+        bool isCounter = this.tag == "counter";
         bool isTrashCan = this.tag == "trashBin";
-        bool canGiveToPOS = isPOS && (isRaw || isBasin);
+        bool canGiveToPOS = isPOS && (isRaw || isBasin || isCounter);
 
         bool isCustomer = col.transform.childCount > 0;
         bool isFoodDone = RHfoodStates.currentState == foodStates.State.Done;

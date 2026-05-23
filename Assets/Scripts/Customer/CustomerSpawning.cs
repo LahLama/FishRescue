@@ -5,6 +5,7 @@ public class CustomerSpawning : MonoBehaviour
 {
     public GameObject customerParent;
     public List<GameObject> availlebleCustomers;
+
     public MeshRenderer customerLight;
     public Material onLight;
     public Material offLight;
@@ -14,7 +15,9 @@ public class CustomerSpawning : MonoBehaviour
     public void spawnCustomer()
     {
         int randomIndex = Random.Range(0, availlebleCustomers.Count);
-
+        bool inRange = randomIndex >= 0 && randomIndex < availlebleCustomers.Count;
+        if (!inRange)
+            
 
         availlebleCustomers[randomIndex].SetActive(true);
         availlebleCustomers.RemoveAt(randomIndex);

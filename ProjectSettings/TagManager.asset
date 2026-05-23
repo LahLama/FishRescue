@@ -12,6 +12,7 @@ TagManager:
   - braai
   - potatoeStand
   - saladStand
+  - counter
   layers:
   - Default
   - TransparentFX

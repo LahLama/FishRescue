@@ -1,6 +1,7 @@
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class PrepFood : MonoBehaviour
@@ -39,6 +40,10 @@ public class PrepFood : MonoBehaviour
             // Debug.Log("Washing item!");
             return;
         }
+        else if (this.tag == "counter")
+        {
+            counterStore();
+        }
         else
             StartCoroutine(RawCountdown());
     }
@@ -57,6 +62,18 @@ public class PrepFood : MonoBehaviour
             Debug.LogWarning($"Audio clip '{clipName}' not found in SoundsManager.");
         }
     }
+
+
+    void counterStore()
+    {
+        //Replace the current item with the same dish, just a differnt state
+        updatePOSitem.AddItem(updatePOSitem.dish, updatePOSitem.state);
+        setFoodMaterials.SetFoodMaterial(updatePOSitem.gameObject, updatePOSitem.state, updatePOSitem.dish);
+        timerText.text = "";
+        updatePOSitem.colliderItem.enabled = true;
+    }
+
+
     IEnumerator WashCountdown()
     {
         //play the sound that is attached to the parent object (the POS counter) when the washing process starts, and stop it when the washing process ends
