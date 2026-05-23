@@ -7,9 +7,10 @@ public class orderManagement : MonoBehaviour, IInteractable
     AllowedItems allowedItems;
     SetFoodMaterials setFoodMaterials;
     public angerManagement angerManagement;
+
     List<Dishes.Dish> orderedMeals = new List<Dishes.Dish>();
 
-    
+
     public string Interact(Collider col)
     {
 
@@ -72,6 +73,8 @@ public class orderManagement : MonoBehaviour, IInteractable
     {
         if (angerManagement != null)
         {
+            // By default, the hello sound will play on awake in inspector.
+            // customerSounds.PlaySound("hello", false);
             angerManagement.startAnger();
         }
     }

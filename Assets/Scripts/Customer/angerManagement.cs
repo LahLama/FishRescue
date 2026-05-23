@@ -8,7 +8,7 @@ public class angerManagement : MonoBehaviour
     float angerOneFour;
     float angerTwoFour;
     float angerThreeFour;
-    public float angerStepTime;
+    private float angerStepTime;
 
     public GameObject veryCalmParticles;
     public GameObject calmParticles;
@@ -36,12 +36,16 @@ public class angerManagement : MonoBehaviour
     public AngerLevel currentAngerLevel;
     public AngerLevel previousAngerLevel;
 
-
+    void Start()
+    {
+        levelTemplate = FindObjectsByType<levelTemplate>(FindObjectsInactive.Exclude, FindObjectsSortMode.None)[0];
+        Debug.Log("Level: " + levelTemplate.level);
+    }
 
     public void startAnger()
     {
         customerSounds.audioSource = this.GetComponentInParent<AudioSource>();
-
+        angerStepTime = levelTemplate.angerStep;
         angerVal = bar.transform.localScale.x;
         angerOneFour = (1f / 4f) * angerVal;
         angerTwoFour = (2f / 4f) * angerVal;
@@ -56,8 +60,6 @@ public class angerManagement : MonoBehaviour
         plane.SetActive(true);
         bar.SetActive(true);
 
-        levelTemplate = FindObjectsByType<levelTemplate>(FindObjectsInactive.Exclude, FindObjectsSortMode.None)[0];
-        Debug.Log("Level: " + levelTemplate.level);
 
         currentAngerLevel = AngerLevel.VeryCalm;
         previousAngerLevel = AngerLevel.VeryCalm; // Match so no change fires on start
@@ -77,12 +79,7 @@ public class angerManagement : MonoBehaviour
                 currentAngerLevel = AngerLevel.Calm;
             else if (n > angerThreeFour && n <= angerVal)
                 currentAngerLevel = AngerLevel.VeryCalm;
-            else
-                if (n < 0 && bar != null)
-                {
-                    stopAnger();
-                    Debug.Log("player has failed to serve");
-                }
+
 
 
             // Only trigger effects on state change
@@ -104,7 +101,11 @@ public class angerManagement : MonoBehaviour
             if (bar.transform.localScale.x < 0)
             {
                 bar.transform.localScale = new Vector3(0, bar.transform.localScale.y, bar.transform.localScale.z);
-                stopAnger();
+
+                // 2 second delay for voice line to play
+                Invoke("stopAnger", 2);
+                customerSounds.PlaySound("leaving");
+                Debug.Log("player has failed to serve");
             }
         }
     }

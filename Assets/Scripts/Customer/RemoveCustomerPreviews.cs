@@ -22,6 +22,9 @@ public class RemoveCustomerPreviews : MonoBehaviour
         if (allowedItems.onlyAllowedItems.TrueForAll(dish => dish == Dishes.Dish.placeholder))
         {
 
+            CustomerSounds customerSounds = FindAnyObjectByType<CustomerSounds>();
+            customerSounds.PlaySound("thankyou", false);
+
             angerManagement.stopAnger();
             // Should have a EndCustomer script that handles the end of the customer, this is just a placeholder for now
 

@@ -1295,8 +1295,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8953b49f4bfa9e14593313a75ec09353, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::levelControl
-  maxNum: 1
+  maxNum: 3
   level: 1
+  angerStep: 20
   completedCustomers: 0
   nextLevel: {fileID: 1061841306}
 --- !u!1 &330585543
@@ -5474,8 +5475,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8953b49f4bfa9e14593313a75ec09353, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::levelControl
-  maxNum: 1
+  maxNum: 6
   level: 2
+  angerStep: 17
   completedCustomers: 0
   nextLevel: {fileID: 1478012897}
 --- !u!1 &1093397942 stripped
@@ -7647,8 +7649,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8953b49f4bfa9e14593313a75ec09353, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::levelControl
-  maxNum: 1
+  maxNum: 9
   level: 3
+  angerStep: 15
   completedCustomers: 0
   nextLevel: {fileID: 323046256}
 --- !u!1001 &1495402193
@@ -8108,6 +8111,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1598342990}
   - {fileID: 323046257}
   - {fileID: 1061841307}
   - {fileID: 1478012898}
@@ -8628,6 +8632,55 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 110959153d1acc044a5ae1ab0b6851c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::getState
+--- !u!1 &1598342989
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1598342990}
+  - component: {fileID: 1598342991}
+  m_Layer: 0
+  m_Name: LevelDEBUG
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1598342990
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1598342989}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1541741657}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1598342991
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1598342989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8953b49f4bfa9e14593313a75ec09353, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::levelControl
+  maxNum: 1
+  level: 0
+  angerStep: 2
+  completedCustomers: 0
+  nextLevel: {fileID: 323046256}
 --- !u!1 &1604713396
 GameObject:
   m_ObjectHideFlags: 0
@@ -10059,6 +10112,12 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 3dc361ddd8e0a3a4eba9ed0d1c2fd344, type: 3}
   - name: veryAngry
     clip: {fileID: 8300000, guid: a709d6ba43bfdc34d9ffe3ef549453a9, type: 3}
+  - name: hello
+    clip: {fileID: 8300000, guid: bdf9a96ddb184894581687587f9afa84, type: 3}
+  - name: leaving
+    clip: {fileID: 8300000, guid: f85cd647ea40df843b3f651ddf02c9b8, type: 3}
+  - name: thankyou
+    clip: {fileID: 8300000, guid: 7bbd6d8d5209d83418f9ea07aa0c9c8f, type: 3}
   audioSource: {fileID: 1864749831}
 --- !u!114 &1844722636
 MonoBehaviour:
