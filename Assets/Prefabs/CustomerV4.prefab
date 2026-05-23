@@ -441,7 +441,15 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5522429120960677120, guid: a3ae5cc82b31aca438ed888b4f7aa63f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3600330097106305376}
+    - targetCorrespondingSourceObject: {fileID: 5522429120960677120, guid: a3ae5cc82b31aca438ed888b4f7aa63f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3863433754588796607}
   m_SourcePrefab: {fileID: 100100000, guid: a3ae5cc82b31aca438ed888b4f7aa63f, type: 3}
+--- !u!1 &1849790254264179180 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 223948742645195883, guid: a3ae5cc82b31aca438ed888b4f7aa63f, type: 3}
+  m_PrefabInstance: {fileID: 1923149596463627655}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2414436603646166118 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4265378416399858145, guid: a3ae5cc82b31aca438ed888b4f7aa63f, type: 3}
@@ -549,3 +557,28 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &3863433754588796607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6202576370485442695}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53c0d216928febc40919d007ed3fcff0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::IntializeCustomer
+  order1: {fileID: 7181684304445679798}
+  order2: {fileID: 1849790254264179180}
+  anger: {fileID: 8382348960261777429}
+--- !u!1 &7181684304445679798 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8726306527358342449, guid: a3ae5cc82b31aca438ed888b4f7aa63f, type: 3}
+  m_PrefabInstance: {fileID: 1923149596463627655}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8382348960261777429 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7990638812254623122, guid: a3ae5cc82b31aca438ed888b4f7aa63f, type: 3}
+  m_PrefabInstance: {fileID: 1923149596463627655}
+  m_PrefabAsset: {fileID: 0}

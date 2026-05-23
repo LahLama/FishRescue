@@ -5,19 +5,21 @@ public class CustomerSpawning : MonoBehaviour
 {
     public GameObject customerParent;
     public List<GameObject> availlebleCustomers;
-
     public MeshRenderer customerLight;
     public Material onLight;
     public Material offLight;
 
 
 
-    public void spawnCustomer()
+
+    public bool spawnCustomer()
     {
         int randomIndex = Random.Range(0, availlebleCustomers.Count);
         bool inRange = randomIndex >= 0 && randomIndex < availlebleCustomers.Count;
+
+        // If there is no availible customers it will return false, so that the currentCount in levelTemplate doesnt decrease
         if (!inRange)
-            
+            return false;
 
         availlebleCustomers[randomIndex].SetActive(true);
         availlebleCustomers.RemoveAt(randomIndex);
@@ -25,6 +27,7 @@ public class CustomerSpawning : MonoBehaviour
         customerLight.gameObject.GetComponent<Light>().enabled = true;
         customerLight.gameObject.GetComponent<AudioSource>().Play();
         Invoke("TurnOffLight", 4f);
+        return true;
 
 
     }
@@ -47,6 +50,7 @@ public class CustomerSpawning : MonoBehaviour
             child.TryGetComponent<orderManagement>(out var orderManageScript);
             if (orderManageScript != null)
                 orderManageScript.enabled = true;
+            child.GetComponent<IntializeCustomer>().enabled = true;
         }
 
         // InvokeRepeating("spawnCustomer", 10f, 25f);

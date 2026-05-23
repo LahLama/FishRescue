@@ -2503,6 +2503,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::levelControl
   maxNum: 3
   level: 1
+  waitTime: 30
   angerStep: 20
   completedCustomers: 0
   nextLevel: {fileID: 1061841306}
@@ -7836,6 +7837,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::levelControl
   maxNum: 6
   level: 2
+  waitTime: 20
   angerStep: 17
   completedCustomers: 0
   nextLevel: {fileID: 1478012897}
@@ -11522,6 +11524,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::levelControl
   maxNum: 9
   level: 3
+  waitTime: 15
   angerStep: 15
   completedCustomers: 0
   nextLevel: {fileID: 323046256}
@@ -13122,6 +13125,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::levelControl
   maxNum: 15
   level: 0
+  waitTime: 0.5
   angerStep: 0.2
   completedCustomers: 0
   nextLevel: {fileID: 323046256}

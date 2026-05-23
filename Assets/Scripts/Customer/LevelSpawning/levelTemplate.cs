@@ -24,13 +24,14 @@ public class levelTemplate : MonoBehaviour
     IEnumerator spawning()
     {
         int currentCount = maxNum;
-
+        bool canSpawnMore = true;
         yield return new WaitForSeconds(5);
         while (currentCount > 0)
         {
-            customerSpawning.spawnCustomer();
+            canSpawnMore = customerSpawning.spawnCustomer();
             yield return new WaitForSeconds(waitTime);
-            currentCount--;
+            if (canSpawnMore)
+                currentCount--;
         }
     }
 

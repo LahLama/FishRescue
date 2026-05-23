@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class angerManagement : MonoBehaviour
@@ -36,13 +37,16 @@ public class angerManagement : MonoBehaviour
     public AngerLevel currentAngerLevel;
     public AngerLevel previousAngerLevel;
 
+    CustomerSpawning customerSpawning;
+
+    void Awake()
+    {
+        customerSpawning = FindAnyObjectByType<CustomerSpawning>();
+    }
     public void OnEnable()
     {
         levelTemplate = FindObjectsByType<levelTemplate>(FindObjectsInactive.Exclude, FindObjectsSortMode.None)[0];
-        Debug.Log("Level: " + levelTemplate.level);
-        Debug.Log("step time ------" + angerStepTime);
         angerStepTime = levelTemplate.angerStep;
-        Debug.Log("step time ++++++" + angerStepTime);
     }
 
     public void startAnger()
@@ -109,6 +113,7 @@ public class angerManagement : MonoBehaviour
                 Invoke("stopAnger", 2);
                 customerSounds.PlaySound("leaving");
                 Debug.Log("player has failed to serve");
+                
             }
         }
     }
@@ -148,7 +153,9 @@ public class angerManagement : MonoBehaviour
 
     public void stopAnger()
     {
-
+        //angerManagement script is on a child of the customer, here we are getting the parent = prefab and
+        //adding it back to the pool of availbe spawning customers
+        customerSpawning.availlebleCustomers.Add(this.transform.parent.gameObject);
         sucessParticles.SetActive(true);
         StopAllCoroutines();
         plane.SetActive(false);
@@ -158,8 +165,10 @@ public class angerManagement : MonoBehaviour
         calmParticles.SetActive(false);
         angryParticles.SetActive(false);
         veryAngryParticles.SetActive(false);
+
         levelTemplate.completedCustomers++;
         Debug.Log("levelTemplate.completedCustomers: " + levelTemplate.completedCustomers);
+
 
         this.transform.parent.gameObject.SetActive(false);
 
