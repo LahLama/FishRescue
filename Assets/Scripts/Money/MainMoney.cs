@@ -10,7 +10,8 @@ public class MainMoney : MonoBehaviour
     {
         money += amount;
         // Money Sound
-        audioSource.Play();
+        if (amount > 0)
+            GetComponent<SoundsManager>().PlaySound("money", false, audioSource);
         this.GetComponent<TextMeshProUGUI>().text = "R" + money.ToString();
     }
 }

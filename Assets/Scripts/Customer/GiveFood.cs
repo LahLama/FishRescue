@@ -57,7 +57,7 @@ public class GiveFood : MonoBehaviour, IInteractable
 
             if (RHMeshRenderer.enabled)
             {
-              
+
 
                 // If there is a child that has "UpdatePosItem, then you are interacting with a Point of Service.
                 if (isPOS || isTrashCan)
@@ -74,7 +74,7 @@ public class GiveFood : MonoBehaviour, IInteractable
                         RHMeshRenderer.enabled = false;
                         RHDishes.setDish(RHDishes.getDish(0));
                         canGiveItem = false;
-                        this.gameObject.GetComponent<AudioSource>().Play();
+
 
                     }
                     else

@@ -8,6 +8,7 @@ public class CustomerSpawning : MonoBehaviour
     public MeshRenderer customerLight;
     public Material onLight;
     public Material offLight;
+    public AudioSource audioSource;
 
 
 
@@ -25,7 +26,8 @@ public class CustomerSpawning : MonoBehaviour
         availlebleCustomers.RemoveAt(randomIndex);
         customerLight.material = onLight;
         customerLight.gameObject.GetComponent<Light>().enabled = true;
-        customerLight.gameObject.GetComponent<AudioSource>().Play();
+        FindAnyObjectByType<SoundsManager>().PlaySound("newCustomerLight", false, audioSource);
+
         Invoke("TurnOffLight", 4f);
         return true;
 

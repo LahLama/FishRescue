@@ -20,8 +20,7 @@ public class PrepFood : MonoBehaviour
     SoundsManager soundsManager;
     public TextMeshPro timerText;
 
-    float fadeDuration = 0.2f;
-    Coroutine fadeCoroutine;
+
 
     void Awake()
     {
@@ -53,57 +52,9 @@ public class PrepFood : MonoBehaviour
 
 
 
-    void PlaySound(string clipName, bool loop = true)
-    {
-        AudioClip clip = soundsManager.GetClipByName(clipName);
-        if (clip != null)
-        {
-            // Cancel any ongoing fade before starting a new one
-            if (fadeCoroutine != null)
-                StopCoroutine(fadeCoroutine);
 
-            fadeCoroutine = StartCoroutine(FadeToNewClip(clip, loop));
-        }
-        else
-        {
-            Debug.LogWarning($"Audio clip '{clipName}' not found in SoundsManager.");
-        }
-    }
 
-    IEnumerator FadeToNewClip(AudioClip newClip, bool loop)
-    {
-        // Fade out the current clip if something is playing
-        if (audioSource.isPlaying)
-        {
-            float startVolume = audioSource.volume;
-            float elapsed = 0f;
 
-            while (elapsed < fadeDuration)
-            {
-                elapsed += Time.deltaTime;
-                audioSource.volume = Mathf.Lerp(startVolume, 0f, elapsed / fadeDuration);
-                yield return null;
-            }
-
-            audioSource.Stop();
-            audioSource.volume = 0f;
-        }
-
-        // Swap the clip and fade in
-        audioSource.clip = newClip;
-        audioSource.loop = loop;
-        audioSource.Play();
-
-        float fadeElapsed = 0f;
-        while (fadeElapsed < fadeDuration)
-        {
-            fadeElapsed += Time.deltaTime;
-            audioSource.volume = Mathf.Lerp(0f, 1f, fadeElapsed / fadeDuration);
-            yield return null;
-        }
-
-        audioSource.volume = 1f;
-    }
 
 
     void counterStore()
@@ -119,7 +70,7 @@ public class PrepFood : MonoBehaviour
     IEnumerator WashCountdown()
     {
         //play the sound that is attached to the parent object (the POS counter) when the washing process starts, and stop it when the washing process ends
-        PlaySound("wash", true);
+        soundsManager.PlaySound("wash", true, audioSource);
 
         PrepTime = originalPrepTime / 2;
         shakePOS.enabled = true;
@@ -143,7 +94,7 @@ public class PrepFood : MonoBehaviour
         updatePOSitem.colliderItem.enabled = true;
         ready.SetActive(true);
 
-        PlaySound("washEnd", false);
+        soundsManager.PlaySound("washEnd", false, audioSource);
 
         //Debug.Log("Wash Done!");
 
@@ -164,15 +115,15 @@ public class PrepFood : MonoBehaviour
 
         if (this.CompareTag("potatoeStand"))
         {
-            PlaySound("chopStart", false);
+            soundsManager.PlaySound("chopStart", false, audioSource);
         }
         else if (this.CompareTag("saladStand"))
         {
-            PlaySound("chopStart", false);
+            soundsManager.PlaySound("chopStart", false, audioSource);
         }
         else if (this.CompareTag("braai"))
         {
-            PlaySound("braaiStart", false);
+            soundsManager.PlaySound("braaiStart", false, audioSource);
         }
 
 
@@ -201,15 +152,15 @@ public class PrepFood : MonoBehaviour
 
         if (this.CompareTag("potatoeStand"))
         {
-            PlaySound("chop", true);
+            soundsManager.PlaySound("chop", true, audioSource);
         }
         else if (this.CompareTag("saladStand"))
         {
-            PlaySound("chop", true);
+            soundsManager.PlaySound("chop", true, audioSource);
         }
         else if (this.CompareTag("braai"))
         {
-            PlaySound("braai", true);
+            soundsManager.PlaySound("braai", true, audioSource);
         }
 
         //Replace the current item with the same dish, just a differnt state
@@ -233,15 +184,15 @@ public class PrepFood : MonoBehaviour
 
         if (this.CompareTag("potatoeStand"))
         {
-            PlaySound("chopEnd", false);
+            soundsManager.PlaySound("chopEnd", false, audioSource);
         }
         else if (this.CompareTag("saladStand"))
         {
-            PlaySound("chopEnd", false);
+            soundsManager.PlaySound("chopEnd", false, audioSource);
         }
         else if (this.CompareTag("braai"))
         {
-            PlaySound("braaiEnd", false);
+            soundsManager.PlaySound("braaiEnd", false, audioSource);
         }
 
 
@@ -263,7 +214,7 @@ public class PrepFood : MonoBehaviour
             PrepTime -= Time.deltaTime;
             yield return null; // waits one frame, then continues
         }
-        PlaySound("trash", false);
+        soundsManager.PlaySound("trash", false, audioSource);
         timerText.text = "";
         updatePOSitem.AddItem(updatePOSitem.dish, foodStates.State.Trash);
         setFoodMaterials.SetFoodMaterial(updatePOSitem.gameObject, updatePOSitem.state, updatePOSitem.dish);

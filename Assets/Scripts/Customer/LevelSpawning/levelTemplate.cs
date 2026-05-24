@@ -1,5 +1,7 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+using Unity.VisualScripting;
 
 public class levelTemplate : MonoBehaviour
 {
@@ -15,9 +17,11 @@ public class levelTemplate : MonoBehaviour
     public int MoneyGoal = 0;
     public int PerfectMoneyGoal = 0;
     public GameObject nextLevel;
+    public List<GameObject> countersToEnable;
 
     void Start()
     {
+        FindAnyObjectByType<SoundsManager>().PlaySound("levelStart", false, GetComponentInParent<AudioSource>());
         customerSpawning = FindAnyObjectByType<CustomerSpawning>();
         StartCoroutine(spawning());
 
@@ -25,6 +29,17 @@ public class levelTemplate : MonoBehaviour
         MoneyGoal = maxNum * 27;
         PerfectMoneyGoal = maxNum * 37;
         FindAnyObjectByType<setGoals>().SetMoneyGoalsStart();
+
+        foreach (var counter in countersToEnable)
+        {
+            if (counter != null)
+            {
+                // This assumes visualItem is child 0.
+                // This is to reset the counters after each day.
+                counter.transform.GetChild(0).GetComponent<UpdatePOSitem>().RemoveItem();
+            }
+            counter.gameObject.SetActive(true);
+        }
 
     }
 
@@ -48,7 +63,9 @@ public class levelTemplate : MonoBehaviour
         if (completedCustomers == maxNum)
         {
             completedCustomers = 0;
-            NextLevel();
+            Invoke("NextLevel", 2);
+            FindAnyObjectByType<SoundsManager>().PlaySound("endLevel", false, GetComponentInParent<AudioSource>());
+
 
         }
     }

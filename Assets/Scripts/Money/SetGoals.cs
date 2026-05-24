@@ -10,7 +10,8 @@ public class setGoals : MonoBehaviour
     private RectTransform barRect;
     private MainMoney mainMoney;
 
-    private const float emptyTopOffset = 180f; // Matches your inspector value
+    [SerializeField]
+    private const float emptyTopOffset = 206f; // Matches your inspector value
 
     public void SetMoneyGoalsStart()
     {
@@ -19,9 +20,13 @@ public class setGoals : MonoBehaviour
 
         this.GetComponent<TextMeshProUGUI>().text =
             "Money Goal: R" + levelTemplate.MoneyGoal +
-            "\nPerfect Money Goal: R" + levelTemplate.PerfectMoneyGoal;
+            "Perfect Money Goal: R" + levelTemplate.PerfectMoneyGoal;
         mainMoney = FindAnyObjectByType<MainMoney>();
         barRect = panelbar.GetComponent<RectTransform>();
+
+        //Reset the money count on a new day
+        mainMoney.money = 0;
+        mainMoney.AddMoney(-mainMoney.money);
 
         // Start empty - top offset at max
         barRect.offsetMax = new Vector2(barRect.offsetMax.x, -emptyTopOffset);
