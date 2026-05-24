@@ -12,12 +12,19 @@ public class levelTemplate : MonoBehaviour
     // How often the anger is ticked
     public float angerStep = 15;
     public int completedCustomers = 0;
+    public int MoneyGoal = 0;
+    public int PerfectMoneyGoal = 0;
     public GameObject nextLevel;
 
     void Start()
     {
         customerSpawning = FindAnyObjectByType<CustomerSpawning>();
         StartCoroutine(spawning());
+
+        // 27 is the average of all dishes' prices thru the anger levels of 37,31,25,18 
+        MoneyGoal = maxNum * 27;
+        PerfectMoneyGoal = maxNum * 37;
+        FindAnyObjectByType<setGoals>().SetMoneyGoalsStart();
 
     }
 

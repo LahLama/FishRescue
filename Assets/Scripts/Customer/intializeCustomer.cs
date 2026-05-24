@@ -8,7 +8,7 @@ public class IntializeCustomer : MonoBehaviour
     public GameObject order1;
     public GameObject order2;
     public GameObject anger;
-    void OnEnable()
+    void OnEnablex()
     {
         Debug.Log("Starting up: " + this.name);
 

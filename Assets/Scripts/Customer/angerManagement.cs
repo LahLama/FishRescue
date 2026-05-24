@@ -54,6 +54,7 @@ public class angerManagement : MonoBehaviour
         customerSounds.audioSource = this.GetComponentInParent<AudioSource>();
 
         angerVal = bar.transform.localScale.x;
+        
         angerOneFour = (1f / 4f) * angerVal;
         angerTwoFour = (2f / 4f) * angerVal;
         angerThreeFour = (3f / 4f) * angerVal;
