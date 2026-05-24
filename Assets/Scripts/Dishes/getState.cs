@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 public class getState : MonoBehaviour, IInteractable
@@ -31,6 +32,7 @@ public class getState : MonoBehaviour, IInteractable
             RHDishes.setDish(col.GetComponent<Dishes>().currentDish);
             return null;
         }
-        return null;
+        else
+            return null;
     }
 }

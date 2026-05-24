@@ -55,6 +55,7 @@ public class PlayerInteract : MonoBehaviour
                 {
                     if (script != null)
                         script.Interact(hit.collider);
+
                     else
                         Debug.LogWarning("*********************** interact script not found ***********************");
                 }

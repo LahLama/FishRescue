@@ -4013,10 +4013,6 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 642616661127176913, guid: ea00e41dd35558a4e80244e7d4fefa3b, type: 3}
-      propertyPath: Loop
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 642616661127176913, guid: ea00e41dd35558a4e80244e7d4fefa3b, type: 3}
       propertyPath: m_Volume
       value: 1
       objectReference: {fileID: 0}
@@ -4024,6 +4020,10 @@ PrefabInstance:
       propertyPath: m_Resource
       value: 
       objectReference: {fileID: 8300000, guid: f3474fdc4e893d440b3237b454ad4578, type: 3}
+    - target: {fileID: 642616661127176913, guid: ea00e41dd35558a4e80244e7d4fefa3b, type: 3}
+      propertyPath: MaxDistance
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 941038415694940960, guid: ea00e41dd35558a4e80244e7d4fefa3b, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -4352,7 +4352,7 @@ MonoBehaviour:
   - name: customer_arrive
     clip: {fileID: 8300000, guid: 0f2b06fb6f79fd947898631597d0120c, type: 3}
   - name: chopStart
-    clip: {fileID: 8300000, guid: 6cd5703f9e0ce9847b007b951d6baf57, type: 3}
+    clip: {fileID: 8300000, guid: 47803f538efd29f4593fbebd809a74c9, type: 3}
   - name: chop
     clip: {fileID: 8300000, guid: a98e8b6d8d4e58949a82f6f1ac11e99f, type: 3}
   - name: chopEnd
@@ -6001,7 +6001,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 0.31718707, g: 1, b: 0, a: 0.392}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -6428,7 +6428,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 71.36499, y: 0.00019836426}
+  m_AnchoredPosition: {x: 71.36499, y: 0.00024414062}
   m_SizeDelta: {x: -426.47, y: -21.964}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &968480585
@@ -9391,6 +9391,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87de2f870a16fa942b8c43d0b69a4412, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::setGoals
+  panelbar: {fileID: 890100690}
 --- !u!114 &1216255423
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11918,6 +11919,10 @@ PrefabInstance:
       propertyPath: m_Center.z
       value: 0.015507994
       objectReference: {fileID: 0}
+    - target: {fileID: 6038610451290325540, guid: ea00e41dd35558a4e80244e7d4fefa3b, type: 3}
+      propertyPath: timerGO
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 7400121166437340265, guid: ea00e41dd35558a4e80244e7d4fefa3b, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.091609
@@ -12797,7 +12802,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 642616661127176913, guid: ea00e41dd35558a4e80244e7d4fefa3b, type: 3}
       propertyPath: Loop
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 642616661127176913, guid: ea00e41dd35558a4e80244e7d4fefa3b, type: 3}
       propertyPath: m_Volume
@@ -14271,6 +14276,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f50193f9e7b1a034c88503653a156c39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MainMoney
+  money: 0
   audioSource: {fileID: 2085968339}
 --- !u!1 &1655030908
 GameObject:
@@ -16119,50 +16125,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1873027861}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &1889913174
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1889913176}
-  - component: {fileID: 1889913175}
-  m_Layer: 0
-  m_Name: setGoals
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1889913175
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1889913174}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 87de2f870a16fa942b8c43d0b69a4412, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::setGoals
---- !u!4 &1889913176
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1889913174}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1909098845
 GameObject:
   m_ObjectHideFlags: 0
@@ -19046,6 +19008,5 @@ SceneRoots:
   - {fileID: 977045327}
   - {fileID: 691164751}
   - {fileID: 1844722637}
-  - {fileID: 1889913176}
   - {fileID: 2046610121}
   - {fileID: 1541741657}

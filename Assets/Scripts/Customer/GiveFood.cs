@@ -1,3 +1,4 @@
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -11,6 +12,7 @@ public class GiveFood : MonoBehaviour, IInteractable
     // MeshRenderer LHMeshRenderer;
     foodStates RHfoodStates;
     PlayerReasoning playerReasoning;
+    public TextMeshPro timerGO;
     void Awake()
     {
         // leftHand = GameObject.FindGameObjectWithTag("invL");
@@ -55,6 +57,8 @@ public class GiveFood : MonoBehaviour, IInteractable
 
             if (RHMeshRenderer.enabled)
             {
+              
+
                 // If there is a child that has "UpdatePosItem, then you are interacting with a Point of Service.
                 if (isPOS || isTrashCan)
                 {
