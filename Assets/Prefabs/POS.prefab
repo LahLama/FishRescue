@@ -4846,6 +4846,7 @@ GameObject:
   - component: {fileID: 1497871555917907566}
   - component: {fileID: 3036859865552859902}
   - component: {fileID: 6120961312059531987}
+  - component: {fileID: 8942208064611404195}
   - component: {fileID: 4031044022882958226}
   - component: {fileID: 108280020046668299}
   m_Layer: 0
@@ -4993,6 +4994,24 @@ MonoBehaviour:
   dishScript: {fileID: 0}
   foodStatesScript: {fileID: 0}
   prepFood: {fileID: 0}
+--- !u!114 &8942208064611404195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2010202543207471073}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1dff312552c15a947b6b9687902fb302, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PrepFood
+  originalPrepTime: 8
+  notReady: {fileID: 8249160182742377012}
+  ready: {fileID: 374562637357503358}
+  trash: {fileID: 6620305956820186976}
+  shakePOS: {fileID: 4113678509763730908}
+  timerText: {fileID: 3754712923773159809}
 --- !u!114 &4031044022882958226
 MonoBehaviour:
   m_ObjectHideFlags: 0

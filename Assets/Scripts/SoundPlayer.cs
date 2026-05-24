@@ -6,10 +6,7 @@ public class SoundPlayer : MonoBehaviour
     public AudioSource audioSource;
 
 
-    public enum soundList
-    {
-        water = 0
-    }
+
 
     public string PlaySound(AudioSource source)
     {

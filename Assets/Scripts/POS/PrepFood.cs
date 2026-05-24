@@ -14,15 +14,18 @@ public class PrepFood : MonoBehaviour
     public GameObject ready;
     public GameObject trash;
     public ShakePOS shakePOS;
-    SoundPlayer soundPlayer;
+
     AudioSource audioSource;
 
     SoundsManager soundsManager;
     public TextMeshPro timerText;
 
+    float fadeDuration = 0.2f;
+    Coroutine fadeCoroutine;
+
     void Awake()
     {
-        soundPlayer = FindAnyObjectByType<SoundPlayer>();
+
         soundsManager = FindAnyObjectByType<SoundsManager>();
         audioSource = GetComponentInParent<AudioSource>();
         updatePOSitem = GetComponent<UpdatePOSitem>();
@@ -48,19 +51,58 @@ public class PrepFood : MonoBehaviour
             StartCoroutine(RawCountdown());
     }
 
+
+
     void PlaySound(string clipName, bool loop = true)
     {
         AudioClip clip = soundsManager.GetClipByName(clipName);
         if (clip != null)
         {
-            audioSource.clip = clip;
-            audioSource.loop = loop;
-            soundPlayer.PlaySound(audioSource);
+            // Cancel any ongoing fade before starting a new one
+            if (fadeCoroutine != null)
+                StopCoroutine(fadeCoroutine);
+
+            fadeCoroutine = StartCoroutine(FadeToNewClip(clip, loop));
         }
         else
         {
             Debug.LogWarning($"Audio clip '{clipName}' not found in SoundsManager.");
         }
+    }
+
+    IEnumerator FadeToNewClip(AudioClip newClip, bool loop)
+    {
+        // Fade out the current clip if something is playing
+        if (audioSource.isPlaying)
+        {
+            float startVolume = audioSource.volume;
+            float elapsed = 0f;
+
+            while (elapsed < fadeDuration)
+            {
+                elapsed += Time.deltaTime;
+                audioSource.volume = Mathf.Lerp(startVolume, 0f, elapsed / fadeDuration);
+                yield return null;
+            }
+
+            audioSource.Stop();
+            audioSource.volume = 0f;
+        }
+
+        // Swap the clip and fade in
+        audioSource.clip = newClip;
+        audioSource.loop = loop;
+        audioSource.Play();
+
+        float fadeElapsed = 0f;
+        while (fadeElapsed < fadeDuration)
+        {
+            fadeElapsed += Time.deltaTime;
+            audioSource.volume = Mathf.Lerp(0f, 1f, fadeElapsed / fadeDuration);
+            yield return null;
+        }
+
+        audioSource.volume = 1f;
     }
 
 
@@ -100,7 +142,6 @@ public class PrepFood : MonoBehaviour
         shakePOS.enabled = false;
         updatePOSitem.colliderItem.enabled = true;
         ready.SetActive(true);
-        soundPlayer.StopSound(audioSource);
 
         PlaySound("washEnd", false);
 
@@ -109,16 +150,17 @@ public class PrepFood : MonoBehaviour
     }
 
     IEnumerator RawCountdown()  //this is like the first phase of washing but for meat
-    {
-        updatePOSitem.colliderItem.enabled = true; // Enable the collider when food is still raw, allowing it to be interacted with (e.g., thrown in the trash)
+    {// Enable the collider when food is still raw, allowing it to be interacted with (e.g., thrown in the trash)
 
+        updatePOSitem.colliderItem.enabled = true;
 
 
         notReady.SetActive(true);
         ready.SetActive(false);
         trash.SetActive(false);
         shakePOS.enabled = true;
-        PrepTime = originalPrepTime / 2;
+
+        PrepTime = originalPrepTime / 4;
 
         if (this.CompareTag("potatoeStand"))
         {
