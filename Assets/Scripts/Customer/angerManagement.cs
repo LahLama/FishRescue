@@ -39,6 +39,7 @@ public class angerManagement : MonoBehaviour
 
     CustomerSpawning customerSpawning;
 
+
     void Awake()
     {
         customerSpawning = FindAnyObjectByType<CustomerSpawning>();
@@ -54,7 +55,7 @@ public class angerManagement : MonoBehaviour
         customerSounds.audioSource = this.GetComponentInParent<AudioSource>();
 
         angerVal = bar.transform.localScale.x;
-        
+
         angerOneFour = (1f / 4f) * angerVal;
         angerTwoFour = (2f / 4f) * angerVal;
         angerThreeFour = (3f / 4f) * angerVal;
@@ -114,7 +115,8 @@ public class angerManagement : MonoBehaviour
                 Invoke("stopAnger", 2);
                 customerSounds.PlaySound("leaving");
                 Debug.Log("player has failed to serve");
-                
+                levelTemplate.upsetCustomers += 1;
+                this.GetComponentInParent<RemoveCustomerPreviews>().RemoveLeavingCustomerPreview();
             }
         }
     }
@@ -157,7 +159,7 @@ public class angerManagement : MonoBehaviour
         //angerManagement script is on a child of the customer, here we are getting the parent = prefab and
         //adding it back to the pool of availbe spawning customers
         customerSpawning.availlebleCustomers.Add(this.transform.parent.gameObject);
-        sucessParticles.SetActive(true);
+        sucessParticles.SetActive(false);
         StopAllCoroutines();
         plane.SetActive(false);
         bar.SetActive(false);
@@ -168,7 +170,8 @@ public class angerManagement : MonoBehaviour
         veryAngryParticles.SetActive(false);
 
         levelTemplate.completedCustomers++;
-        Debug.Log("levelTemplate.completedCustomers: " + levelTemplate.completedCustomers);
+        // Debug.Log("levelTemplate.completedCustomers: " + levelTemplate.completedCustomers);
+
 
 
         this.transform.parent.gameObject.SetActive(false);

@@ -9,26 +9,41 @@ public class levelTemplate : MonoBehaviour
     CustomerSpawning customerSpawning;
 
     public int maxNum = 3;
-    public string level = "0";
+    public int level = 0;
     public float waitTime = 5;
     // How often the anger is ticked
     public float angerStep = 15;
     public int completedCustomers = 0;
+    public int upsetCustomers = 0;
     public int MoneyGoal = 0;
     public int PerfectMoneyGoal = 0;
     public GameObject nextLevel;
     public List<GameObject> countersToEnable;
+    private DaySummary daySummary;
+    private MainMoney mainMoney;
 
-    void Start()
+
+    void OnEnable() //This should allow for retrying of a level
     {
         FindAnyObjectByType<SoundsManager>().PlaySound("levelStart", false, GetComponentInParent<AudioSource>());
         customerSpawning = FindAnyObjectByType<CustomerSpawning>();
+        daySummary = FindAnyObjectByType<DaySummary>();
+        mainMoney = FindAnyObjectByType<MainMoney>();
+
         StartCoroutine(spawning());
 
         // 27 is the average of all dishes' prices thru the anger levels of 37,31,25,18 
         MoneyGoal = maxNum * 27;
         PerfectMoneyGoal = maxNum * 37;
         FindAnyObjectByType<setGoals>().SetMoneyGoalsStart();
+
+        daySummary.dayStats["Day"] = level;
+        daySummary.dayStats["Goal"] = MoneyGoal;
+        daySummary.dayStats["PerfectGoal"] = PerfectMoneyGoal;
+
+        daySummary.dayStats["MoneyGained"] = (int)mainMoney.money;
+
+
 
         foreach (var counter in countersToEnable)
         {
@@ -47,6 +62,9 @@ public class levelTemplate : MonoBehaviour
     {
         int currentCount = maxNum;
         bool canSpawnMore = true;
+
+
+
         yield return new WaitForSeconds(5);
         while (currentCount > 0)
         {
@@ -62,19 +80,26 @@ public class levelTemplate : MonoBehaviour
     {
         if (completedCustomers == maxNum)
         {
-            completedCustomers = 0;
-            Invoke("NextLevel", 2);
-            FindAnyObjectByType<SoundsManager>().PlaySound("endLevel", false, GetComponentInParent<AudioSource>());
 
+            FindAnyObjectByType<SoundsManager>().PlaySound("endLevel", false, GetComponentInParent<AudioSource>());
+            Invoke("InitRoundEnd", 2);
 
         }
     }
 
-    void NextLevel()
+    private void OnDisable()
+    {
+        daySummary.dayStats["HappyCustomers"] = completedCustomers - upsetCustomers;
+        daySummary.dayStats["UpsetCustomers"] = upsetCustomers;
+        completedCustomers = 0;
+        upsetCustomers = 0;
+    }
+
+    void InitRoundEnd()
     {
         if (nextLevel != null)
         {
-            GetComponentInParent<LevelManager>().TransitionToLevel(this.gameObject, nextLevel);
+            GetComponentInParent<LevelManager>().ShowScreenAndButtons(this.gameObject, nextLevel);
         }
     }
 
