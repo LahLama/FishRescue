@@ -26,14 +26,9 @@ public class RemoveCustomerPreviews : MonoBehaviour
         {
 
             CustomerSounds customerSounds = FindAnyObjectByType<CustomerSounds>();
-            SoundsManager soundsManager = FindAnyObjectByType<SoundsManager>();
             customerSounds.PlaySound("thankyou", false);
-          
-
-
 
             angerManagement.stopAnger();
-            // Should have a EndCustomer script that handles the end of the customer, this is just a placeholder for now
 
             // The amount of money earned is based on the anger level of the customer, the calmer they are, the more money you earn
             // Divide by 100, to get a fraction.
@@ -42,10 +37,19 @@ public class RemoveCustomerPreviews : MonoBehaviour
             addMoneyVisual.StartMoney(moneyEarned);
 
             FindAnyObjectByType<MainMoney>().AddMoney(moneyEarned);
-
-
-            // Debug.Log("Customer has received all their orders");
         }
 
+    }
+
+    public void RemoveLeavingCustomerPreview()
+    {
+        allowedItems = GetComponent<AllowedItems>();
+
+        for (int i = 0; i < allowedItems.onlyAllowedItems.Count; i++)
+        {
+
+            allowedItems.onlyAllowedItems[i] = Dishes.Dish.placeholder;
+            transform.GetChild(i).gameObject.SetActive(false);
+        }
     }
 }

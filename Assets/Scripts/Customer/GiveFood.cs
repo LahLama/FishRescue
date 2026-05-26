@@ -13,6 +13,7 @@ public class GiveFood : MonoBehaviour, IInteractable
     foodStates RHfoodStates;
     PlayerReasoning playerReasoning;
     public TextMeshPro timerGO;
+    
     void Awake()
     {
         // leftHand = GameObject.FindGameObjectWithTag("invL");
