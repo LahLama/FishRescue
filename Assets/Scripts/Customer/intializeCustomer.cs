@@ -8,9 +8,9 @@ public class IntializeCustomer : MonoBehaviour
     public GameObject order1;
     public GameObject order2;
     public GameObject anger;
-    void OnEnablex()
+    void OnEnable()
     {
-        Debug.Log("Starting up: " + this.name);
+        // Debug.Log("Starting up: " + this.name);
 
         GetComponent<orderManagement>().enabled = true;
 
@@ -31,5 +31,6 @@ public class IntializeCustomer : MonoBehaviour
 
         anger.SetActive(true);
         anger.GetComponent<angerManagement>().enabled = true;
+        anger.GetComponent<angerManagement>().startAnger();
     }
 }

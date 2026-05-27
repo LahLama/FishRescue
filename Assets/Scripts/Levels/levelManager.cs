@@ -5,18 +5,23 @@ using UnityEngine.UI;
 public class LevelManager : MonoBehaviour
 {
     public RawImage transitionScene;
+    public Button nextLevelButton;
     GameObject nextLevel;
     GameObject currentLevel;
-    public void ShowScreenAndButtons(GameObject current, GameObject next)
+    public void ShowScreenAndButtons(GameObject current, GameObject next, bool showNextBtn)
     {
         current.SetActive(false);
         this.GetComponent<DaySummary>().UpdateList();
+
+        if (nextLevelButton != null)
+            nextLevelButton.gameObject.SetActive(showNextBtn);
 
         transitionScene.gameObject.SetActive(true);
         Cursor.lockState = CursorLockMode.None;
 
         nextLevel = next;
         currentLevel = current;
+        Debug.Log("A");
     }
 
 
@@ -26,6 +31,8 @@ public class LevelManager : MonoBehaviour
         nextLevel.SetActive(true);
         FindAnyObjectByType<CustomerSpawning>().Start();
         Cursor.lockState = CursorLockMode.Locked;
+        Debug.Log("b");
+
     }
 
     public void RetryCurrentLevel()
@@ -34,5 +41,6 @@ public class LevelManager : MonoBehaviour
         currentLevel.SetActive(true);
         FindAnyObjectByType<CustomerSpawning>().Start();
         Cursor.lockState = CursorLockMode.Locked;
+        Debug.Log("c");
     }
 }

@@ -61,9 +61,10 @@ public class orderManagement : MonoBehaviour, IInteractable
             setFoodMaterials.SetCustomerPreview(transform.GetChild(j).gameObject, allowedItems.onlyAllowedItems[j]);
         }
 
-        string msg = name + " has ordered " + allowedItems.listDishes();
+        // string msg = name + " has ordered " + allowedItems.listDishes();
         // Debug.Log(msg);
 
+        angerManagement.StopWaitAnger();
         this.enabled = false;
         return null;
     }
@@ -75,6 +76,7 @@ public class orderManagement : MonoBehaviour, IInteractable
         {
             // By default, the hello sound will play on awake in inspector.
             // customerSounds.PlaySound("hello", false);
+            
             angerManagement.startAnger();
         }
     }

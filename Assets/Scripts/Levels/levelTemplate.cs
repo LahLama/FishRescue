@@ -21,6 +21,8 @@ public class levelTemplate : MonoBehaviour
     public List<GameObject> countersToEnable;
     private DaySummary daySummary;
     private MainMoney mainMoney;
+    private LevelManager levelManager;
+    bool isRoundEnd = false;
 
 
     void OnEnable() //This should allow for retrying of a level
@@ -29,8 +31,10 @@ public class levelTemplate : MonoBehaviour
         customerSpawning = FindAnyObjectByType<CustomerSpawning>();
         daySummary = FindAnyObjectByType<DaySummary>();
         mainMoney = FindAnyObjectByType<MainMoney>();
+        levelManager = FindAnyObjectByType<LevelManager>();
 
         StartCoroutine(spawning());
+        isRoundEnd = false;
 
         // 27 is the average of all dishes' prices thru the anger levels of 37,31,25,18 
         MoneyGoal = maxNum * 27;
@@ -43,7 +47,8 @@ public class levelTemplate : MonoBehaviour
 
         daySummary.dayStats["MoneyGained"] = (int)mainMoney.money;
 
-
+        completedCustomers = 0;
+        upsetCustomers = 0;
 
         foreach (var counter in countersToEnable)
         {
@@ -78,11 +83,12 @@ public class levelTemplate : MonoBehaviour
 
     void Update()
     {
-        if (completedCustomers == maxNum)
+        if (completedCustomers == maxNum && !isRoundEnd)
         {
-
+            isRoundEnd = true;
             FindAnyObjectByType<SoundsManager>().PlaySound("endLevel", false, GetComponentInParent<AudioSource>());
             Invoke("InitRoundEnd", 2);
+            Debug.Log("d");
 
         }
     }
@@ -91,15 +97,14 @@ public class levelTemplate : MonoBehaviour
     {
         daySummary.dayStats["HappyCustomers"] = completedCustomers - upsetCustomers;
         daySummary.dayStats["UpsetCustomers"] = upsetCustomers;
-        completedCustomers = 0;
-        upsetCustomers = 0;
     }
 
     void InitRoundEnd()
     {
         if (nextLevel != null)
         {
-            GetComponentInParent<LevelManager>().ShowScreenAndButtons(this.gameObject, nextLevel);
+            GetComponentInParent<LevelManager>().ShowScreenAndButtons(this.gameObject, nextLevel, mainMoney.money >= MoneyGoal);
+            Debug.Log("e");
         }
     }
 

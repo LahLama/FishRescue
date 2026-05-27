@@ -22,7 +22,8 @@ public class CustomerSpawning : MonoBehaviour
         if (!inRange)
             return false;
 
-        availlebleCustomers[randomIndex].SetActive(true);
+        GameObject customer = availlebleCustomers[randomIndex];
+        customer.SetActive(true);
         availlebleCustomers.RemoveAt(randomIndex);
         customerLight.material = onLight;
         customerLight.gameObject.GetComponent<Light>().enabled = true;

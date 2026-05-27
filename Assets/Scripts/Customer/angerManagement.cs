@@ -10,6 +10,7 @@ public class angerManagement : MonoBehaviour
     float angerTwoFour;
     float angerThreeFour;
     private float angerStepTime;
+    private Vector3 orignalBarScale;
 
     public GameObject veryCalmParticles;
     public GameObject calmParticles;
@@ -43,6 +44,7 @@ public class angerManagement : MonoBehaviour
     void Awake()
     {
         customerSpawning = FindAnyObjectByType<CustomerSpawning>();
+        orignalBarScale = bar.transform.localScale;
     }
     public void OnEnable()
     {
@@ -163,7 +165,7 @@ public class angerManagement : MonoBehaviour
         StopAllCoroutines();
         plane.SetActive(false);
         bar.SetActive(false);
-        bar.transform.localScale = new Vector3(1f, bar.transform.localScale.y, bar.transform.localScale.z);
+        bar.transform.localScale = orignalBarScale;
         veryCalmParticles.SetActive(false);
         calmParticles.SetActive(false);
         angryParticles.SetActive(false);
@@ -171,10 +173,18 @@ public class angerManagement : MonoBehaviour
 
         levelTemplate.completedCustomers++;
         // Debug.Log("levelTemplate.completedCustomers: " + levelTemplate.completedCustomers);
-
-
-
         this.transform.parent.gameObject.SetActive(false);
+    }
 
+    public void StopWaitAnger()
+    {
+        StopAllCoroutines();
+        plane.SetActive(false);
+        bar.SetActive(false);
+        bar.transform.localScale = new Vector3(1f, bar.transform.localScale.y, bar.transform.localScale.z);
+        veryCalmParticles.SetActive(false);
+        calmParticles.SetActive(false);
+        angryParticles.SetActive(false);
+        veryAngryParticles.SetActive(false);
     }
 }

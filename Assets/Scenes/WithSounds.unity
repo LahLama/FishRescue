@@ -13504,6 +13504,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LevelManager
   transitionScene: {fileID: 432944304}
+  nextLevelButton: {fileID: 1289150688}
 --- !u!82 &1541741659
 AudioSource:
   m_ObjectHideFlags: 0
@@ -14369,7 +14370,7 @@ MonoBehaviour:
   maxNum: 3
   level: 0
   waitTime: 0.5
-  angerStep: 0.2
+  angerStep: 1
   completedCustomers: 0
   upsetCustomers: 0
   MoneyGoal: 0
