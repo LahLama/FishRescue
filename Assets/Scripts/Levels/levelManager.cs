@@ -21,7 +21,7 @@ public class LevelManager : MonoBehaviour
 
         nextLevel = next;
         currentLevel = current;
-        Debug.Log("A");
+
     }
 
 
@@ -31,7 +31,7 @@ public class LevelManager : MonoBehaviour
         nextLevel.SetActive(true);
         FindAnyObjectByType<CustomerSpawning>().Start();
         Cursor.lockState = CursorLockMode.Locked;
-        Debug.Log("b");
+
 
     }
 
@@ -41,6 +41,6 @@ public class LevelManager : MonoBehaviour
         currentLevel.SetActive(true);
         FindAnyObjectByType<CustomerSpawning>().Start();
         Cursor.lockState = CursorLockMode.Locked;
-        Debug.Log("c");
+
     }
 }

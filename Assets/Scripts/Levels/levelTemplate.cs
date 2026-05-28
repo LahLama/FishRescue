@@ -88,7 +88,7 @@ public class levelTemplate : MonoBehaviour
             isRoundEnd = true;
             FindAnyObjectByType<SoundsManager>().PlaySound("endLevel", false, GetComponentInParent<AudioSource>());
             Invoke("InitRoundEnd", 2);
-            Debug.Log("d");
+
 
         }
     }
@@ -104,7 +104,7 @@ public class levelTemplate : MonoBehaviour
         if (nextLevel != null)
         {
             GetComponentInParent<LevelManager>().ShowScreenAndButtons(this.gameObject, nextLevel, mainMoney.money >= MoneyGoal);
-            Debug.Log("e");
+           
         }
     }
 
