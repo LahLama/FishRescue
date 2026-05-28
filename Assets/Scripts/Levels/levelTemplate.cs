@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using System.Linq;
 
 public class levelTemplate : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class levelTemplate : MonoBehaviour
     public float waitTime = 5;
     // How often the anger is ticked
     public float angerStep = 15;
+    [TextArea] public string dayProgress;
     public int completedCustomers = 0;
     public int upsetCustomers = 0;
     public int MoneyGoal = 0;
@@ -23,6 +25,7 @@ public class levelTemplate : MonoBehaviour
     private MainMoney mainMoney;
     private LevelManager levelManager;
     bool isRoundEnd = false;
+
 
 
     void OnEnable() //This should allow for retrying of a level
@@ -46,6 +49,7 @@ public class levelTemplate : MonoBehaviour
         daySummary.dayStats["PerfectGoal"] = PerfectMoneyGoal;
 
         daySummary.dayStats["MoneyGained"] = (int)mainMoney.money;
+
 
         completedCustomers = 0;
         upsetCustomers = 0;
@@ -97,6 +101,11 @@ public class levelTemplate : MonoBehaviour
     {
         daySummary.dayStats["HappyCustomers"] = completedCustomers - upsetCustomers;
         daySummary.dayStats["UpsetCustomers"] = upsetCustomers;
+
+        if (mainMoney.money < MoneyGoal)
+            daySummary.dayAccomplished = "Get some sleep and try today again! :D";
+        else
+            daySummary.dayAccomplished = dayProgress;
     }
 
     void InitRoundEnd()
@@ -104,7 +113,7 @@ public class levelTemplate : MonoBehaviour
         if (nextLevel != null)
         {
             GetComponentInParent<LevelManager>().ShowScreenAndButtons(this.gameObject, nextLevel, mainMoney.money >= MoneyGoal);
-           
+
         }
     }
 

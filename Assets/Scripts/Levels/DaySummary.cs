@@ -6,6 +6,7 @@ using UnityEngine;
 public class DaySummary : MonoBehaviour
 {
     public TextMeshProUGUI daySum;
+    public string dayAccomplished = "Try the day again.";
 
     public Dictionary<string, int> dayStats = new Dictionary<string, int>()
     {
@@ -19,13 +20,16 @@ public class DaySummary : MonoBehaviour
 
     public void UpdateList()
     {
+
+
         string msg =
-        "Day: " + dayStats["Day"] +
+        " Day: " + dayStats["Day"] +
         "\n Goal: " + dayStats["Goal"] +
         "\n Perfect Goal: " + dayStats["PerfectGoal"] +
         "\n Money Gained: " + dayStats["MoneyGained"] +
         "\n Happy Customers: " + dayStats["HappyCustomers"] +
-        "\n Upset Customers: " + dayStats["UpsetCustomers"]
+        "\n Upset Customers: " + dayStats["UpsetCustomers"] +
+        "\n \n" + dayAccomplished
         ;
 
         daySum.text = msg;

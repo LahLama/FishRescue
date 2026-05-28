@@ -2617,6 +2617,10 @@ MonoBehaviour:
   level: 1
   waitTime: 20
   angerStep: 15
+  dayProgress: "\u201C The restaurant saw some business today! We had a few customers
+    that were happy with my service. Being a single person can be a bit challenging
+    but I managed to do it! I think I saw a critic \u2026 but let me get some sleep
+    and get ready for tomorrow. \u201C"
   completedCustomers: 0
   upsetCustomers: 0
   MoneyGoal: 0
@@ -8509,6 +8513,10 @@ MonoBehaviour:
   level: 2
   waitTime: 15
   angerStep: 15
+  dayProgress: "\u201C It was a bit more challenging today \u2026 there were so many
+    people today, thankfully they didn\u2019t all come in at once. BUT there WAS 
+    a critic \u2026 and the review was \u2026 WONDERFUL! They loved my service and
+    the food! I can\u2019t wait for tomorrow! \u201C"
   completedCustomers: 0
   upsetCustomers: 0
   MoneyGoal: 0
@@ -13007,6 +13015,10 @@ MonoBehaviour:
   level: 3
   waitTime: 15
   angerStep: 15
+  dayProgress: "\u201C Today was really really busy. I almost lost track on several
+    dishes \u2026 BUT I managed to impress some customers and most importantly TWO
+    other Critics! They came to me today whilst closing and have offered some sponsorships
+    to help me stay afloat! IT\u2019S A DREAM COME TRUE. \u201C"
   completedCustomers: 0
   upsetCustomers: 0
   MoneyGoal: 0
@@ -13945,6 +13957,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DaySummary
   daySum: {fileID: 534769106}
+  dayAccomplished: Try the day again.
 --- !u!1001 &1544703027
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14700,6 +14713,7 @@ MonoBehaviour:
   level: 0
   waitTime: 0.5
   angerStep: 1
+  dayProgress: THIS WAS A DEBUG ROUND.  IT SHOULD NOT MATTER. YOU CAN NOW CLICK CONTINUE
   completedCustomers: 0
   upsetCustomers: 0
   MoneyGoal: 0
