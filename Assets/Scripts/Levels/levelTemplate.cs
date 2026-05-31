@@ -21,6 +21,7 @@ public class levelTemplate : MonoBehaviour
     public int PerfectMoneyGoal = 0;
     public GameObject nextLevel;
     public List<GameObject> countersToEnable;
+    public List<GameObject> allCounters;
     private DaySummary daySummary;
     private MainMoney mainMoney;
     private LevelManager levelManager;
@@ -40,8 +41,14 @@ public class levelTemplate : MonoBehaviour
         isRoundEnd = false;
 
         // 27 is the average of all dishes' prices thru the anger levels of 37,31,25,18 
-        MoneyGoal = maxNum * 27;
-        PerfectMoneyGoal = maxNum * 37;
+        // 2 is leeway for the players to have atmost two mistakes in gameplay
+
+        if (maxNum > 3)
+            MoneyGoal = (maxNum - 2) * 27;
+        else
+            MoneyGoal = maxNum * 27;
+
+        PerfectMoneyGoal = (maxNum - 1) * 37;
         FindAnyObjectByType<setGoals>().SetMoneyGoalsStart();
 
         daySummary.dayStats["Day"] = level;
@@ -54,6 +61,11 @@ public class levelTemplate : MonoBehaviour
         completedCustomers = 0;
         upsetCustomers = 0;
 
+        foreach (var counter in allCounters)
+        {
+            counter.SetActive(false);
+        }
+
         foreach (var counter in countersToEnable)
         {
             if (counter != null)
@@ -64,6 +76,7 @@ public class levelTemplate : MonoBehaviour
             }
             counter.gameObject.SetActive(true);
         }
+
 
     }
 
@@ -103,9 +116,14 @@ public class levelTemplate : MonoBehaviour
         daySummary.dayStats["UpsetCustomers"] = upsetCustomers;
 
         if (mainMoney.money < MoneyGoal)
+        {
             daySummary.dayAccomplished = "Get some sleep and try today again! :D";
+        }
         else
             daySummary.dayAccomplished = dayProgress;
+
+        mainMoney.money = 0;
+        mainMoney.moneyText.text = "R0";
     }
 
     void InitRoundEnd()

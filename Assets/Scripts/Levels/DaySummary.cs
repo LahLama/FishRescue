@@ -6,6 +6,7 @@ using UnityEngine;
 public class DaySummary : MonoBehaviour
 {
     public TextMeshProUGUI daySum;
+    public TextMeshProUGUI dayLore;
     public string dayAccomplished = "Try the day again.";
 
     public Dictionary<string, int> dayStats = new Dictionary<string, int>()
@@ -28,11 +29,13 @@ public class DaySummary : MonoBehaviour
         "\n Perfect Goal: " + dayStats["PerfectGoal"] +
         "\n Money Gained: " + dayStats["MoneyGained"] +
         "\n Happy Customers: " + dayStats["HappyCustomers"] +
-        "\n Upset Customers: " + dayStats["UpsetCustomers"] +
-        "\n \n" + dayAccomplished
+        "\n Upset Customers: " + dayStats["UpsetCustomers"]
+
         ;
 
         daySum.text = msg;
+
+        dayLore.text = dayAccomplished;
     }
 
     //Go to LevelManager for button Scripts

@@ -28,7 +28,7 @@ public class PlayerInteract : MonoBehaviour
     void Update()
     {
         RaycastHit hit;
-        Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, 12f);
+        Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, 3f);
         Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.red);
 
 

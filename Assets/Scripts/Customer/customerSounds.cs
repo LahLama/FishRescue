@@ -33,7 +33,7 @@ public class CustomerSounds : MonoBehaviour
     public void PlaySound(string clipName, bool loop = false)
     {
         AudioClip clip = GetClipByName(clipName);
-        if (clip != null)
+        if (clip != null && audioSource != null)
         {
             audioSource.clip = clip;
             audioSource.loop = loop;
